@@ -1,3 +1,6 @@
+# Dotfiles - Git Bare Repo
+- https://www.atlassian.com/git/tutorials/dotfiles
+
 # Install GUI
 - `brew install --cask google-chrome karabiner-elements alacritty webstorm spotify spacelauncher notion`
 
