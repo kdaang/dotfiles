@@ -54,6 +54,7 @@ yabai -m rule --add app="^Photo Booth$" manage=off
 yabai -m rule --add app="^MonitorControl$" manage=off
 yabai -m rule --add app="^TinkerTool$" manage=off
 yabai -m rule --add app="^Display Calibrator$" manage=off
+yabai -m rule --add app="^Authy Desktop$" manage=off
 
 ### global settings
 yabai -m config mouse_follows_focus          off
