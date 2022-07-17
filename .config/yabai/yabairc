@@ -26,7 +26,7 @@ yabai -m space 3 --label chill
 yabai -m rule --add app="^Google Chrome$" grid=1:1:0:0:1:1 space=main
 
 # Coding
-jetbrains='^(IntelliJ IDEA|WebStorm|CLion|WebStorm|GoLand|PyCharm)$'
+jetbrains='^(IntelliJ IDEA|WebStorm|CLion|GoLand|PyCharm)$'
 yabai -m rule --add app="${jetbrains}" grid=1:1:0:0:1:1 space=code manage=off
 yabai -m rule --add app="^Alacritty$" space=code
 

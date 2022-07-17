@@ -1,26 +1,30 @@
 # Dotfiles - Git Bare Repo
 - https://www.atlassian.com/git/tutorials/dotfiles
 
-## Install GUI
-- `brew install --cask google-chrome karabiner-elements alacritty webstorm pycharm spotify spacelauncher notion monitorcontrol topnotch docker`
+## Fish Shell
+  - Fish Plugins
+    - Fisher for plugin manager - https://github.com/jorgebucaran/fisher
+      - `fisher list`
+        - jorgebucaran/fisher
+        - ilancosman/tide@v5
+        - edc/bass
+        - jorgebucaran/nvm.fish
+        - jethrokuan/z
+  - Notes:
+    - to remove right bar in fish, comment out fish_right_prompt in `~/.config/fish/functions/fish_prompt.fish`
+    - fix fish not loading in webstorm
+      - `sudo ln -s ~/.config/fish /Applications/WebStorm.app/Contents/plugins/terminal`
 
-## Install
-- `brew install git tmux fish python3 nvm jq exa peco htop direnv`
-- fisher, tide
-
+## Tmux
+- install TPM
+  - install all the plugins -> rmb to fetch plugins with prefix-I (capital I)
+  
 ## Notes
 - brewfile
   - `brew bundle dump`
   - https://pumpingco.de/blog/brewfile/
-- fish shell
-  - to remove right bar in fish, comment out fish_right_prompt in `~/.config/fish/functions/fish_prompt.fish`
-- install TPM
-  - install all the plugins -> rmb to fetch plugins with prefix-I (capital I)
 - install powerline to get colours working for tmux
   - `pip3 install powerline-status`
-- fix fish not loading in webstorm
-  - `sudo ln -s ~/.config/fish /Applications/WebStorm.app/Contents/plugins/terminal`
-- yabai
 - skhd
   - update cellar plist to use bash instead fish
   - https://github.com/koekeishiya/skhd/issues/42#issuecomment-401886533
