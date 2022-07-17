@@ -1,16 +1,17 @@
 # Dotfiles - Git Bare Repo
 - https://www.atlassian.com/git/tutorials/dotfiles
 
-# Install GUI
-- `brew install --cask google-chrome karabiner-elements alacritty webstorm pycharm spotify spacelauncher notion monitorcontrol topnotch`
+## Install GUI
+- `brew install --cask google-chrome karabiner-elements alacritty webstorm pycharm spotify spacelauncher notion monitorcontrol topnotch docker`
 
-# Install
-- `brew install git tmux fish python3 docker nvm jq exa peco htop direnv`
+## Install
+- `brew install git tmux fish python3 nvm jq exa peco htop direnv`
 - fisher, tide
-- docker desktop
-  - to get the docker daemon on mac without the hassle
 
-# Notes
+## Notes
+- brewfile
+  - `brew bundle dump`
+  - https://pumpingco.de/blog/brewfile/
 - fish shell
   - to remove right bar in fish, comment out fish_right_prompt in `~/.config/fish/functions/fish_prompt.fish`
 - install TPM
