@@ -2,10 +2,10 @@
 - https://www.atlassian.com/git/tutorials/dotfiles
 
 # Install GUI
-- `brew install --cask google-chrome karabiner-elements alacritty webstorm spotify spacelauncher notion`
+- `brew install --cask google-chrome karabiner-elements alacritty webstorm pycharm spotify spacelauncher notion monitorcontrol topnotch`
 
 # Install
-- `brew install git tmux fish python3 docker nvm jq exa`
+- `brew install git tmux fish python3 docker nvm jq exa peco htop direnv`
 - fisher, tide
 - docker desktop
   - to get the docker daemon on mac without the hassle
@@ -23,3 +23,7 @@
 - skhd
   - update cellar plist to use bash instead fish
   - https://github.com/koekeishiya/skhd/issues/42#issuecomment-401886533
+- nvm
+  - nvm needs to run a script but uses posix syntax which doesn't work with fish. We need to use bass to run it or something else.
+  - i'm using this fisher plugin to make nvm work with fish
+    - https://github.com/jorgebucaran/nvm.fish

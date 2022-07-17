@@ -3,6 +3,9 @@ set -x fish_key_bindings fish_user_key_bindings
 set -x EDITOR vim
 
 ### ALIASES
+
+alias run="./Taskfile.sh"
+
 #git
 alias g git
 
@@ -19,7 +22,7 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/code/dotfiles --work-tree=$HOME"
 alias df=dotfiles
 
 ### SETUP NVM
-set -x NVM_DIR "$HOME/.nvm"
-function nvm
-  bass source ~/.nvm/nvm.sh ';' nvm $argv
-end
+set --universal nvm_default_version lts
+fish_add_path -pP $HOME/.yarn/bin
+
+direnv hook fish | source

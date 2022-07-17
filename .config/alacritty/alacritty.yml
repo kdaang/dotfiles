@@ -69,6 +69,8 @@ key_bindings:
   - { key: U, mods: Command, chars: "\x02\x75" }
   - { key: I, mods: Command, chars: "\x02\x69" }
   - { key: O, mods: Command, chars: "\x02\x6f" }
+  # Enter copy-mode
+  - { key: Apostrophe, mods: Command, chars: "\x02\x27" }
   # Change to the previous tmux window
   - { key: LBracket, mods: Command|Shift, chars: "\x02\x70" }
   # Split the current pane into two, left and right
