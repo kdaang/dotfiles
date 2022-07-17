@@ -21,9 +21,9 @@ yabai -m space 1 --label main
 yabai -m space 2 --label code
 yabai -m space 3 --label chill
 
-#### float system preferences. Most of these just diable Yabai form resizing them.
+### float system preferences. Most of these just diable Yabai form resizing them.
 
-yabai -m rule --add app="^Google Chrome$" grid=1:1:0:0:1:1 space=main manage=off
+yabai -m rule --add app="^Google Chrome$" grid=1:1:0:0:1:1 space=main
 
 # Coding
 jetbrains='^(IntelliJ IDEA|WebStorm|CLion|WebStorm|GoLand|PyCharm)$'
@@ -51,6 +51,9 @@ yabai -m rule --add app="^zoom.us$" manage=off
 yabai -m rule --add app="^Slack$" manage=off
 yabai -m rule --add app="^Audio MIDI Setup$" manage=off
 yabai -m rule --add app="^Photo Booth$" manage=off
+yabai -m rule --add app="^MonitorControl$" manage=off
+yabai -m rule --add app="^TinkerTool$" manage=off
+yabai -m rule --add app="^Display Calibrator$" manage=off
 
 ### global settings
 yabai -m config mouse_follows_focus          off
