@@ -1,5 +1,12 @@
 live_config_reload: true
 
+shell:
+  program: /opt/homebrew/bin/fish
+  args:
+    - --login
+    - --init-command
+    - "ta"
+
 window:
   opacity: 0.96
   padding:

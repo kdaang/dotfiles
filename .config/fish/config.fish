@@ -11,7 +11,7 @@ alias g git
 
 #tmux
 alias tl="tmux ls" 
-alias ta="tmux a"
+alias ta="tmux a || tmux"
 
 if type -q exa
   alias ll "exa -l -g --icons"
