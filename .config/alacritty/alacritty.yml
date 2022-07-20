@@ -53,6 +53,8 @@ font:
 
 key_bindings:
   ##### TMUX BINDINGS to use with command key - https://www.joshmedeski.com/posts/macos-keyboard-shortcuts-for-tmux
+  ##### USE `xxd -psd` to get the chars
+
   # Rename the current tmux window
   - { key: Comma, mods: Command, chars: "\x02\x2c" }
   # Select a new tmux session for the attached client interactively
