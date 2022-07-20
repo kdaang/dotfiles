@@ -24,5 +24,6 @@ alias df=dotfiles
 ### SETUP NVM
 set --universal nvm_default_version lts
 fish_add_path -pP $HOME/.yarn/bin
+fish_add_path -pP $HOME/bin
 
 direnv hook fish | source
