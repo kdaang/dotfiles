@@ -4,7 +4,19 @@ set -x EDITOR vim
 
 ### ALIASES
 
-alias run="./Taskfile.sh"
+function run
+  set TASK_FILE "Taskfile.sh"
+  set TASK_BASE_FILE "Taskfile.base.sh"
+
+  if test -f "$TASK_FILE"
+    ./$TASK_FILE $argv
+  else if test -f "$TASK_BASE_FILE"
+    set -lx TASK_FILE_BASE_RUN  true
+    ./$TASK_BASE_FILE $argv
+  else
+    echo "No task file found"
+  end
+end
 
 #git
 alias g git
