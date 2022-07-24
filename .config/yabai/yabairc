@@ -23,17 +23,17 @@ yabai -m space 3 --label chill
 
 ### float system preferences. Most of these just diable Yabai form resizing them.
 
-yabai -m rule --add app="^Google Chrome$" grid=1:1:0:0:1:1 space=main
+yabai -m rule --add app="^Google Chrome$" grid=1:1:0:0:1:1
 
 # Coding
 jetbrains='^(IntelliJ IDEA|WebStorm|CLion|GoLand|PyCharm)$'
-yabai -m rule --add app="${jetbrains}" space=code manage=off
-yabai -m rule --add app="^Alacritty$" space=code
+yabai -m rule --add app="${jetbrains}" grid=1:1:0:0:1:1 manage=off
+yabai -m rule --add app="^Alacritty$"
 
 
 # Chill
 chill_apps='^(Notion|Spotify)$'
-yabai -m rule --add app="${chill_apps}" grid=1:1:0:0:1:1 space=chill manage=off
+yabai -m rule --add app="${chill_apps}" grid=1:1:0:0:1:1 manage=off
 
 # Mac
 yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
@@ -87,4 +87,5 @@ yabai -m config left_padding                 0
 yabai -m config right_padding                0
 yabai -m config window_gap                   0
 
+."$HOME"/bin/configure-workspace.sh
 echo "yabai configuration loaded.."
