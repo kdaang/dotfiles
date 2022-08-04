@@ -14,7 +14,7 @@ yabai -m space 3 --label chill
 
 d1_apps=("Google Chrome")
 d2_apps_1=("IntelliJ IDEA" "WebStorm" "CLion" "GoLand" "PyCharm")
-d2_apps_2=("Alacritty")
+d2_apps_2=("Alacritty" "Postman")
 d3_apps=("Spotify" "Notion")
 
 if [[ $display_count = 1 ]]; then

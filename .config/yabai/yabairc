@@ -27,9 +27,8 @@ yabai -m rule --add app="^Google Chrome$" grid=1:1:0:0:1:1
 
 # Coding
 jetbrains='^(IntelliJ IDEA|WebStorm|CLion|GoLand|PyCharm)$'
-yabai -m rule --add app="${jetbrains}" grid=1:1:0:0:1:1 manage=off
+yabai -m rule --add app="${jetbrains}" manage=off
 yabai -m rule --add app="^Alacritty$"
-
 
 # Chill
 chill_apps='^(Notion|Spotify)$'
@@ -45,6 +44,7 @@ yabai -m rule --add app="^System Preferences$" sticky=on layer=above manage=off
 # Other
 yabai -m rule --add app="^Karabiner-Elements$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Karabiner-EventViewer$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Authy Desktop$" layer=above manage=off
 yabai -m rule --add app="^SpaceLauncher$" manage=off
 yabai -m rule --add app="^Spectacle$" manage=off
 yabai -m rule --add app="^zoom.us$" manage=off
@@ -54,7 +54,7 @@ yabai -m rule --add app="^Photo Booth$" manage=off
 yabai -m rule --add app="^MonitorControl$" manage=off
 yabai -m rule --add app="^TinkerTool$" manage=off
 yabai -m rule --add app="^Display Calibrator$" manage=off
-yabai -m rule --add app="^Authy Desktop$" manage=off
+yabai -m rule --add app="^Digital Color Meter$" manage=off
 
 ### global settings
 yabai -m config mouse_follows_focus          off

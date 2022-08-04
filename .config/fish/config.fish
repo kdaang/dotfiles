@@ -18,6 +18,8 @@ function run
   end
 end
 
+alias fk fuck
+
 #git
 alias g git
 
