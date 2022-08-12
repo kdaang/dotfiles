@@ -31,7 +31,7 @@ yabai -m rule --add app="${jetbrains}" manage=off
 yabai -m rule --add app="^Alacritty$"
 
 # Chill
-chill_apps='^(Notion|Spotify)$'
+chill_apps='^(Notion|Spotify|Figma)$'
 yabai -m rule --add app="${chill_apps}" grid=1:1:0:0:1:1 manage=off
 
 # Mac
@@ -55,6 +55,8 @@ yabai -m rule --add app="^MonitorControl$" manage=off
 yabai -m rule --add app="^TinkerTool$" manage=off
 yabai -m rule --add app="^Display Calibrator$" manage=off
 yabai -m rule --add app="^Digital Color Meter$" manage=off
+yabai -m rule --add app="^Logi Options+" manage=off
+yabai -m rule --add app="^Mos$" manage=off
 
 ### global settings
 yabai -m config mouse_follows_focus          off
