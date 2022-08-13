@@ -18,12 +18,12 @@ function run
   end
 end
 
+alias vim nvim
+
 alias fk fuck
 
-#git
 alias g git
 
-#tmux
 alias tl="tmux ls" 
 alias ta="tmux a || tmux"
 
