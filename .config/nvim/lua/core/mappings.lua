@@ -48,6 +48,29 @@ M.general = {
       "toggle theme",
     },
 
+    -- new tab
+    ["te"] = { ":tabedit <CR>", "new tab"},
+
+    -- move between tabs
+    ["tn"] = { ":tabn <CR>", "go to next tab"},
+    ["tp"] = { ":tabp <CR>", "go to prev tab"},
+
+    -- split view
+    ["ss"] = { ":split<Return><C-w>w", "horizontal split"},
+    ["sv"] = { ":vsplit<Return><C-w>w", "vertical split" },
+
+    -- move around windows
+    ["sh"] = { "<C-w>h", "move to left window" },
+    ["sl"] = { "<C-w>l", "move to right window" },
+    ["sk"] = { "<C-w>k", "move to top window" },
+    ["sj"] = { "<C-w>j", "move to bottom window" },
+
+    -- resize windows
+    ["<C-w><left>"] = { "<C-w><", "shift left" },
+    ["<C-w><right>"] = { "<C-w>>", "shift right" },
+    ["<C-w><up>"] = { "<C-w>+", "shift up" },
+    ["<C-w><down>"] = { "<C-w>-", "shift bottom" },
+
     -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
     -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
     -- empty mode is same as using <cmd> :map
@@ -271,7 +294,7 @@ M.telescope = {
 
   n = {
     -- find
-    ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "find files" },
+    ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "find files"},
     ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "find all" },
     ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
     ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "find buffers" },

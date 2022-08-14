@@ -3330,6 +3330,29 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "s = ctrl-s",
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_command",
+                                            "right_control",
+                                            "right_shift",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "s",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
                                 "description": "t = ctrl-t",
                                 "from": {
                                     "key_code": "t",
@@ -3344,7 +3367,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "b",
+                                        "key_code": "t",
                                         "modifiers": [
                                             "left_control"
                                         ]

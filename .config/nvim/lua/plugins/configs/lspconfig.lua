@@ -71,4 +71,11 @@ lspconfig.sumneko_lua.setup {
   },
 }
 
+-- TypeScript
+lspconfig.tsserver.setup {
+  on_attach = M.on_attach,
+  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+  cmd = { "typescript-language-server", "--stdio" }
+}
+
 return M
