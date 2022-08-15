@@ -301,6 +301,15 @@ M.telescope = {
     ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "help page" },
     ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "find oldfiles" },
     ["<leader>tk"] = { "<cmd> Telescope keymaps <CR>", "show keys" },
+    ["<leader>fs"] = {
+        function()
+            require("plugins.configs.telescope").live_grep_in_folder()
+        end,
+        "search in specific directory",
+    },
+
+    -- file browser
+    ["<leader>b"] = { "<cmd> Telescope file_browser <CR>", "show keys" },
 
     -- git
     ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
