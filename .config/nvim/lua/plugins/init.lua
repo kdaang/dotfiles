@@ -156,13 +156,10 @@ local plugins = {
       after = "nvim-lspconfig",
       config = function()
         require "plugins.configs.null-ls"
-        -- require "custom.plugins.null-ls"
       end,
   },
   ["MunifTanjim/prettier.nvim"] = {
-    setup = function()
-      require("core.lazy_load").on_file_open "prettier.nvim"
-    end,
+    after = "null-ls.nvim",
     config = function()
       require "plugins.configs.formatter"
     end,
