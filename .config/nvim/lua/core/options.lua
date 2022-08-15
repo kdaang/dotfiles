@@ -21,6 +21,8 @@ opt.title = true
 opt.clipboard = "unnamedplus"
 opt.cul = true -- cursor line
 
+opt.nowrap = true
+
 -- Indenting
 opt.expandtab = true
 opt.shiftwidth = 4
