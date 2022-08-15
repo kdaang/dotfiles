@@ -89,12 +89,22 @@ end)
 
 local M = {}
 
+local action_set = require "telescope.actions.set"
+local action_state = require "telescope.actions.state"
+local actions = require "telescope.actions"
+local conf = require("telescope.config").values
+local finders = require "telescope.finders"
+local make_entry = require "telescope.make_entry"
+local pickers = require "telescope.pickers"
+local os_sep = require("plenary.path").path.sep
+local scan = require("plenary.scandir")
+
 M.live_grep_in_folder = function(opts)
-    local os_sep = require("plenary.path").path.sep
     opts = opts or {}
     local data = {}
-    require("plenary.scandir").scan_dir(vim.loop.cwd(), {
+    scan.scan_dir(vim.loop.cwd(), {
        hidden = opts.hidden,
+       depth = 4,
        only_dirs = true,
        respect_gitignore = opts.respect_gitignore,
        on_insert = function(entry)
@@ -103,13 +113,6 @@ M.live_grep_in_folder = function(opts)
     })
     table.insert(data, 1, "." .. os_sep)
 
-    local action_set = require "telescope.actions.set"
-    local action_state = require "telescope.actions.state"
-    local actions = require "telescope.actions"
-    local conf = require("telescope.config").values
-    local finders = require "telescope.finders"
-    local make_entry = require "telescope.make_entry"
-    local pickers = require "telescope.pickers"
     pickers.new(opts, {
         prompt_title = "Folders for Live Grep",
         finder = finders.new_table { results = data, entry_maker = make_entry.gen_from_file(opts) },
