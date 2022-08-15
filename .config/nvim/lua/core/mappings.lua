@@ -320,6 +320,13 @@ M.telescope = {
 
     -- theme switcher
     ["<leader>th"] = { "<cmd> Telescope themes <CR>", "nvchad themes" },
+
+    ["<leader>tt"] = {
+        function()
+            require("plugins.configs.telescope").testerino()
+        end,
+        "testerino",
+    },
   },
 }
 

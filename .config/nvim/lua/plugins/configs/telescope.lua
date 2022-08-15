@@ -99,25 +99,25 @@ local pickers = require "telescope.pickers"
 local os_sep = require("plenary.path").path.sep
 local scan = require("plenary.scandir")
 
-M.live_grep_in_folder = function(opts)
-    opts = opts or {}
+M.live_grep_in_folder = function()
     local data = {}
     scan.scan_dir(vim.loop.cwd(), {
-       hidden = opts.hidden,
+       hidden = options.hidden,
        depth = 4,
        only_dirs = true,
-       respect_gitignore = opts.respect_gitignore,
+       respect_gitignore = options.respect_gitignore,
        on_insert = function(entry)
          table.insert(data, entry .. os_sep)
        end,
     })
     table.insert(data, 1, "." .. os_sep)
+    table.sort(data)
 
-    pickers.new(opts, {
+    pickers.new(options, {
         prompt_title = "Folders for Live Grep",
-        finder = finders.new_table { results = data, entry_maker = make_entry.gen_from_file(opts) },
-        previewer = conf.file_previewer(opts),
-        sorter = conf.file_sorter(opts),
+        finder = finders.new_table { results = data, entry_maker = make_entry.gen_from_file(options) },
+        previewer = conf.file_previewer(options),
+        sorter = conf.generic_sorter(options),
         attach_mappings = function(prompt_bufnr)
           action_set.select:replace(function()
             local current_picker = action_state.get_current_picker(prompt_bufnr)
@@ -136,6 +136,13 @@ M.live_grep_in_folder = function(opts)
           return true
         end,
     }):find()
+end
+
+M.testerino = function(opts)
+    opts = opts or {}
+    -- opts.entry_maker = require "telescope._extensions.file_browser.make_entry"
+    local finder = require "telescope".extensions.file_browser
+    finder.file_browser(opts)
 end
 
 return M
