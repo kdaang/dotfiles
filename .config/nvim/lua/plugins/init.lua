@@ -158,12 +158,6 @@ local plugins = {
         require "plugins.configs.null-ls"
       end,
   },
-  ["MunifTanjim/prettier.nvim"] = {
-    after = "null-ls.nvim",
-    config = function()
-      require "plugins.configs.formatter"
-    end,
-  },
 
   -- misc plugins
   ["windwp/nvim-autopairs"] = {
