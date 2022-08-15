@@ -151,6 +151,23 @@ local plugins = {
     after = "cmp-buffer",
   },
 
+  -- linting + formatter
+  ["jose-elias-alvarez/null-ls.nvim"] = {
+      after = "nvim-lspconfig",
+      config = function()
+        require "plugins.configs.null-ls"
+        -- require "custom.plugins.null-ls"
+      end,
+  },
+  ["MunifTanjim/prettier.nvim"] = {
+    setup = function()
+      require("core.lazy_load").on_file_open "prettier.nvim"
+    end,
+    config = function()
+      require "plugins.configs.formatter"
+    end,
+  },
+
   -- misc plugins
   ["windwp/nvim-autopairs"] = {
     after = "nvim-cmp",
