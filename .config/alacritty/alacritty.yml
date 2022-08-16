@@ -19,30 +19,30 @@ window:
 colors:
   # Default colors
   primary:
-    background: '0x282a36'
-    foreground: '0xf8f8f2'
- 
+    background: "0x282a36"
+    foreground: "0xf8f8f2"
+
   # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xff5555'
-    green:   '0x50fa7b'
-    yellow:  '0xf1fa8c'
-    blue:    '0xbd93f9'
-    magenta: '0xff79c6'
-    cyan:    '0x8be9fd'
-    white:   '0xbbbbbb'
- 
+    black: "0x000000"
+    red: "0xff5555"
+    green: "0x50fa7b"
+    yellow: "0xf1fa8c"
+    blue: "0xbd93f9"
+    magenta: "0xff79c6"
+    cyan: "0x8be9fd"
+    white: "0xbbbbbb"
+
   # Bright colors
   bright:
-    black:   '0x555555'
-    red:     '0xff5555'
-    green:   '0x50fa7b'
-    yellow:  '0xf1fa8c'
-    blue:    '0xcaa9fa'
-    magenta: '0xff79c6'
-    cyan:    '0x8be9fd'
-    white:   '0xffffff'
+    black: "0x555555"
+    red: "0xff5555"
+    green: "0x50fa7b"
+    yellow: "0xf1fa8c"
+    blue: "0xcaa9fa"
+    magenta: "0xff79c6"
+    cyan: "0x8be9fd"
+    white: "0xffffff"
 
 font:
   normal:
@@ -90,8 +90,10 @@ key_bindings:
   - { key: Q, mods: Command, chars: "\x02\x64" }
   # Change to the next tmux window
   - { key: RBracket, mods: Command|Shift, chars: "\x02\x6e" }
+  # Type <escape>:wa<enter> to save all neovim
+  - { key: S, mods: Command, chars: "\x1b\x3a\x77\x61\x0a" }
   # Type <escape>:w<enter> to save neovim
-  - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" }
+  - { key: S, mods: Command|Shift, chars: "\x1b\x3a\x77\x0a" }
   # Create a new tmux window
   - { key: T, mods: Command, chars: "\x02\x63" }
   # Break the current tmux pane out of the tmux window

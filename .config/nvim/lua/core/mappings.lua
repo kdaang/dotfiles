@@ -49,7 +49,7 @@ M.general = {
     },
 
     -- new tab
-    ["te"] = { ":tabedit <CR>", "new tab"},
+    ["<leader>te"] = { ":tabedit <CR>", "new tab"},
 
     -- move between tabs
     ["tn"] = { ":tabn <CR>", "go to next tab"},

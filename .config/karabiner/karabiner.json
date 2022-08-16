@@ -114,112 +114,6 @@
                         ]
                     },
                     {
-                        "description": "CapsLock to Hyper",
-                        "manipulators": [
-                            {
-                                "description": "capslock = esc(click) | hyper(hold)",
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_shift",
-                                        "modifiers": [
-                                            "right_command",
-                                            "right_control",
-                                            "right_option"
-                                        ]
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "escape"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "escape = capslock switch",
-                                "from": {
-                                    "key_code": "escape",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_command",
-                                            "right_control",
-                                            "right_shift",
-                                            "right_option"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "caps_lock",
-                                        "modifiers": [
-                                            "left_control"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "spacebar = language switch",
-                                "from": {
-                                    "key_code": "spacebar",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_command",
-                                            "right_control",
-                                            "right_shift",
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "spacebar",
-                                        "modifiers": [
-                                            "left_control"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "command + spacebar = emoji",
-                                "from": {
-                                    "key_code": "spacebar",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_command",
-                                            "right_command",
-                                            "right_control",
-                                            "right_shift",
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "spacebar",
-                                        "modifiers": [
-                                            "left_control",
-                                            "left_command"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Hyper Navigation",
                         "manipulators": [
                             {
@@ -3189,6 +3083,112 @@
                         ]
                     },
                     {
+                        "description": "CapsLock to Hyper",
+                        "manipulators": [
+                            {
+                                "description": "capslock = esc(click) | hyper(hold)",
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_shift",
+                                        "modifiers": [
+                                            "right_command",
+                                            "right_control",
+                                            "right_option"
+                                        ]
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "escape"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "escape = capslock switch",
+                                "from": {
+                                    "key_code": "escape",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_command",
+                                            "right_control",
+                                            "right_shift",
+                                            "right_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "caps_lock",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "spacebar = language switch",
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_command",
+                                            "right_control",
+                                            "right_shift",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "command + spacebar = emoji",
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command",
+                                            "right_command",
+                                            "right_control",
+                                            "right_shift",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": [
+                                            "left_control",
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Hyper Terminal",
                         "manipulators": [
                             {
@@ -3330,29 +3330,6 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "s = ctrl-s",
-                                "from": {
-                                    "key_code": "s",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_command",
-                                            "right_control",
-                                            "right_shift",
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "s",
-                                        "modifiers": [
-                                            "left_control"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "description": "t = ctrl-t",
                                 "from": {
                                     "key_code": "t",
@@ -3391,6 +3368,29 @@
                                 "to": [
                                     {
                                         "key_code": "g",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "n = ctrl-n",
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_command",
+                                            "right_control",
+                                            "right_shift",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "n",
                                         "modifiers": [
                                             "left_control"
                                         ]
