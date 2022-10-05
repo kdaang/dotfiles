@@ -89,6 +89,14 @@ local plugins = {
       require("plugins.configs.others").gitsigns()
     end,
   },
+  ["dinhhuy258/git.nvim"] = {
+    setup = function()
+      require("core.lazy_load").on_file_open "git.nvim"
+    end,
+    config = function()
+      require("plugins.configs.others").gitdiff()
+    end,
+  },
 
   -- lsp stuff
 

@@ -134,6 +134,25 @@ M.luasnip = function()
   })
 end
 
+M.gitdiff = function()
+  local present, gitdiff = pcall(require, "git")
+
+  if not present then
+    return
+  end
+
+  local options = {
+    keymaps = {
+        blame = "<Leader>pp",
+        browse = "<Leader>po",
+    },
+    target_branch = "main",
+  }
+
+  options = load_override(options, "dinhhuy258/git.nvim")
+  gitdiff.setup(options)
+end
+
 M.gitsigns = function()
   local present, gitsigns = pcall(require, "gitsigns")
 
