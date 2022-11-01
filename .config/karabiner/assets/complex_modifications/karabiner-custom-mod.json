@@ -5094,7 +5094,70 @@
       "description": "Hyper Terminal",
       "manipulators": [
         {
-          "description": "u = ctrl-u",
+          "description": "[vim] g = ctrl-g",
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "g",
+              "modifiers": ["left_control"]
+            }
+          ]
+        },
+        {
+          "description": "[vim] e = ctrl-e",
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": ["left_control"]
+            }
+          ]
+        },
+        {
+          "description": "[vim] y = ctrl-y",
+          "type": "basic",
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "y",
+              "modifiers": ["left_control"]
+            }
+          ]
+        },
+        {
+          "description": "[vim] u = ctrl-u",
           "type": "basic",
           "from": {
             "key_code": "u",
@@ -5115,7 +5178,7 @@
           ]
         },
         {
-          "description": "d = ctrl-d (EOF)",
+          "description": "[vim] d = ctrl-d (EOF)",
           "type": "basic",
           "from": {
             "key_code": "d",
@@ -5136,28 +5199,7 @@
           ]
         },
         {
-          "description": "z = ctrl-z",
-          "type": "basic",
-          "from": {
-            "key_code": "z",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "z",
-              "modifiers": ["left_control"]
-            }
-          ]
-        },
-        {
-          "description": "r = ctrl-r",
+          "description": "[vim] r = ctrl-r",
           "type": "basic",
           "from": {
             "key_code": "r",
@@ -5173,6 +5215,90 @@
           "to": [
             {
               "key_code": "r",
+              "modifiers": ["left_control"]
+            }
+          ]
+        },
+        {
+          "description": "[vim] v = ctrl-v",
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "v",
+              "modifiers": ["left_control"]
+            }
+          ]
+        },
+        {
+          "description": "[vim] w = ctrl-w",
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "w",
+              "modifiers": ["left_control"]
+            }
+          ]
+        },
+        {
+          "description": "[tmux] b = ctrl-b",
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "b",
+              "modifiers": ["left_control"]
+            }
+          ]
+        },
+        {
+          "description": "[tmux] t = ctrl-t",
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "t",
               "modifiers": ["left_control"]
             }
           ]
@@ -5199,10 +5325,10 @@
           ]
         },
         {
-          "description": "v = ctrl-v",
+          "description": "z = ctrl-z",
           "type": "basic",
           "from": {
-            "key_code": "v",
+            "key_code": "z",
             "modifiers": {
               "mandatory": [
                 "right_command",
@@ -5214,112 +5340,7 @@
           },
           "to": [
             {
-              "key_code": "v",
-              "modifiers": ["left_control"]
-            }
-          ]
-        },
-        {
-          "description": "b = ctrl-b",
-          "type": "basic",
-          "from": {
-            "key_code": "b",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "b",
-              "modifiers": ["left_control"]
-            }
-          ]
-        },
-        {
-          "description": "t = ctrl-t",
-          "type": "basic",
-          "from": {
-            "key_code": "t",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "t",
-              "modifiers": ["left_control"]
-            }
-          ]
-        },
-        {
-          "description": "g = ctrl-g",
-          "type": "basic",
-          "from": {
-            "key_code": "g",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "g",
-              "modifiers": ["left_control"]
-            }
-          ]
-        },
-        {
-          "description": "n = ctrl-n",
-          "type": "basic",
-          "from": {
-            "key_code": "n",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "n",
-              "modifiers": ["left_control"]
-            }
-          ]
-        },
-        {
-          "description": "w = ctrl-w",
-          "type": "basic",
-          "from": {
-            "key_code": "w",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "w",
+              "key_code": "z",
               "modifiers": ["left_control"]
             }
           ]
