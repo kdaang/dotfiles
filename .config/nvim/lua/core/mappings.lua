@@ -48,6 +48,9 @@ M.general = {
       "toggle theme",
     },
 
+    -- forward jump
+    ["<C-p>"] = { "<C-i>", "forward jump"},
+
     -- new tab
     ["<leader>te"] = { ":tabedit <CR>", "new tab"},
 

@@ -5115,6 +5115,48 @@
           ]
         },
         {
+          "description": "[vim] o = ctrl-o",
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "o",
+              "modifiers": ["left_control"]
+            }
+          ]
+        },
+        {
+          "description": "[vim (used for forward jump)] ctrl-i which is binded to ctrl-_ in vim since <C-I> = <TAB> in vim",
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "p",
+              "modifiers": ["left_control"]
+            }
+          ]
+        },
+        {
           "description": "[vim] e = ctrl-e",
           "type": "basic",
           "from": {
