@@ -117,6 +117,16 @@ local plugins = {
     end,
   },
 
+  ["glepnir/lspsaga.nvim"] = {
+    opt = true,
+    setup = function()
+      require("core.lazy_load").on_file_open "lspsaga.nvim"
+    end,
+    config = function()
+      require "plugins.configs.lspsaga"
+    end,
+  },
+
   -- load luasnips + cmp related in insert mode only
 
   ["rafamadriz/friendly-snippets"] = {

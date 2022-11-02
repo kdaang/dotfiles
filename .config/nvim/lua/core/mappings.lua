@@ -189,6 +189,15 @@ M.lspconfig = {
       end,
       "lsp hover",
     },
+    ["<leader>f"] = {
+      function()
+        vim.diagnostic.open_float()
+      end,
+      "floating diagnostic",
+    },
+    ["gh"] = { "<cmd>Lspsaga lsp_finder<CR>", "lsp_saga finder" },
+    ["aK"] = { "<cmd>Lspsaga hover_doc<CR>", "lsp_saga hover" },
+    ["af"] = { "<cmd>Lspsaga show_cursor_diagnostics<CR>", "lsp_saga cursor diagnostics" },
 
     ["<leader>ra"] = {
       function()
@@ -220,12 +229,6 @@ M.lspconfig = {
         vim.lsp.buf.type_definition()
       end,
       "lsp definition type",
-    },
-    ["<leader>f"] = {
-      function()
-        vim.diagnostic.open_float()
-      end,
-      "floating diagnostic",
     },
     ["[d"] = {
       function()
