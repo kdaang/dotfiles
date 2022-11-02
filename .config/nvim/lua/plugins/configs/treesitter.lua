@@ -11,6 +11,12 @@ local options = {
   ensure_installed = {
     "lua",
     "typescript",
+    "javascript",
+    "tsx",
+    "json",
+    "yaml",
+    "bash",
+    "prisma"
   },
   highlight = {
     enable = true,
