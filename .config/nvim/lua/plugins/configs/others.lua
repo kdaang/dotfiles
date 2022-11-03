@@ -190,4 +190,20 @@ M.devicons = function()
   end
 end
 
+M.treesitter_context = function()
+    local present, ts_context = pcall(require, "treesitter-context")
+
+    if not present then
+        return
+    end
+
+    local options = {
+        enable = true,
+        separator = "_"
+    }
+    options = require("core.utils").load_override(options, "treesitter-context")
+
+    ts_context.setup(options)
+end
+
 return M

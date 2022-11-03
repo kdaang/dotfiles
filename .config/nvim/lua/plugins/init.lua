@@ -68,6 +68,13 @@ local plugins = {
     end,
   },
 
+  ["nvim-treesitter/nvim-treesitter-context"] = {
+    after = "nvim-treesitter",
+    config = function()
+      require "plugins.configs.others".treesitter_context()
+    end,
+  },
+
   ["lukas-reineke/indent-blankline.nvim"] = {
     after = "nvim-treesitter",
     opt = true,
