@@ -89,9 +89,11 @@ M.colorizer = function()
   }
 
   options = load_override(options, "NvChad/nvim-colorizer.lua")
-  colorizer.setup(options["filetypes"], options["user_default_options"])
-
-  vim.cmd "ColorizerAttachToBuffer"
+  colorizer.setup(options)
+  -- execute colorizer as soon as possible
+  vim.defer_fn(function()
+    require("colorizer").attach_to_buffer(0)
+  end, 0)
 end
 
 M.comment = function()
