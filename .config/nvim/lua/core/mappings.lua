@@ -38,6 +38,9 @@ M.general = {
     ["<leader>n"] = { "<cmd> set nu! <CR>", "toggle line number" },
     ["<leader>rn"] = { "<cmd> set rnu! <CR>", "toggle relative number" },
 
+    -- toggle wrap
+    ["<leader>w"] = { "<cmd> set wrap! <CR>", "toggle wrap" },
+
     -- update nvchad
     ["<leader>uu"] = { "<cmd> :NvChadUpdate <CR>", "update nvchad" },
 
