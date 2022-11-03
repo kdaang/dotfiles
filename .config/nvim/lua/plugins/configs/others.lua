@@ -40,7 +40,7 @@ M.blankline = function()
   require("base46").load_highlight "blankline"
 
   local options = {
-    indentLine_enabled = 1,
+    indentLine_enabled = true,
     filetype_exclude = {
       "help",
       "terminal",
@@ -54,9 +54,10 @@ M.blankline = function()
     },
     buftype_exclude = { "terminal" },
     show_trailing_blankline_indent = false,
-    show_first_indent_level = false,
+    show_first_indent_level = true,
     show_current_context = true,
     show_current_context_start = true,
+    use_treesitter = true,
   }
 
   options = load_override(options, "lukas-reineke/indent-blankline.nvim")
