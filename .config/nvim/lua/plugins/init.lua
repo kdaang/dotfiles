@@ -46,17 +46,6 @@ local plugins = {
     end,
   },
 
-  ["lukas-reineke/indent-blankline.nvim"] = {
-    opt = true,
-    setup = function()
-      require("core.lazy_load").on_file_open "indent-blankline.nvim"
-      require("core.utils").load_mappings "blankline"
-    end,
-    config = function()
-      require("plugins.configs.others").blankline()
-    end,
-  },
-
   ["NvChad/nvim-colorizer.lua"] = {
     opt = true,
     setup = function()
@@ -76,6 +65,18 @@ local plugins = {
     run = ":TSUpdate",
     config = function()
       require "plugins.configs.treesitter"
+    end,
+  },
+
+  ["lukas-reineke/indent-blankline.nvim"] = {
+    after = "nvim-treesitter",
+    opt = true,
+    setup = function()
+      require("core.lazy_load").on_file_open "indent-blankline.nvim"
+      require("core.utils").load_mappings "blankline"
+    end,
+    config = function()
+      require("plugins.configs.others").blankline()
     end,
   },
 

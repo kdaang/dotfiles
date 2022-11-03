@@ -12,7 +12,14 @@ M.options = {
 M.ui = {
   -- hl = highlights
   hl_add = {},
-  hl_override = {},
+  hl_override = {
+    IndentBlanklineContextStart = {
+        underline = true
+    },
+    IndentBlanklineContextChar = {
+        fg = "cyan",
+    }
+  },
   changed_themes = {},
   theme_toggle = { "onedark", "one_light" },
   theme = "onedark", -- default theme

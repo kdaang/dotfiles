@@ -57,7 +57,7 @@ M.blankline = function()
     show_first_indent_level = true,
     show_current_context = true,
     show_current_context_start = true,
-    use_treesitter = true,
+    use_treesitter = true
   }
 
   options = load_override(options, "lukas-reineke/indent-blankline.nvim")
