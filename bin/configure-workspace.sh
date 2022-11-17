@@ -17,7 +17,7 @@ d2_apps_1=("IntelliJ IDEA" "WebStorm" "CLion" "GoLand" "PyCharm" "Books")
 d2_apps_2=("Alacritty" "Postman")
 d3_apps=("Spotify" "Notion" "Figma" "Slack")
 
-if [[ $display_count = 1 ]]; then
+if (( $display_count <= 2 )); then
   d1_space="--space main"
   d2_space_1="--space code --grid 1:1:0:0:1:1"
   d2_space_2="--space code"
