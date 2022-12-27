@@ -40,4 +40,11 @@ set --universal nvm_default_version lts
 fish_add_path -pP $HOME/.yarn/bin
 fish_add_path -pP $HOME/bin
 
+### SETUP jenv for managing java versions
+status --is-interactive; and source (jenv init -|psub)
+set -x JAVA_HOME "/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home"
+
+### SETUP scala
+fish_add_path /opt/homebrew/opt/scala@2.12/bin
+
 direnv hook fish | source
