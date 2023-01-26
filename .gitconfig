@@ -42,7 +42,7 @@
     minus-non-emph-style          = syntax "#3f0001"
     minus-emph-style              = bold red 52
     minus-empty-line-marker-style = normal "#3f0001"
-    zero-style                    = normal
+    zero-style                    = syntax
     plus-style                    = syntax "#003800"
     plus-non-emph-style           = syntax "#003800"
     plus-emph-style               = bold green 22
