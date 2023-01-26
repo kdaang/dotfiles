@@ -2,6 +2,7 @@
 	defaultBranch = main
 [core]
 	editor = nvim
+    pager = delta
 [alias]
   a = "!git status --short | peco | awk '{print $2}' | xargs git add"
   d = diff
@@ -26,3 +27,8 @@
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
   # add conflicted file on merge
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+[delta] # git-delta config
+    side-by-side = true
+    syntax-theme = Dracula
+    plus-style = syntax "#003800"
+    minus-style = syntax "#3f0001"
