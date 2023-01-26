@@ -1,25 +1,34 @@
 # Dotfiles - Git Bare Repo
+
 - https://www.atlassian.com/git/tutorials/dotfiles
 
+## Git Configs
+
+- `~/.gitconfig` contains public config for checking in repo
+- store private config in `~/.config/git/config` file
+
 ## Fish Shell
-  - Fish Plugins
-    - Fisher for plugin manager - https://github.com/jorgebucaran/fisher
-      - `fisher list`
-        - jorgebucaran/fisher
-        - ilancosman/tide@v5
-        - edc/bass
-        - jorgebucaran/nvm.fish
-        - jethrokuan/z
-  - Notes:
-    - to remove right bar in fish, comment out fish_right_prompt in `~/.config/fish/functions/fish_prompt.fish`
-    - fix fish not loading in webstorm
-      - `sudo ln -s ~/.config/fish /Applications/WebStorm.app/Contents/plugins/terminal`
+
+- Fish Plugins
+  - Fisher for plugin manager - https://github.com/jorgebucaran/fisher
+    - `fisher list`
+      - jorgebucaran/fisher
+      - ilancosman/tide@v5
+      - edc/bass
+      - jorgebucaran/nvm.fish
+      - jethrokuan/z
+- Notes:
+  - to remove right bar in fish, comment out fish_right_prompt in `~/.config/fish/functions/fish_prompt.fish`
+  - fix fish not loading in webstorm
+    - `sudo ln -s ~/.config/fish /Applications/WebStorm.app/Contents/plugins/terminal`
 
 ## Tmux
+
 - install TPM
   - install all the plugins -> rmb to fetch plugins with prefix-I (capital I)
-  
+
 ## Notes
+
 - brewfile
   - `brew bundle dump`
   - https://pumpingco.de/blog/brewfile/
