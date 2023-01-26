@@ -15,7 +15,7 @@ yabai -m space 3 --label chill
 d1_apps=("Google Chrome")
 d2_apps_1=("IntelliJ IDEA" "WebStorm" "CLion" "GoLand" "PyCharm" "Books" "CapCut")
 d2_apps_2=("Alacritty" "Postman")
-d3_apps=("Spotify" "Notion" "Figma" "Slack")
+d3_apps=("Spotify" "Notion" "Figma" "Slack" "Coda")
 
 if (( $display_count <= 2 )); then
   d1_space="--space main"
