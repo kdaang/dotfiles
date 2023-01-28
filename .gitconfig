@@ -67,5 +67,4 @@
     line-fill-method              = ansi
     navigate                      = false
     paging                        = auto
-    width                         = 213
     tabs                          = 4
