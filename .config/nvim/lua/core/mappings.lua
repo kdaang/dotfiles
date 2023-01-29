@@ -330,6 +330,11 @@ M.telescope = {
     ["cc"] = { "<cmd> Telescope commands <CR>", "telescope list available commands" },
     ["ch"] = { "<cmd> Telescope command_history show_buf_command=false<CR>", "telescope command history" },
 
+    -- locations
+    ["<leader>m"] = { "<cmd> Telescope marks <CR>", "telescope marks" },
+    ["<leader>qf"] = { "<cmd> Telescope quickfix <CR>", "telescope quickfix" },
+    ["<leader>l"] = { "<cmd> Telescope loclist <CR>", "telescope loclist" },
+
     ["<leader>tt"] = {
         function()
             require("plugins.configs.telescope").testerino()
