@@ -309,7 +309,7 @@ M.telescope = {
     -- git
     ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
     ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "git status" },
-    ["<leader>pr"] = { "<cmd> GitCreatePullRequest <CR>", "git status" },
+    ["<leader>pr"] = { "<cmd> GitCreatePullRequest <CR>", "git create pull request" },
 
     -- pick a hidden term
     ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "pick hidden term" },
@@ -322,6 +322,13 @@ M.telescope = {
     ["td"] = { "<cmd> Telescope lsp_definitions <CR>", "telescope LSP definitions" }, -- like cmd-b in webstorm
     ["ti"] = { "<cmd> Telescope lsp_implementations <CR>", "telescope LSP implementations" }, -- like cmd-d in webstorm
     ["te"] = { "<cmd> Telescope diagnostics <CR>", "telescope LSP diagnostics" },
+
+    -- fuzzy find in current buffer
+    ["tf"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "telescope find in current buffer" },
+
+    -- commands
+    ["cc"] = { "<cmd> Telescope commands <CR>", "telescope list available commands" },
+    ["ch"] = { "<cmd> Telescope command_history show_buf_command=false<CR>", "telescope command history" },
 
     ["<leader>tt"] = {
         function()

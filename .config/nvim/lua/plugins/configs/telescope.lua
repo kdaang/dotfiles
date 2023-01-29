@@ -22,7 +22,7 @@ local options = {
     prompt_prefix = "   ",
     selection_caret = "  ",
     entry_prefix = "  ",
-    initial_mode = "insert",
+    initial_mode = "normal",
     selection_strategy = "reset",
     sorting_strategy = "ascending",
     layout_strategy = "horizontal",
@@ -59,6 +59,7 @@ local options = {
   },
   pickers = {
     find_files = {
+      initial_mode = "insert",
       mappings = {
         n = {
           ["cd"] = function(prompt_bufnr)
@@ -71,9 +72,21 @@ local options = {
         }
       }
     },
+    live_grep = {
+      initial_mode = "insert",
+    },
+    keymaps = {
+      initial_mode = "insert",
+    },
+    commands = {
+      initial_mode = "insert",
+    },
+    current_buffer_fuzzy_find = {
+      initial_mode = "insert",
+    },
     lsp_references =  {
         jump_type = "never",
-        fname_width = 50,
+        fname_width = 100,
         show_line = false
     }
   },
@@ -119,6 +132,7 @@ M.live_grep_in_folder = function()
     table.sort(data)
 
     pickers.new(options, {
+        initial_mode = "insert",
         prompt_title = "Folders for Live Grep",
         finder = finders.new_table { results = data, entry_maker = make_entry.gen_from_file(options) },
         previewer = conf.file_previewer(options),
