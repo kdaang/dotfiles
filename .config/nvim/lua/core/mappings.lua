@@ -332,6 +332,7 @@ M.telescope = {
     -- commands
     ["cc"] = { "<cmd> Telescope commands <CR>", "telescope list available commands" },
     ["ch"] = { "<cmd> Telescope command_history show_buf_command=false<CR>", "telescope command history" },
+    ["ht"] = { "<cmd> Telescope help_tags <CR>", "telescope help tags" },
 
     -- locations
     ["<leader>m"] = { "<cmd> Telescope marks <CR>", "telescope marks" },
