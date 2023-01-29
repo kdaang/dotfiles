@@ -11,4 +11,4 @@ local options = {
 
 options = require("core.utils").load_override(options, "glepnir/lspsaga.nvim")
 
-lspsaga.init_lsp_saga(options)
+lspsaga.setup(options)

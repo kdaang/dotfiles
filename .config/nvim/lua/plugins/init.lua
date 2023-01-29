@@ -252,6 +252,12 @@ local plugins = {
 
   -- Speed up deffered plugins
   ["lewis6991/impatient.nvim"] = {},
+
+  ["rmagatti/auto-session"] = {
+    setup = function()
+      require "plugins.configs.auto-session"
+    end,
+  },
 }
 
 require("core.packer").run(plugins)
