@@ -294,7 +294,7 @@ M.telescope = {
     ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
     ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
     ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "help page" },
-    ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "find oldfiles" },
+    ["<leader>fo"] = { "<cmd> Telescope oldfiles cwd_only=true <CR>", "find oldfiles" },
     ["<leader>tk"] = { "<cmd> Telescope keymaps <CR>", "show keys" },
     ["<leader>fs"] = {
         function()
