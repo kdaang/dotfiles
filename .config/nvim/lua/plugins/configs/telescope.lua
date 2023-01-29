@@ -71,6 +71,11 @@ local options = {
         }
       }
     },
+    lsp_references =  {
+        jump_type = "never",
+        fname_width = 50,
+        show_line = false
+    }
   },
 
   extensions_list = { "themes", "terms", "file_browser" },

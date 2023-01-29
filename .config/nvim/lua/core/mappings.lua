@@ -317,6 +317,12 @@ M.telescope = {
     -- theme switcher
     ["<leader>th"] = { "<cmd> Telescope themes <CR>", "nvchad themes" },
 
+    -- lsp
+    ["tr"] = { "<cmd> Telescope lsp_references <CR>", "telescope LSP references" },
+    ["td"] = { "<cmd> Telescope lsp_definitions <CR>", "telescope LSP definitions" }, -- like cmd-b in webstorm
+    ["ti"] = { "<cmd> Telescope lsp_implementations <CR>", "telescope LSP implementations" }, -- like cmd-d in webstorm
+    ["te"] = { "<cmd> Telescope diagnostics <CR>", "telescope LSP diagnostics" },
+
     ["<leader>tt"] = {
         function()
             require("plugins.configs.telescope").testerino()
