@@ -18,6 +18,10 @@ M.ui = {
     },
     IndentBlanklineContextChar = {
         fg = "cyan",
+    },
+    Visual = {
+        fg = "#FFFFFF",
+        bg = "#214283"
     }
   },
   changed_themes = {},

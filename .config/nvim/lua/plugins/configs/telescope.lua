@@ -103,7 +103,7 @@ M.live_grep_in_folder = function()
     local data = {}
     scan.scan_dir(vim.loop.cwd(), {
        hidden = options.hidden,
-       depth = 4,
+       depth = 3,
        only_dirs = true,
        respect_gitignore = options.respect_gitignore,
        on_insert = function(entry)
