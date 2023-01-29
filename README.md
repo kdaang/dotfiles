@@ -26,6 +26,11 @@
 
 - install TPM
   - install all the plugins -> rmb to fetch plugins with prefix-I (capital I)
+- How to copy text
+  - Option A) use mouse to drag and text would automatically be copied
+  - Option B) enter tmux copy-mode
+    - click `v` and begin highlighting, press `y` to copy to clipboard
+  - for both options, press `ctrl-v` to toggle between rectangles (highlight entire line vs block)
 
 ## Notes
 
