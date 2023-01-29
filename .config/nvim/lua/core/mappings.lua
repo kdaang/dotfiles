@@ -199,8 +199,8 @@ M.lspconfig = {
       "floating diagnostic",
     },
     ["gh"] = { "<cmd>Lspsaga lsp_finder<CR>", "lsp_saga finder" },
-    ["aK"] = { "<cmd>Lspsaga hover_doc<CR>", "lsp_saga hover" },
-    ["af"] = { "<cmd>Lspsaga show_cursor_diagnostics<CR>", "lsp_saga cursor diagnostics" },
+    ["gK"] = { "<cmd>Lspsaga hover_doc<CR>", "lsp_saga hover" },
+    ["gf"] = { "<cmd>Lspsaga show_cursor_diagnostics<CR>", "lsp_saga cursor diagnostics" },
 
     ["<leader>ra"] = {
       function()
