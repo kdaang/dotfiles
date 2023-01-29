@@ -162,35 +162,23 @@ M.lspconfig = {
   -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
 
   n = {
-    ["gd"] = {
+    -- lsp
+    ["gr"] = { "<cmd> Telescope lsp_references <CR>", "telescope LSP references" },
+    ["gd"] = { "<cmd> Telescope lsp_definitions <CR>", "telescope LSP definitions" }, -- like cmd-b in webstorm
+    ["gi"] = { "<cmd> Telescope lsp_implementations <CR>", "telescope LSP implementations" }, -- like cmd-d in webstorm
+    ["te"] = { "<cmd> Telescope diagnostics <CR>", "telescope LSP diagnostics" },
+
+    ["gD"] = {
       function()
         vim.lsp.buf.declaration()
       end,
-      "lsp declaration",
-    },
-    ["gD"] = {
-      function()
-        vim.lsp.buf.definition()
-      end,
-      "lsp definition",
-    },
-    ["gi"] = {
-      function()
-        vim.lsp.buf.implementation()
-      end,
-      "lsp implementation",
-    },
-    ["gr"] = {
-      function()
-        vim.lsp.buf.references()
-      end,
-      "lsp references",
+      "LSP declaration",
     },
     ["K"] = {
       function()
         vim.lsp.buf.hover()
       end,
-      "lsp hover",
+      "LSP hover",
     },
     ["<leader>f"] = {
       function()
@@ -198,34 +186,23 @@ M.lspconfig = {
       end,
       "floating diagnostic",
     },
-    ["gh"] = { "<cmd>Lspsaga lsp_finder<CR>", "lsp_saga finder" },
-    ["gK"] = { "<cmd>Lspsaga hover_doc<CR>", "lsp_saga hover" },
-    ["gf"] = { "<cmd>Lspsaga show_cursor_diagnostics<CR>", "lsp_saga cursor diagnostics" },
-
-    ["<leader>ra"] = {
+    ["<leader>ls"] = {
       function()
-        require("nvchad_ui.renamer").open()
+        vim.lsp.buf.signature_help()
       end,
-      "lsp rename",
+      "LSP signature_help",
     },
     ["<leader>ca"] = {
       function()
         vim.lsp.buf.code_action()
       end,
-      "lsp code_action",
+      "LSP code_action",
     },
     ["<leader>fm"] = {
       function()
         vim.lsp.buf.formatting {}
       end,
-      "lsp formatting",
-    },
-
-    ["<leader>ls"] = {
-      function()
-        vim.lsp.buf.signature_help()
-      end,
-      "lsp signature_help",
+      "LSP formatting",
     },
     ["<leader>D"] = {
       function()
@@ -233,6 +210,37 @@ M.lspconfig = {
       end,
       "lsp definition type",
     },
+    ["<leader>ra"] = {
+      function()
+        require("nvchad_ui.renamer").open()
+      end,
+      "LSP rename",
+    },
+
+    ["gh"] = { "<cmd>Lspsaga lsp_finder<CR>", "lsp_saga finder" },
+    ["gK"] = { "<cmd>Lspsaga hover_doc<CR>", "lsp_saga hover" },
+    ["gf"] = { "<cmd>Lspsaga show_cursor_diagnostics<CR>", "lsp_saga cursor diagnostics" },
+
+    -- ["gD"] = {
+    --   function()
+    --     vim.lsp.buf.definition()
+    --   end,
+    --   "lsp definition",
+    -- },
+    -- ["gi"] = {
+    --   function()
+    --     vim.lsp.buf.implementation()
+    --   end,
+    --   "lsp implementation",
+    -- },
+    -- ["gr"] = {
+    --   function()
+    --     vim.lsp.buf.references()
+    --   end,
+    --   "lsp references",
+    -- },
+
+
     ["[d"] = {
       function()
         vim.diagnostic.goto_prev()
@@ -245,6 +253,7 @@ M.lspconfig = {
       end,
       "goto_next",
     },
+    -- don't know what these are for
     ["<leader>q"] = {
       function()
         vim.diagnostic.setloclist()
@@ -316,12 +325,6 @@ M.telescope = {
 
     -- theme switcher
     ["<leader>th"] = { "<cmd> Telescope themes <CR>", "nvchad themes" },
-
-    -- lsp
-    ["tr"] = { "<cmd> Telescope lsp_references <CR>", "telescope LSP references" },
-    ["td"] = { "<cmd> Telescope lsp_definitions <CR>", "telescope LSP definitions" }, -- like cmd-b in webstorm
-    ["ti"] = { "<cmd> Telescope lsp_implementations <CR>", "telescope LSP implementations" }, -- like cmd-d in webstorm
-    ["te"] = { "<cmd> Telescope diagnostics <CR>", "telescope LSP diagnostics" },
 
     -- fuzzy find in current buffer
     ["tf"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "telescope find in current buffer" },
