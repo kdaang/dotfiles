@@ -1,4 +1,4 @@
-session_name: cart-app
+session_name: 1-cart-app
 start_directory: ~/code/ts-code
 before_script: ~/code/ts-code/apps/cart-app/bootstrap.sh
 windows:
