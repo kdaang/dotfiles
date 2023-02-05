@@ -26,7 +26,7 @@ behavior:
   show_loading_indicator: true
   # Disables the responsive layout that makes the search bar smaller on bigger
   # screens and enforces a wide search bar
-  enforce_wide_search_bar: false
+  enforce_wide_search_bar: true
   # Determines the text icon to display next to "liked" Spotify items, such as
   # liked songs and albums, or followed artists. Can be any length string.
   # These icons require a patched nerd font.

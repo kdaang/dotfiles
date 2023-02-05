@@ -1,0 +1,24 @@
+session_name: cart-app
+start_directory: ~/code/ts-code
+before_script: ~/code/ts-code/apps/cart-app/bootstrap.sh
+windows:
+  - window_name: nvim
+    panes:
+      - focus: "true"
+        shell_command: nvim
+  - window_name: cart
+    start_directory: apps/cart-app
+    layout: "even-horizontal"
+    panes:
+      - focus: "true"
+        shell_command:
+          - cd cart-api
+          - run serve
+      - shell_command:
+          - cd cart-web
+          - run serve
+  - window_name: ts-code
+    panes:
+      - focus: "true"
+        shell_command:
+          - g st
