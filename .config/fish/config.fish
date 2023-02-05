@@ -4,6 +4,9 @@ set -x EDITOR vim
 
 ### ALIASES
 
+# projects
+alias cart="tmuxp load -y ~/.config/tmuxp/cart-app.yaml"
+
 function run
   set TASK_FILE "Taskfile.sh"
   set TASK_BASE_FILE "Taskfile.base.sh"

@@ -6,7 +6,7 @@ windows:
     panes:
       - focus: "true"
         shell_command: nvim
-  - window_name: cart
+  - window_name: cart apps
     start_directory: apps/cart-app
     layout: "even-horizontal"
     panes:
@@ -22,3 +22,12 @@ windows:
       - focus: "true"
         shell_command:
           - g st
+  - window_name: cart cli
+    start_directory: apps/cart-app
+    layout: "even-horizontal"
+    panes:
+      - focus: "true"
+        shell_command:
+          - cd cart-api
+      - shell_command:
+          - cd cart-web
