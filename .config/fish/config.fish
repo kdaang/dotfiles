@@ -34,7 +34,7 @@ alias ta="tmux a || tmux"
 alias td="tmux_helper -d"
 alias ts="tmux_helper -s"
 
-alias cw="./bin/configure-workspace"
+alias cw="configure-workspace"
 
 alias hm="history merge"
 
