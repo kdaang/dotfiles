@@ -32,6 +32,8 @@ alias ta="tmux a || tmux"
 
 alias cw="./bin/configure-workspace"
 
+alias hm="history merge"
+
 if type -q exa
   alias ll "exa -l -g --icons"
   alias lla "ll -a"

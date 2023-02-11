@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+HISTFILE=~/.local/share/fish/fish_history
+set -o history 
+
+echo "GOGO HEHEHEH"
+commandline $(history | fzf)
