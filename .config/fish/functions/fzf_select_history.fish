@@ -1,5 +1,5 @@
 function fzf_select_history
-  history | fzf --border-label="Search History" | read foo
+  history -n 100000000 | fzf --border-label="Search History" | read foo
 
   if [ $foo ]
     commandline $foo

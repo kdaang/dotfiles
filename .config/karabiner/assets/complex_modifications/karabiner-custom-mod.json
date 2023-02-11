@@ -5241,6 +5241,27 @@
           ]
         },
         {
+          "description": "[vim] f = ctrl-f",
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f",
+              "modifiers": ["left_control"]
+            }
+          ]
+        },
+        {
           "description": "[vim] r = ctrl-r",
           "type": "basic",
           "from": {
