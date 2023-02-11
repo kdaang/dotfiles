@@ -1,5 +1,5 @@
 function fzf_select_history
-  history | fzf --height 50% --reverse --border=rounded --border-label="Search History" --bind=change:top | read foo
+  history | fzf --border-label="Search History" | read foo
 
   if [ $foo ]
     commandline $foo
