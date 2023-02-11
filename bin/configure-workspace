@@ -2,6 +2,29 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+# Transform long options to short ones
+for arg in "$@"; do
+  shift
+  case "$arg" in
+    '--help')   set -- "$@" '-h'   ;;
+    '--dry-run') set -- "$@" '-d'   ;;
+    *)          set -- "$@" "$arg" ;;
+  esac
+done
+
+dry_run=0
+
+while getopts d flag
+do
+    case "${flag}" in
+        d) dry_run=1;;
+    esac
+done
+
+if [ $dry_run -eq 1 ]; then
+    echo "DRY RUN MODE - windows won't be moved"
+fi
+
 windows=$(yabai -m query --windows)
 display_count=$(yabai -m query --displays | jq '. | length')
 
@@ -60,7 +83,9 @@ echo $windows | jq -c '.[]' | while read item; do
   if [[ -v space_map[$app] ]]; then
     cmd="yabai -m window $window_id ${space_map[$app]}"
     echo $cmd
-    eval $cmd
+    if [ $dry_run -ne 1 ]; then
+      eval $cmd
+    fi
     echo "MOVED $app - $window_id"
   else
     echo "NO ASSIGNED CONFIG for: $app - $window_id"
