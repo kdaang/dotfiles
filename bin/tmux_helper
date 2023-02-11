@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# Transform long options to short ones
+for arg in "$@"; do
+  shift
+  case "$arg" in
+    '--help')   set -- "$@" '-h'   ;;
+    '--delete') set -- "$@" '-d'   ;;
+    *)          set -- "$@" "$arg" ;;
+  esac
+done
+
+delete_session=0
+
+while getopts d flag
+do
+    case "${flag}" in
+        d) delete_session=1;;
+    esac
+done
+
+
+if [ $delete_session -eq 1 ]; then
+    target_session=$(tmux ls | fzf | awk -F ':' '{print $1}')
+    tmux kill-session -t $target_session
+    echo "deleted tmux session: $target_session"
+fi

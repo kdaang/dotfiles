@@ -31,7 +31,7 @@ alias g git
 
 alias tl="tmux ls" 
 alias ta="tmux a || tmux"
-alias td="tmux ls | fzf"
+alias td="tmux_helper -d"
 
 alias cw="./bin/configure-workspace"
 
