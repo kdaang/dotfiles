@@ -7,16 +7,19 @@ for arg in "$@"; do
   shift
   case "$arg" in
     '--help')   set -- "$@" '-h'   ;;
-    '--delete') set -- "$@" '-d'   ;;
+    '--delete-session') set -- "$@" '-d'   ;;
+    '--start-session') set -- "$@" '-s'   ;;
     *)          set -- "$@" "$arg" ;;
   esac
 done
 
 delete_session=0
+start_session=0
 
-while getopts d flag
+while getopts sd flag
 do
     case "${flag}" in
+        s) start_session=1;;
         d) delete_session=1;;
     esac
 done
@@ -26,4 +29,7 @@ if [ $delete_session -eq 1 ]; then
     target_session=$(tmux ls | fzf | awk -F ':' '{print $1}')
     tmux kill-session -t $target_session
     echo "deleted tmux session: $target_session"
+elif [ $start_session -eq 1 ]; then
+    tmuxp_dir="$HOME/.config/tmuxp/"
+    ls $tmuxp_dir | fzf | awk -v prefix="$tmuxp_dir" '{print prefix $1}' | xargs tmuxp load -y
 fi

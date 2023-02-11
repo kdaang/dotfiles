@@ -2,7 +2,7 @@ set -g tide_right_prompt_frame_enabled false
 set -x fish_key_bindings fish_user_key_bindings
 
 set -x EDITOR vim
-set -x FZF_DEFAULT_OPTS "--height 50% --reverse --border=rounded --bind=change:top"
+set -x FZF_DEFAULT_OPTS "-m --height 50% --reverse --border=rounded --bind=change:top"
 
 ### ALIASES
 
@@ -32,6 +32,7 @@ alias g git
 alias tl="tmux ls" 
 alias ta="tmux a || tmux"
 alias td="tmux_helper -d"
+alias ts="tmux_helper -s"
 
 alias cw="./bin/configure-workspace"
 
