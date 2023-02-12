@@ -35,10 +35,12 @@ end
 alias dotfiles="/usr/bin/git --git-dir=$HOME/code/dotfiles --work-tree=$HOME"
 alias df=dotfiles
 
+# fzf
 function fcd
     set dir $(~/bin/fzfw.sh fcd)
     if test -n "$dir";
         cd "$dir"
     end
-
 end
+
+alias fw="~/bin/fzfw.sh fw"
