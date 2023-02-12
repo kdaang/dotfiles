@@ -56,3 +56,6 @@ alias tl="tmux ls"
 alias ta="tmux a || tmux"
 alias td="tmuxw -d"
 alias ts="tmuxw -s"
+
+# ngrok
+alias ng="curl -s localhost:4040/api/tunnels | jq -r '.tunnels[0].public_url'"
