@@ -11,7 +11,7 @@ fcd() {
 
 # Interactive search.
 fw() {
-    RG_DEFAULT_COMMAND="rg -i -l --hidden"
+    RG_DEFAULT_COMMAND="rg -i -l"
 
     selected=$(
     rg --files | fzf \
