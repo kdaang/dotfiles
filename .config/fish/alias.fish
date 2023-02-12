@@ -43,3 +43,4 @@ end
 alias fw="~/bin/fzfw.sh fw"
 
 alias gc="~/bin/gitw gc"
+alias gd="~/bin/gitw gd"

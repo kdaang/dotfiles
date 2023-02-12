@@ -2,9 +2,8 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-
-# checkout a git branch with fzf
-gc() {
+# select git branch and pipe to stdin
+_select_branch() {
     if [ -z "${1-}" ]; then
         commit=$(git branch --sort=-committerdate -vv \
             | fzf --border-label "Git Checkout - $(git rev-parse --abbrev-ref HEAD)" \
@@ -14,7 +13,19 @@ gc() {
     else
         commit="$1"
     fi
+    echo $commit
+}
+
+# checkout a git branch with fzf
+gc() {
+    commit=$(_select_branch $@)
     git checkout $commit
+}
+
+# checkout a git branch with fzf
+gd() {
+    commit=$(_select_branch $@)
+    git branch -D $commit
 }
 
 $@
