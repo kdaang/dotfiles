@@ -4,6 +4,7 @@ IFS=$'\n\t'
 
 # select git branch and pipe to stdin
 _select_branch() {
+    local commit
     if [ -z "${1-}" ]; then
         commit=$(git branch --sort=-committerdate -vv \
             | fzf --border-label "Git Checkout - $(git rev-parse --abbrev-ref HEAD)" \
@@ -18,12 +19,14 @@ _select_branch() {
 
 # checkout a git branch with fzf
 gc() {
+    local commit
     commit=$(_select_branch $@)
     git checkout $commit
 }
 
 # checkout a git branch with fzf
 gd() {
+    local commit
     commit=$(_select_branch $@)
     git branch -D $commit
 }

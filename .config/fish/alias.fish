@@ -47,3 +47,7 @@ alias gd="~/bin/gitw gd"
 
 # bashw
 alias pk="~/bin/bashw pkill"
+
+# docker
+alias da="~/bin/dockerw da"
+alias ds="~/bin/dockerw ds"
