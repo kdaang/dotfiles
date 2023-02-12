@@ -3,7 +3,7 @@ set -x fish_key_bindings fish_user_key_bindings
 
 set -x EDITOR vim
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
-set -x FZF_DEFAULT_OPTS "-m --height 50% --reverse --border=rounded --bind=change:top"
+set -x FZF_DEFAULT_OPTS "-m --height 50% --reverse --border=rounded --bind=change:top --cycle"
 
 ### ALIASES
 source ~/.config/fish/alias.fish

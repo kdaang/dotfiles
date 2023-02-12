@@ -1,3 +1,9 @@
+function sf
+    source ~/.config/fish/config.fish
+    fish_user_key_bindings
+    echo "🐟🐟🐟 fish sauced 🐟🐟🐟"
+end
+
 function run
   set TASK_FILE "Taskfile.sh"
   set TASK_BASE_FILE "Taskfile.base.sh"
