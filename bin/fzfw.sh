@@ -19,7 +19,7 @@ fw() {
       --ansi \
       --disabled \
       --bind "change:reload:$RG_DEFAULT_COMMAND {q} || true" \
-      --preview "bat --color=always {} | rg -i --colors 'match:bg:yellow' --color always --ignore-case --context 10 {q}"
+      --preview "bat {} | rg --ignore-case --colors 'match:bg:yellow' --color always --context 10 {q}"
     )
     # {} - output of focused line
     #{q} - will be replaced with fzf query
