@@ -18,26 +18,14 @@ function run
   end
 end
 
-alias g git
+# misc
 alias vim nvim
 alias fk fuck
-
-alias tl="tmux ls" 
-alias ta="tmux a || tmux"
-alias td="tmuxw -d"
-alias ts="tmuxw -s"
-
 alias cw="configure-workspace"
 
+alias ll "exa -l -g --icons"
+alias lla "ll -a"
 alias hm="history merge"
-
-if type -q exa
-  alias ll "exa -l -g --icons"
-  alias lla "ll -a"
-end
-
-alias dotfiles="/usr/bin/git --git-dir=$HOME/code/dotfiles --work-tree=$HOME"
-alias df=dotfiles
 
 # fzf
 function fcd
@@ -48,8 +36,13 @@ function fcd
 end
 alias fw="~/bin/fzfw.sh fw"
 
+# git
+alias g git
 alias gc="~/bin/gitw gc"
 alias gd="~/bin/gitw gd"
+
+alias dotfiles="/usr/bin/git --git-dir=$HOME/code/dotfiles --work-tree=$HOME"
+alias df=dotfiles
 
 # bashw
 alias pk="~/bin/bashw pkill"
@@ -57,3 +50,9 @@ alias pk="~/bin/bashw pkill"
 # docker
 alias da="~/bin/dockerw da"
 alias ds="~/bin/dockerw ds"
+
+# tmux
+alias tl="tmux ls" 
+alias ta="tmux a || tmux"
+alias td="tmuxw -d"
+alias ts="tmuxw -s"
