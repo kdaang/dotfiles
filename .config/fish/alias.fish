@@ -44,3 +44,6 @@ alias fw="~/bin/fzfw.sh fw"
 
 alias gc="~/bin/gitw gc"
 alias gd="~/bin/gitw gd"
+
+# bashw
+alias pk="~/bin/bashw pkill"
