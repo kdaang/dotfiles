@@ -27,8 +27,8 @@ done
 
 if [ $delete_session -eq 1 ]; then
     target_session=$(tmux ls | fzf | awk -F ':' '{print $1}')
-    tmux kill-session -t $target_session
-    echo "deleted tmux session: $target_session"
+    echo $target_session | xargs -n 1 tmux kill-session -t
+    echo $target_session | xargs -n 1 echo "deleted tmux session:"
 elif [ $start_session -eq 1 ]; then
     tmuxp_dir="$HOME/.config/tmuxp/"
     ls $tmuxp_dir | fzf | awk -v prefix="$tmuxp_dir" '{print prefix $1}' | xargs tmuxp load -y
