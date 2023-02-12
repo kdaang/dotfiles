@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+
+# checkout a git branch with fzf
+gc() {
+    if [ -z "${1-}" ]; then
+        commit=$(git branch --sort=-committerdate -vv \
+            | fzf --border-label "Git Checkout - $(git rev-parse --abbrev-ref HEAD)" \
+            | sed -E 's/^\*?[[:space:]]*//' \
+            | cut -d' ' -f1
+        )
+    else
+        commit="$1"
+    fi
+    git checkout $commit
+}
+
+$@

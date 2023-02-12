@@ -40,5 +40,6 @@ function fcd
         cd "$dir"
     end
 end
-
 alias fw="~/bin/fzfw.sh fw"
+
+alias gc="~/bin/gitw gc"
