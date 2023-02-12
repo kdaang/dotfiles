@@ -12,16 +12,14 @@ function run
   end
 end
 
-alias vim nvim
-
-alias fk fuck
-
 alias g git
+alias vim nvim
+alias fk fuck
 
 alias tl="tmux ls" 
 alias ta="tmux a || tmux"
-alias td="tmux_helper -d"
-alias ts="tmux_helper -s"
+alias td="tmuxw -d"
+alias ts="tmuxw -s"
 
 alias cw="configure-workspace"
 
