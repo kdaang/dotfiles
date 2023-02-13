@@ -1,3 +1,5 @@
+# ~/.gitconfig contains public config for checking in repo
+# store private config in ~/.config/git/config file
 [init]
 	defaultBranch = main
 [core]
