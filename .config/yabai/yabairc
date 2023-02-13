@@ -89,5 +89,5 @@ yabai -m config left_padding                 0
 yabai -m config right_padding                0
 yabai -m config window_gap                   0
 
-."$HOME"/bin/configure-workspace.sh
+."$HOME"/bin/configure-workspace
 echo "yabai configuration loaded.."
