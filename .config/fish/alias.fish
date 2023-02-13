@@ -1,7 +1,8 @@
 function sf
     source ~/.config/fish/config.fish
     fish_user_key_bindings
-    echo "🐟🐟🐟 fish sauced 🐟🐟🐟"
+    hm
+    echo "🐟🐟🐟 fish sauced with history 🐟🐟🐟"
 end
 
 function run
