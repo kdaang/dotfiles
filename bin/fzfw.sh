@@ -11,10 +11,10 @@ fcd() {
 
 # Interactive search.
 fw() {
-    RG_DEFAULT_COMMAND="rg -i -l"
+    RG_DEFAULT_COMMAND="rg -i -l -L"
 
     selected=$(
-    rg --files | fzf \
+    rg --files -L | fzf \
       -e \
       --ansi \
       --disabled \
