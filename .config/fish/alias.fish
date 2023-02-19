@@ -56,7 +56,7 @@ alias ds="~/bin/dockerw ds"
 alias tl="tmux ls" 
 alias ta="tmux a || tmux"
 alias td="tmuxw -d"
-alias ts="tmuxw -s"
+alias ts="tmuxw start_session"
 
 # ngrok
 alias ng="curl -s localhost:4040/api/tunnels | jq -r '.tunnels[0].public_url'"

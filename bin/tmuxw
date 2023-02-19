@@ -2,34 +2,43 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-# Transform long options to short ones
-for arg in "$@"; do
-  shift
-  case "$arg" in
-    '--help')   set -- "$@" '-h'   ;;
-    '--delete-session') set -- "$@" '-d'   ;;
-    '--start-session') set -- "$@" '-s'   ;;
-    *)          set -- "$@" "$arg" ;;
-  esac
-done
+function get_args() {
+    # Transform long options to short ones
+    for arg in "$@"; do
+      shift
+      case "$arg" in
+        '--help')   set -- "$@" '-h'   ;;
+        '--project') set -- "$@" '-p'   ;;
+        *)          set -- "$@" "$arg" ;;
+      esac
+    done
 
-delete_session=0
-start_session=0
+    project=""
 
-while getopts sd flag
-do
-    case "${flag}" in
-        s) start_session=1;;
-        d) delete_session=1;;
-    esac
-done
+    while getopts :p: flag
+    do
+        case "${flag}" in
+            p) project=${OPTARG};;
+        esac
+    done
+}
 
-
-if [ $delete_session -eq 1 ]; then
+function delete_session() {
     target_session=$(tmux ls | fzf | awk -F ':' '{print $1}')
     echo $target_session | xargs -n 1 tmux kill-session -t
     echo $target_session | xargs -n 1 echo "deleted tmux session:"
-elif [ $start_session -eq 1 ]; then
+}
+
+function start_session() {
+    get_args $@
+
     tmuxp_dir="$HOME/.config/tmuxp/"
-    ls $tmuxp_dir | fzf | awk -v prefix="$tmuxp_dir" '{print prefix $1}' | xargs tmuxp load -y
-fi
+    fzf_args=""
+    if [ -n "$project" ]; then
+          fzf_args="-1"
+    fi
+
+    ls $tmuxp_dir | fzf $fzf_args -q "$project" | awk -v prefix="$tmuxp_dir" '{print prefix $1}' #| xargs tmuxp load -y
+}
+
+"$@"
