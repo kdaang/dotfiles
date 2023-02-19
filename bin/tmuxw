@@ -38,7 +38,7 @@ function start_session() {
           fzf_args="-1"
     fi
 
-    ls $tmuxp_dir | fzf $fzf_args -q "$project" | awk -v prefix="$tmuxp_dir" '{print prefix $1}' #| xargs tmuxp load -y
+    ls $tmuxp_dir | fzf $fzf_args -q "$project" | awk -v prefix="$tmuxp_dir" '{print prefix $1}' | xargs tmuxp load -y
 }
 
 "$@"
