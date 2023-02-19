@@ -24,7 +24,14 @@ function get_args() {
 }
 
 function delete_session() {
-    target_session=$(tmux ls | fzf | awk -F ':' '{print $1}')
+    get_args $@
+
+    fzf_args=""
+    if [ -n "$project" ]; then
+          fzf_args="-1"
+    fi
+
+    target_session=$(tmux ls | fzf $fzf_args -q "$project" | awk -F ':' '{print $1}')
     echo $target_session | xargs -n 1 tmux kill-session -t
     echo $target_session | xargs -n 1 echo "deleted tmux session:"
 }

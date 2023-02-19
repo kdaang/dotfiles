@@ -55,7 +55,7 @@ alias ds="~/bin/dockerw ds"
 # tmux
 alias tl="tmux ls" 
 alias ta="tmux a || tmux"
-alias td="tmuxw -d"
+alias td="tmuxw delete_session"
 alias ts="tmuxw start_session"
 
 # ngrok
