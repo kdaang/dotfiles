@@ -1,7 +1,7 @@
 function fish_user_key_bindings
   # peco
-  # bind \cr peco_select_history # Bind for peco select history to Ctrl+R
-  bind \cr fzf_select_history
+  bind \cr peco_select_history # Bind for peco select history to Ctrl+R
+  # bind \cr fzf_select_history
 
   bind \cf fzf_search_dir
 
