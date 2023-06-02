@@ -1,5 +1,6 @@
 set -g tide_right_prompt_frame_enabled false
 set -x fish_key_bindings fish_user_key_bindings
+set -x tide_right_prompt_frame_enabled false
 
 set -x EDITOR vim
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
