@@ -268,28 +268,6 @@
           ]
         },
         {
-          "description": "control + h = ctrl + left (prev desktop)",
-          "type": "basic",
-          "from": {
-            "key_code": "h",
-            "modifiers": {
-              "mandatory": [
-                "left_control",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "left_arrow",
-              "modifiers": ["left_control"]
-            }
-          ]
-        },
-        {
           "description": "option + h = mouse left",
           "type": "basic",
           "from": {
@@ -458,50 +436,6 @@
           ]
         },
         {
-          "description": "shift + j = command + tab (next application)",
-          "type": "basic",
-          "from": {
-            "key_code": "j",
-            "modifiers": {
-              "mandatory": [
-                "left_shift",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "tab",
-              "modifiers": ["left_command"]
-            }
-          ]
-        },
-        {
-          "description": "control + j = ctrl + down (focus application)",
-          "type": "basic",
-          "from": {
-            "key_code": "j",
-            "modifiers": {
-              "mandatory": [
-                "left_control",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "down_arrow",
-              "modifiers": ["left_control"]
-            }
-          ]
-        },
-        {
           "description": "option + j = mouse down",
           "type": "basic",
           "from": {
@@ -666,50 +600,6 @@
             {
               "key_code": "up_arrow",
               "modifiers": ["left_shift"]
-            }
-          ]
-        },
-        {
-          "description": "shift + k = command + tab (prev application)",
-          "type": "basic",
-          "from": {
-            "key_code": "k",
-            "modifiers": {
-              "mandatory": [
-                "left_shift",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "tab",
-              "modifiers": ["left_command", "left_shift"]
-            }
-          ]
-        },
-        {
-          "description": "control + k = ctrl + up (expose all)",
-          "type": "basic",
-          "from": {
-            "key_code": "k",
-            "modifiers": {
-              "mandatory": [
-                "left_control",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "up_arrow",
-              "modifiers": ["left_control"]
             }
           ]
         },
@@ -896,28 +786,6 @@
           ]
         },
         {
-          "description": "control + l = ctrl + right (next desktop)",
-          "type": "basic",
-          "from": {
-            "key_code": "l",
-            "modifiers": {
-              "mandatory": [
-                "left_control",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_arrow",
-              "modifiers": ["left_control"]
-            }
-          ]
-        },
-        {
           "description": "option + l = mouse move right",
           "type": "basic",
           "from": {
@@ -1074,50 +942,6 @@
             {
               "key_code": "page_up",
               "modifiers": ["left_shift"]
-            }
-          ]
-        },
-        {
-          "description": "shift + u = option + command + hyphen (zoom out)",
-          "type": "basic",
-          "from": {
-            "key_code": "u",
-            "modifiers": {
-              "mandatory": [
-                "left_shift",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "hyphen",
-              "modifiers": ["left_command", "left_option"]
-            }
-          ]
-        },
-        {
-          "description": "control + u = ctrl + command + f (fullscreen)",
-          "type": "basic",
-          "from": {
-            "key_code": "u",
-            "modifiers": {
-              "mandatory": [
-                "left_control",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "f",
-              "modifiers": ["left_control", "left_command"]
             }
           ]
         },
@@ -1285,50 +1109,6 @@
           ]
         },
         {
-          "description": "shift + i = command + shift + ` (prev window within app)",
-          "type": "basic",
-          "from": {
-            "key_code": "i",
-            "modifiers": {
-              "mandatory": [
-                "left_shift",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "grave_accent_and_tilde",
-              "modifiers": ["left_command", "left_shift"]
-            }
-          ]
-        },
-        {
-          "description": "control + i = command + h (hide current window)",
-          "type": "basic",
-          "from": {
-            "key_code": "i",
-            "modifiers": {
-              "mandatory": [
-                "left_control",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "h",
-              "modifiers": ["left_command"]
-            }
-          ]
-        },
-        {
           "description": "option + i = mouse right click",
           "type": "basic",
           "from": {
@@ -1488,50 +1268,6 @@
           ]
         },
         {
-          "description": "shift + o = command ` (next window within app)",
-          "type": "basic",
-          "from": {
-            "key_code": "o",
-            "modifiers": {
-              "mandatory": [
-                "left_shift",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "grave_accent_and_tilde",
-              "modifiers": ["left_command"]
-            }
-          ]
-        },
-        {
-          "description": "control + o = option + command + h (expose all)",
-          "type": "basic",
-          "from": {
-            "key_code": "o",
-            "modifiers": {
-              "mandatory": [
-                "left_control",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "up_arrow",
-              "modifiers": ["left_control"]
-            }
-          ]
-        },
-        {
           "description": "option + o = mouse backward",
           "type": "basic",
           "from": {
@@ -1684,28 +1420,6 @@
             {
               "key_code": "page_down",
               "modifiers": ["left_shift"]
-            }
-          ]
-        },
-        {
-          "description": "shift + p = option + command + equal_sign (zoom in)",
-          "type": "basic",
-          "from": {
-            "key_code": "p",
-            "modifiers": {
-              "mandatory": [
-                "left_shift",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "equal_sign",
-              "modifiers": ["left_command", "left_option"]
             }
           ]
         },
