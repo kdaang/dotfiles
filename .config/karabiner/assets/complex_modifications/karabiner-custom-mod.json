@@ -268,13 +268,13 @@
           ]
         },
         {
-          "description": "option + h = mouse left",
+          "description": "control + h = mouse left",
           "type": "basic",
           "from": {
             "key_code": "h",
             "modifiers": {
               "mandatory": [
-                "left_option",
+                "left_control",
                 "right_command",
                 "right_control",
                 "right_shift",
@@ -383,6 +383,28 @@
           ]
         },
         {
+          "description": "ctrl + h = word left",
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "left_option",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": ["left_option"]
+            }
+          ]
+        },
+        {
           "description": "command + j = shift + down",
           "type": "basic",
           "from": {
@@ -436,13 +458,13 @@
           ]
         },
         {
-          "description": "option + j = mouse down",
+          "description": "control + j = mouse down",
           "type": "basic",
           "from": {
             "key_code": "j",
             "modifiers": {
               "mandatory": [
-                "left_option",
+                "left_control",
                 "right_command",
                 "right_control",
                 "right_shift",
@@ -604,13 +626,13 @@
           ]
         },
         {
-          "description": "option + k = mouse up",
+          "description": "control + k = mouse up",
           "type": "basic",
           "from": {
             "key_code": "k",
             "modifiers": {
               "mandatory": [
-                "left_option",
+                "left_control",
                 "right_command",
                 "right_control",
                 "right_shift",
@@ -786,13 +808,13 @@
           ]
         },
         {
-          "description": "option + l = mouse move right",
+          "description": "control + l = mouse right",
           "type": "basic",
           "from": {
             "key_code": "l",
             "modifiers": {
               "mandatory": [
-                "left_option",
+                "left_control",
                 "right_command",
                 "right_control",
                 "right_shift",
@@ -809,7 +831,7 @@
           ]
         },
         {
-          "description": "shift + option + l = mouse move right fast",
+          "description": "shift + option + l = mouse right fast",
           "type": "basic",
           "from": {
             "key_code": "l",
@@ -901,6 +923,28 @@
           ]
         },
         {
+          "description": "ctrl + l = word right",
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "left_option",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": ["left_option"]
+            }
+          ]
+        },
+        {
           "description": "command + u = shift + page_up",
           "type": "basic",
           "from": {
@@ -946,13 +990,13 @@
           ]
         },
         {
-          "description": "option + u = mouse left click",
+          "description": "control + u = mouse left click",
           "type": "basic",
           "from": {
             "key_code": "u",
             "modifiers": {
               "mandatory": [
-                "left_option",
+                "left_control",
                 "right_command",
                 "right_control",
                 "right_shift",
@@ -1115,7 +1159,7 @@
             "key_code": "i",
             "modifiers": {
               "mandatory": [
-                "left_option",
+                "left_control",
                 "right_command",
                 "right_control",
                 "right_shift",
@@ -4824,48 +4868,6 @@
           "to": [
             {
               "key_code": "g",
-              "modifiers": ["left_control"]
-            }
-          ]
-        },
-        {
-          "description": "[vim] o = ctrl-o",
-          "type": "basic",
-          "from": {
-            "key_code": "o",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "o",
-              "modifiers": ["left_control"]
-            }
-          ]
-        },
-        {
-          "description": "[vim (used for forward jump)] ctrl-i which is binded to ctrl-_ in vim since <C-I> = <TAB> in vim",
-          "type": "basic",
-          "from": {
-            "key_code": "i",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "p",
               "modifiers": ["left_control"]
             }
           ]
