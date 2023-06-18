@@ -2,12 +2,15 @@ set -g tide_right_prompt_frame_enabled false
 set -x fish_key_bindings fish_user_key_bindings
 set -x tide_right_prompt_frame_enabled false
 
-set -x EDITOR vim
+set -x EDITOR nvim
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -x FZF_DEFAULT_OPTS "-m --height 50% --reverse --border=rounded --bind=change:top --cycle"
 
 ### ALIASES
 source ~/.config/fish/alias.fish
+
+### nnn config
+source ~/.config/nnn/nnn-config.fish
 
 ### SETUP NVM
 set --universal nvm_default_version lts

@@ -32,6 +32,10 @@
     - click `v` and begin highlighting, press `y` to copy to clipboard
   - for both options, press `ctrl-v` to toggle between rectangles (highlight entire line vs block)
 
+## nnn
+
+- need to manually install all plugins v
+
 ## Notes
 
 - brewfile
