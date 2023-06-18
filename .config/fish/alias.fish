@@ -35,6 +35,9 @@ alias rm "rm -i -v"
 # jqp
 alias jqp "jqp --config ~/.config/jqp/.jqp.yaml"
 
+# lazygit
+alias lazygit "lazygit -ucf ~/.config/lazygit/config.yml"
+
 # fzf
 function fcd
     set dir $(~/bin/fzfw.sh fcd)
