@@ -28,6 +28,10 @@ alias ll "exa -l -g --icons"
 alias lla "ll -a"
 alias hm="history merge"
 
+alias cp "cp -i -v"
+alias mv "mv -i -v"
+alias rm "rm -i -v"
+
 # fzf
 function fcd
     set dir $(~/bin/fzfw.sh fcd)
