@@ -32,6 +32,9 @@ alias cp "cp -i -v"
 alias mv "mv -i -v"
 alias rm "rm -i -v"
 
+# jqp
+alias jqp "jqp --config ~/.config/jqp/.jqp.yaml"
+
 # fzf
 function fcd
     set dir $(~/bin/fzfw.sh fcd)
