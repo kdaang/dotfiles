@@ -2,6 +2,10 @@
 
 - https://www.atlassian.com/git/tutorials/dotfiles
 
+## Intial Setup
+
+- if not on personal setup, run `.config/nivek/dotfiles-symlink.sh` script
+
 ## Git Configs
 
 - `~/.gitconfig` contains public config for checking in repo
@@ -32,10 +36,6 @@
     - click `v` and begin highlighting, press `y` to copy to clipboard
   - for both options, press `ctrl-v` to toggle between rectangles (highlight entire line vs block)
 
-## nnn
-
-- need to manually install all plugins v
-
 ## Notes
 
 - brewfile
@@ -50,3 +50,5 @@
   - nvm needs to run a script but uses posix syntax which doesn't work with fish. We need to use bass to run it or something else.
   - i'm using this fisher plugin to make nvm work with fish
     - https://github.com/jorgebucaran/nvm.fish
+- nnn
+  - need to manually install all plugins v
