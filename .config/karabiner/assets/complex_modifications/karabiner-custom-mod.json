@@ -1101,7 +1101,7 @@
           ]
         },
         {
-          "description": "command + i = shift + home",
+          "description": "command + i = shift + command + left_arrow",
           "type": "basic",
           "from": {
             "key_code": "i",
@@ -1117,8 +1117,8 @@
           },
           "to": [
             {
-              "key_code": "home",
-              "modifiers": ["left_shift"]
+              "key_code": "left_arrow",
+              "modifiers": ["left_command", "left_shift"]
             }
           ]
         },
@@ -1140,15 +1140,12 @@
           },
           "to": [
             {
-              "key_code": "end"
+              "key_code": "right_arrow",
+              "modifiers": ["left_command"]
             },
             {
-              "key_code": "home",
-              "modifiers": ["left_shift"]
-            },
-            {
-              "key_code": "home",
-              "modifiers": ["left_shift"]
+              "key_code": "left_arrow",
+              "modifiers": ["left_command", "left_shift"]
             }
           ]
         },
@@ -1259,7 +1256,8 @@
           },
           "to": [
             {
-              "key_code": "home"
+              "key_code": "left_arrow",
+              "modifiers": ["left_command"]
             }
           ]
         },
@@ -1280,8 +1278,8 @@
           },
           "to": [
             {
-              "key_code": "end",
-              "modifiers": ["left_shift"]
+              "key_code": "right_arrow",
+              "modifiers": ["left_command", "left_shift"]
             }
           ]
         },
@@ -1303,11 +1301,12 @@
           },
           "to": [
             {
-              "key_code": "home"
+              "key_code": "right_arrow",
+              "modifiers": ["left_command"]
             },
             {
-              "key_code": "end",
-              "modifiers": ["left_shift"]
+              "key_code": "left_arrow",
+              "modifiers": ["left_command", "left_shift"]
             }
           ]
         },
@@ -1418,7 +1417,8 @@
           },
           "to": [
             {
-              "key_code": "end"
+              "key_code": "right_arrow",
+              "modifiers": ["left_command"]
             }
           ]
         },
