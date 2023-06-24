@@ -24,4 +24,7 @@ set -x JAVA_HOME "/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home
 ### SETUP scala
 fish_add_path /opt/homebrew/opt/scala@2.12/bin
 
+### hammerspoon reads from ~/.hammerspoon/init.lua by default and is non configurable
+ln -s ~/.config/hammerspoon/init.lua ~/.hammerspoon/init.lua &>/dev/null
+
 direnv hook fish | source
