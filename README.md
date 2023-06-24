@@ -46,6 +46,9 @@
   - tried on pip3.11 and it doesn't work. pip3.9 works
   - can try linting via `powerline-lint`
   - can run powerline via `powerline-config tmux setup`
+  - default config merges with custom config
+    - default config is somethere in `/opt/homebrew/lib/python3.9/site-packages/powerline/config_files`
+    - can also try finding via `pip3.9 show powerline-status`
 - skhd
   - update cellar plist to use bash instead fish
   - https://github.com/koekeishiya/skhd/issues/42#issuecomment-401886533
