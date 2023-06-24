@@ -43,6 +43,9 @@
   - https://pumpingco.de/blog/brewfile/
 - install powerline to get colours working for tmux
   - `pip3 install powerline-status`
+  - tried on pip3.11 and it doesn't work. pip3.9 works
+  - can try linting via `powerline-lint`
+  - can run powerline via `powerline-config tmux setup`
 - skhd
   - update cellar plist to use bash instead fish
   - https://github.com/koekeishiya/skhd/issues/42#issuecomment-401886533
@@ -52,3 +55,4 @@
     - https://github.com/jorgebucaran/nvm.fish
 - nnn
   - need to manually install all plugins v
+- can get alacrillty keycodes by using `xxd -psd`
