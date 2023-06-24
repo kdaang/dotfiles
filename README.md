@@ -55,4 +55,4 @@
     - https://github.com/jorgebucaran/nvm.fish
 - nnn
   - need to manually install all plugins v
-- can get alacrillty keycodes by using `xxd -psd`
+- can get alacritty keycodes by using `xxd -psd`
