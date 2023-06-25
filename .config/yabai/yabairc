@@ -59,6 +59,8 @@ yabai -m rule --add app="^Logi Options+" manage=off
 yabai -m rule --add app="^Mos$" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Discord$" manage=off
+yabai -m rule --add app="^Hammerspoon$" manage=off
+yabai -m rule --add app="^eqMac$" manage=off
 
 ### global settings
 yabai -m config mouse_follows_focus          off
