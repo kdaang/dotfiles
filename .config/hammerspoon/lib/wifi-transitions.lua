@@ -65,7 +65,7 @@ end
 ---
 --- Notes:
 ---  * This method is called internally by the `hs.wifi.watcher` object when WiFi transitions happen. It does not get any system information nor does it set any Spoon state information, so it can also be used to "trigger" transitions manually, either for testing or if the automated processing fails for any reason.
-function obj:processTransition(new_ssid, prev_ssid, interface)
+function obj:processTransition(new_ssid, prev_ssid, event, interface)
     self.logger.df(
         "Processing transition new_ssid=%s, prev_ssid=%s, interface=%s",
         new_ssid, prev_ssid, interface)
@@ -102,8 +102,11 @@ end
 function obj:wifiwatcher(watcher, event, interface)
     local new_ssid = hs.wifi.currentNetwork()
     local prev_ssid = self.previous_ssid
+
+    if new_ssid == nil then return end
+
     self.logger.df("New WiFi event %s, interface=%s", event, interface)
-    self:processTransition(new_ssid, prev_ssid, interface)
+    self:processTransition(new_ssid, prev_ssid, event, interface)
     self.previous_ssid = new_ssid
 end
 
@@ -117,6 +120,7 @@ end
 --- Returns:
 ---  * The WiFiTransitions spoon object
 function obj:start()
+    self.logger.v("WifiTransitions watcher is starting..")
     self.previous_ssid = hs.wifi.currentNetwork()
     self.wifiwatcher = hs.wifi.watcher.new(
                            hs.fnutils.partial(self.wifiwatcher, self)):start()
