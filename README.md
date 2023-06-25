@@ -59,3 +59,5 @@
 - nnn
   - need to manually install all plugins v
 - can get alacritty keycodes by using `xxd -psd`
+- Hammertools
+  - can install cli tool `hs` via running `hs.ipc.cliInstall("/opt/homebrew")` on M1 (try without the location param first)

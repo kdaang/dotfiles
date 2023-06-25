@@ -26,5 +26,6 @@ fish_add_path /opt/homebrew/opt/scala@2.12/bin
 
 ### hammerspoon reads from ~/.hammerspoon/init.lua by default and is non configurable
 ln -s ~/.config/hammerspoon/init.lua ~/.hammerspoon/init.lua &>/dev/null
+ln -s ~/.config/hammerspoon/clipboard.lua ~/.hammerspoon/clipboard.lua &>/dev/null
 
 direnv hook fish | source
