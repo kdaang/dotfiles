@@ -17,7 +17,9 @@ local wifiActions = {
                                  "Off Home Network - %s, cooling down...",
                                  new_ssid), hsScreen.allScreens(), 3)
 
-                hsAudioDevice.defaultOutputDevice():setOutputMuted(true)
+                local outputDevice = hsAudioDevice.defaultOutputDevice()
+                outputDevice:setOutputVolume(0)
+                outputDevice:setOutputMuted(false)
             end
         }
     }, {
@@ -29,7 +31,9 @@ local wifiActions = {
                                  "Connected to Home Network - %s, spicing up...",
                                  new_ssid), hsScreen.allScreens(), 3)
 
-                hsAudioDevice.defaultOutputDevice():setOutputMuted(false)
+                local outputDevice = hsAudioDevice.defaultOutputDevice()
+                outputDevice:setOutputVolume(30)
+                outputDevice:setOutputMuted(false)
             end
         }
     }
