@@ -56,6 +56,7 @@
   - nvm needs to run a script but uses posix syntax which doesn't work with fish. We need to use bass to run it or something else.
   - i'm using this fisher plugin to make nvm work with fish
     - https://github.com/jorgebucaran/nvm.fish
+  - will need to install null-ls dependencies for formatting/linting, etc to work. eg. need to install [eslint_d](https://github.com/mantoni/eslint_d.js) and [lua_format](https://github.com/Koihik/LuaFormatter)
 - nnn
   - need to manually install all plugins v
 - can get alacritty keycodes by using `xxd -psd`

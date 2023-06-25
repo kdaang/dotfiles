@@ -14,7 +14,8 @@ null_ls.setup({
     }),
     null_ls.builtins.diagnostics.eslint_d,
     null_ls.builtins.formatting.eslint_d,
-    null_ls.builtins.code_actions.eslint_d
+    null_ls.builtins.code_actions.eslint_d,
+    null_ls.builtins.formatting.lua_format
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
