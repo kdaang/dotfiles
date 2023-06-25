@@ -20,7 +20,7 @@ local honor_clearcontent = false -- asmagill request. If any application clears 
 local pasteOnSelect = false -- Auto-type on click
 
 -- Don't change anything bellow this line
-local jumpcut = hs.menubar.new()
+local jumpcut = require("hs.menubar").new()
 jumpcut:setTooltip("Jumpcut replacement")
 local pasteboard = require("hs.pasteboard") -- http://www.hammerspoon.org/docs/hs.pasteboard.html
 local settings = require("hs.settings") -- http://www.hammerspoon.org/docs/hs.settings.html
@@ -58,7 +58,6 @@ local function clearAll()
     pasteboard.clearContents()
     clipboard_history = {}
     settings.set("so.victor.hs.jumpcut", clipboard_history)
-    now = pasteboard.changeCount()
     setTitle()
 end
 
@@ -66,7 +65,6 @@ end
 local function clearLastItem()
     table.remove(clipboard_history, #clipboard_history)
     settings.set("so.victor.hs.jumpcut", clipboard_history)
-    now = pasteboard.changeCount()
     setTitle()
 end
 

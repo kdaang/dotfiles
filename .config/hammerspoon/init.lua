@@ -1,6 +1,6 @@
-local hsHotkey = hs.hotkey
-local hsAlert = hs.hotkey
-local hsWindow = hs.hotkey
+local hsHotkey = require("hs.hotkey")
+local hsAlert = require("hs.alert")
+local hsWindow = require("hs.window")
 
 hsHotkey.bind({"cmd", "alt", "ctrl"}, "W",
               function() hsAlert.show("Hello World!") end)
