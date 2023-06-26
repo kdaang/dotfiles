@@ -22,7 +22,7 @@ end
 # misc
 alias vim nvim
 alias fk fuck
-alias cw="configure-workspace"
+alias cw="yabaiw configure_workspace"
 
 alias ll "exa -l -g --icons"
 alias lla "ll -a"

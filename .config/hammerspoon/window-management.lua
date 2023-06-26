@@ -18,7 +18,7 @@ M.setup = function()
         hs.execute("cw", true)
 
         -- script returns list of unmanaged windows ids string in csv form
-        local output = hs.execute("yabaiw", true)
+        local output = hs.execute("yabaiw get_unmanaged_windows", true)
         local unmanagedWindowIds = {}
 
         -- split comma separated string

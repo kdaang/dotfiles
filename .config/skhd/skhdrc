@@ -1,7 +1,7 @@
 # TODO https://github.com/koekeishiya/yabai/issues/725
 
 # configure all windows
-# f4: bash ~/bin/configure-workspace
+# f4: bash ~/bin/yabai configure_workspace
 
 # focus window
 alt - h : yabai -m window --focus west
