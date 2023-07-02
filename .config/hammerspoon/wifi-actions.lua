@@ -1,6 +1,8 @@
 local hsAudioDevice = require("hs.audiodevice")
 local hsAlert = require("hs.alert")
 local hsScreen = require("hs.screen")
+local hsApp = require("hs.application")
+local hsTimer = require("hs.timer")
 
 WifiTransitions = require("lib.wifi-transitions")
 M = {}
@@ -17,9 +19,15 @@ local wifiActions = {
                                  "Off Home Network - %s, cooling down...",
                                  new_ssid), hsScreen.allScreens(), 3)
 
-                local outputDevice = hsAudioDevice.defaultOutputDevice()
-                outputDevice:setOutputVolume(0)
-                outputDevice:setOutputMuted(false)
+                hsApp.find("eqMac", true):kill()
+
+                hsTimer.waitUntil(function()
+                    return hsApp.find("eqMac", true) == nil
+                end, function()
+                    local outputDevice = hsAudioDevice.defaultOutputDevice()
+                    outputDevice:setOutputVolume(0)
+                    outputDevice:setOutputMuted(false)
+                end, 1)
             end
         }
     }, {
@@ -31,6 +39,7 @@ local wifiActions = {
                                  "Connected to Home Network - %s, spicing up...",
                                  new_ssid), hsScreen.allScreens(), 3)
 
+                hsApp.open("eqMac", 10, true)
                 local outputDevice = hsAudioDevice.defaultOutputDevice()
                 outputDevice:setOutputVolume(30)
                 outputDevice:setOutputMuted(false)
