@@ -1,25 +1,28 @@
-local hsAudioDevice = require("hs.audiodevice")
+require("lib.constants")
 local hsApp = require("hs.application")
-local hsTimer = require("hs.timer")
+local hsAudioDevice = require("hs.audiodevice")
+local utils = require("utils")
 
 local M = {}
 
-M.homeSetup = function()
-    hsApp.find("eqMac", true):kill()
+M.workSetup = function()
+    hsApp.find(EQ_MAC, true):kill()
 
-    hsTimer.waitUntil(function() return hsApp.find("eqMac", true) == nil end,
-                      function()
+    utils.waitUntilApp(EQ_MAC, false, function()
         local outputDevice = hsAudioDevice.defaultOutputDevice()
         outputDevice:setOutputVolume(0)
         outputDevice:setOutputMuted(false)
-    end, 1)
+    end)
 end
 
-M.workSetup = function()
-    hsApp.open("eqMac", 10, true)
-    local outputDevice = hsAudioDevice.defaultOutputDevice()
-    outputDevice:setOutputVolume(30)
-    outputDevice:setOutputMuted(false)
+M.homeSetup = function()
+    hsApp.open(EQ_MAC, 10, true)
+
+    utils.waitUntilApp(EQ_MAC, true, function()
+        local outputDevice = hsAudioDevice.defaultOutputDevice()
+        outputDevice:setOutputVolume(30)
+        outputDevice:setOutputMuted(false)
+    end)
 end
 
 return M

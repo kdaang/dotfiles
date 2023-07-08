@@ -2,7 +2,7 @@ local hsAlert = require("hs.alert")
 local hsScreen = require("hs.screen")
 local automation = require("automation")
 
-WifiTransitions = require("lib.wifi-transitions")
+WifiTransitions = require("external.wifi-transitions")
 M = {}
 
 local HOME_NETWORK_NAME = "BeyondFuture"

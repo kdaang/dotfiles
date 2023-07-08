@@ -9,6 +9,8 @@ M.autoReloadConfig = function()
     local function reloadConfig()
         configFileWatcher:stop()
         configFileWatcher = nil
+
+        hs.execute("ln -s ~/.config/hammerspoon/* ~/.hammerspoon/")
         hs.reload()
     end
 
