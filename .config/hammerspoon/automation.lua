@@ -17,7 +17,7 @@ M.workSetup = function()
 end
 
 M.homeSetup = function()
-    utils.openApp(EQ_MAC)
+    utils.openApp(EQ_MAC, true)
 
     utils.waitUntilApp(EQ_MAC, true, function()
         local outputDevice = hsAudioDevice.defaultOutputDevice()
@@ -29,7 +29,10 @@ M.homeSetup = function()
 end
 
 M.init = function()
-    if (utils.getCurrentWifiName() == HOME_NETWORK_NAME) then
+    local wifiName = utils.getCurrentWifiName()
+    print(string.format("On Network: %s", wifiName))
+
+    if (wifiName == HOME_NETWORK_NAME) then
         M.homeSetup()
     else
         M.workSetup()

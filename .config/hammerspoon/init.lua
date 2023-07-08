@@ -7,6 +7,7 @@ KeyBinds = require("key-binds")
 
 Caffeine = require("caffeine")
 Automation = require("automation")
+local hsApplication = require("hs.application")
 
 local function loadModules()
     Clipboard.setup()
@@ -16,6 +17,7 @@ local function loadModules()
     Caffeine.setup()
 end
 
+hsApplication.enableSpotlightForNameSearches(true)
 loadModules()
 -- Automation.init()
 
