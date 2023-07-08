@@ -1,5 +1,6 @@
 local hsApp = require("hs.application")
 local hsTimer = require("hs.timer")
+local hsWifi = require("hs.wifi")
 
 local M = {}
 
@@ -15,5 +16,7 @@ end
 M.openApp = function(appName) hsApp.open(appName, 10, true) end
 
 M.closeApp = function(appName) hsApp.find(appName, true):kill() end
+
+M.getCurrentWifiName = function() return hsWifi.currentNetwork() end
 
 return M

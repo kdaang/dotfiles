@@ -24,4 +24,13 @@ M.homeSetup = function()
     end)
 end
 
+M.init = function()
+    if (utils.getCurrentWifiName() == HOME_NETWORK_NAME) then
+        M.homeSetup()
+    else
+        M.workSetup()
+    end
+
+end
+
 return M
