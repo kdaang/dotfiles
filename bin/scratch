@@ -6,6 +6,4 @@ yabai="/opt/homebrew/bin/yabai"
 jq="/opt/homebrew/bin/jq"
 
 echo "GOGO HEHEHEH"
-unmanagedWindowIds=$($yabai -m query --windows | $jq '.[] | select(."is-floating") | .id')
-
-echo $unmanagedWindowIds | tr -d '\n' | sed -e "s/ /,/g"
+$yabai -m query --windows | $jq .[].app

@@ -28,6 +28,8 @@ M.configureWindows = function()
     for _, unmanagedWindow in ipairs(unmanagedWindows) do
         unmanagedWindow:maximize(0)
     end
+
+    print("done configuring windows!")
 end
 
 return M

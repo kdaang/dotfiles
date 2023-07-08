@@ -1,6 +1,7 @@
 require("lib.constants")
 local hsAudioDevice = require("hs.audiodevice")
 local utils = require("utils")
+local wm = require("window-management")
 
 local M = {}
 
@@ -38,6 +39,17 @@ M.init = function()
         M.workSetup()
     end
 
+    wm.configureWindows()
+
+    print("done automating!")
+end
+
+M.test = function()
+    local BASH_COMMAND = "/opt/homebrew/bin/bash "
+    local output, status, type, rc = hs.execute(BASH_COMMAND .. "~/bin/scratch",
+                                                false)
+    print(string.format("%s, %s, %s, %s", output, status, type, rc))
+    print("done test")
 end
 
 return M
