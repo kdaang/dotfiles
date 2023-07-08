@@ -6,7 +6,7 @@ Crons = require("crons")
 KeyBinds = require("key-binds")
 
 Caffeine = require("caffeine")
-local automation = require("automation")
+Automation = require("automation")
 
 local function loadModules()
     Clipboard.setup()
@@ -17,7 +17,7 @@ local function loadModules()
 end
 
 loadModules()
-automation.init()
+-- Automation.init()
 
 --
 -- local windows = hs.window.allWindows()

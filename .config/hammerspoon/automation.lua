@@ -12,6 +12,8 @@ M.workSetup = function()
         outputDevice:setOutputVolume(0)
         outputDevice:setOutputMuted(true)
     end)
+
+    print("done running work setup!")
 end
 
 M.homeSetup = function()
@@ -22,6 +24,8 @@ M.homeSetup = function()
         outputDevice:setOutputVolume(30)
         outputDevice:setOutputMuted(false)
     end)
+
+    print("done running home setup!")
 end
 
 M.init = function()
