@@ -10,7 +10,7 @@ M.workSetup = function()
     utils.waitUntilApp(EQ_MAC, false, function()
         local outputDevice = hsAudioDevice.defaultOutputDevice()
         outputDevice:setOutputVolume(0)
-        outputDevice:setOutputMuted(false)
+        outputDevice:setOutputMuted(true)
     end)
 end
 
