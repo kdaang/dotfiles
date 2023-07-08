@@ -15,13 +15,13 @@ M.setup = function()
     end)
 
     hsHotkey.bind({}, "f4", function()
-        hs.execute("/opt/homebrew/bin/bash ~/bin/yabaiw configure_workspace",
-                   false)
+        local BASH_COMMAND = "/opt/homebrew/bin/bash "
+        hs.execute(BASH_COMMAND .. "~/bin/yabaiw configure_workspace", false)
 
         -- script returns list of unmanaged windows ids string in csv form
-        local output = hs.execute(
-                           "/opt/homebrew/bin/bash ~/bin/yabaiw get_unmanaged_windows",
-                           false)
+        local output = hs.execute(BASH_COMMAND ..
+                                      "~/bin/yabaiw get_unmanaged_windows",
+                                  false)
         local unmanagedWindowIds = {}
 
         -- split comma separated string
