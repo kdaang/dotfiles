@@ -1,42 +1,33 @@
-local hsHotkey = require("hs.hotkey")
-local hsAlert = require("hs.alert")
 local hsWindow = require("hs.window")
 
 local M = {}
 
-M.setup = function()
+M.maximizeWindow = function()
+    local win = hsWindow.focusedWindow()
+    win:maximize(0)
+end
 
-    hsHotkey.bind({"cmd", "alt", "ctrl"}, "W",
-                  function() hsAlert.show("Hello World!") end)
+M.configureWindows = function()
+    local BASH_COMMAND = "/opt/homebrew/bin/bash "
+    hs.execute(BASH_COMMAND .. "~/bin/yabaiw configure_workspace", false)
 
-    hsHotkey.bind({"cmd", "alt"}, "F", function()
-        local win = hsWindow.focusedWindow()
-        win:maximize(0)
-    end)
+    -- script returns list of unmanaged windows ids string in csv form
+    local output = hs.execute(BASH_COMMAND ..
+                                  "~/bin/yabaiw get_unmanaged_windows", false)
+    local unmanagedWindowIds = {}
 
-    hsHotkey.bind({}, "f4", function()
-        local BASH_COMMAND = "/opt/homebrew/bin/bash "
-        hs.execute(BASH_COMMAND .. "~/bin/yabaiw configure_workspace", false)
+    -- split comma separated string
+    for unmanagedWindowId in (output .. ","):gmatch("(.-),") do
+        unmanagedWindowIds[tonumber(unmanagedWindowId)] = true
+    end
 
-        -- script returns list of unmanaged windows ids string in csv form
-        local output = hs.execute(BASH_COMMAND ..
-                                      "~/bin/yabaiw get_unmanaged_windows",
-                                  false)
-        local unmanagedWindowIds = {}
+    local unmanagedWindows = hsWindow.filter.new(function(window)
+        return unmanagedWindowIds[window:id()]
+    end):getWindows()
 
-        -- split comma separated string
-        for unmanagedWindowId in (output .. ","):gmatch("(.-),") do
-            unmanagedWindowIds[tonumber(unmanagedWindowId)] = true
-        end
-
-        local unmanagedWindows = hsWindow.filter.new(function(window)
-            return unmanagedWindowIds[window:id()]
-        end):getWindows()
-
-        for _, unmanagedWindow in ipairs(unmanagedWindows) do
-            unmanagedWindow:maximize(0)
-        end
-    end)
+    for _, unmanagedWindow in ipairs(unmanagedWindows) do
+        unmanagedWindow:maximize(0)
+    end
 end
 
 return M

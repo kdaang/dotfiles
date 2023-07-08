@@ -1,4 +1,5 @@
 local hsPathwatcher = require("hs.pathwatcher")
+local WifiActions = require("wifi-actions")
 
 local M = {}
 
@@ -17,6 +18,9 @@ M.autoReloadConfig = function()
     configFileWatcher:start()
 end
 
-M.runJobs = function() M.autoReloadConfig() end
+M.runJobs = function()
+    M.autoReloadConfig()
+    WifiActions.start()
+end
 
 return M

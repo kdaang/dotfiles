@@ -1,8 +1,6 @@
-local hsAudioDevice = require("hs.audiodevice")
 local hsAlert = require("hs.alert")
 local hsScreen = require("hs.screen")
-local hsApp = require("hs.application")
-local hsTimer = require("hs.timer")
+local automation = require("automation")
 
 WifiTransitions = require("lib.wifi-transitions")
 M = {}
@@ -19,15 +17,7 @@ local wifiActions = {
                                  "Off Home Network - %s, cooling down...",
                                  new_ssid), hsScreen.allScreens(), 3)
 
-                hsApp.find("eqMac", true):kill()
-
-                hsTimer.waitUntil(function()
-                    return hsApp.find("eqMac", true) == nil
-                end, function()
-                    local outputDevice = hsAudioDevice.defaultOutputDevice()
-                    outputDevice:setOutputVolume(0)
-                    outputDevice:setOutputMuted(false)
-                end, 1)
+                automation.homeSetup()
             end
         }
     }, {
@@ -39,16 +29,13 @@ local wifiActions = {
                                  "Connected to Home Network - %s, spicing up...",
                                  new_ssid), hsScreen.allScreens(), 3)
 
-                hsApp.open("eqMac", 10, true)
-                local outputDevice = hsAudioDevice.defaultOutputDevice()
-                outputDevice:setOutputVolume(30)
-                outputDevice:setOutputMuted(false)
+                automation.workSetup()
             end
         }
     }
 }
 
-M.setup = function()
+M.start = function()
     WifiTransitions.logger.setLogLevel(5)
     WifiTransitions:start()
 

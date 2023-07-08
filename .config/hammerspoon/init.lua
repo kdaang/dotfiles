@@ -1,17 +1,17 @@
 require("utils")
 require("hs.ipc")
 
-Crons = require("crons")
 Clipboard = require("clipboard")
-WindowManagement = require("window-management")
-WifiActions = require("wifi-actions")
+Crons = require("crons")
+KeyBinds = require("key-binds")
+
 Caffeine = require("caffeine")
 
 Clipboard.setup()
-WindowManagement.setup()
-WifiActions.setup()
-Caffeine.setup()
 Crons.runJobs()
+KeyBinds.setup()
+
+Caffeine.setup()
 
 --
 -- local windows = hs.window.allWindows()
