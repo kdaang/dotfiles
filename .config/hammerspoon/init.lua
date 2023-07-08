@@ -1,6 +1,5 @@
 require("lib.constants")
 require("hs.ipc")
-utils = require("utils")
 
 Clipboard = require("clipboard")
 Crons = require("crons")
@@ -9,6 +8,7 @@ KeyBinds = require("key-binds")
 Caffeine = require("caffeine")
 Automation = require("automation")
 local hsApplication = require("hs.application")
+local utils = require("utils")
 
 local function loadModules()
     Clipboard.setup()

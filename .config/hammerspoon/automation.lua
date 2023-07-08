@@ -2,6 +2,7 @@ require("lib.constants")
 local hsAudioDevice = require("hs.audiodevice")
 local utils = require("utils")
 local wm = require("window-management")
+local caffeine = require("caffeine")
 
 local M = {}
 
@@ -31,13 +32,15 @@ end
 
 M.run = function()
     local wifiName = utils.getCurrentWifiName()
-    print(string.format("On Network: %s", wifiName))
+    print(string.format("On Network: %s\n", wifiName))
 
     if (wifiName == HOME_NETWORK_NAME) then
         M.homeSetup()
     else
         M.workSetup()
     end
+
+    caffeine.setup()
 
     wm.configureWindows()
 

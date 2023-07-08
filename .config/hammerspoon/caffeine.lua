@@ -33,6 +33,8 @@ M.setup = function()
         caffeine:setClickCallback(caffeineClicked)
         M.setCaffeine(M.shouldCaffeinate())
     end
+
+    print("done running caffeine setup!")
 end
 
 return M
