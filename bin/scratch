@@ -2,8 +2,10 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-HISTFILE=~/.local/share/fish/fish_history
-set -o history 
+yabai="/opt/homebrew/bin/yabai"
+jq="/opt/homebrew/bin/jq"
 
 echo "GOGO HEHEHEH"
-commandline $(history | fzf)
+unmanagedWindowIds=$($yabai -m query --windows | $jq '.[] | select(."is-floating") | .id')
+
+echo $unmanagedWindowIds | tr -d '\n' | sed -e "s/ /,/g"
