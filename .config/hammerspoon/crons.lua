@@ -20,6 +20,8 @@ M.autoReloadConfig = function()
     configFileWatcher:start()
 end
 
+M.caffeinate = function() end
+
 M.runJobs = function()
     M.autoReloadConfig()
     WifiActions.start()

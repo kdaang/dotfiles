@@ -22,4 +22,14 @@ M.closeApp = function(appName) hsApp.find(appName, true):kill() end
 
 M.getCurrentWifiName = function() return hsWifi.currentNetwork() end
 
+M.getComputerName = function()
+    local computerName = hs.execute("scutil --get ComputerName", false)
+    return computerName
+end
+
+M.isPersonalComputer = function()
+    local computerName = M.getComputerName()
+    return string.find(computerName, "gogo") ~= nil
+end
+
 return M
