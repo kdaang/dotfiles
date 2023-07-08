@@ -23,5 +23,10 @@ loadModules()
 -- Automation.run()
 
 --
--- local windows = hs.window.allWindows()
--- for _, window in ipairs(windows) do print(hs.inspect(window)) end
+local screens = hs.screen.allScreens()
+for _, screen in ipairs(screens) do
+    print(hs.inspect(screen))
+    print("uuid: " .. screen:getUUID())
+    print("name: " .. screen:name())
+    print("")
+end
