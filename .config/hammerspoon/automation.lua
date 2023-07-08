@@ -29,7 +29,7 @@ M.homeSetup = function()
     print("done running home setup!")
 end
 
-M.init = function()
+M.run = function()
     local wifiName = utils.getCurrentWifiName()
     print(string.format("On Network: %s", wifiName))
 

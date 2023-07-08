@@ -22,7 +22,7 @@ end
 # misc
 alias vim nvim
 alias fk fuck
-alias cw="hmw 'Automation.init()'"
+alias cw="hmw 'Automation.run()'"
 
 alias ll "exa -l -g --icons"
 alias lla "ll -a"

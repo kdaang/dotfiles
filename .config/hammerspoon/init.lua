@@ -20,7 +20,7 @@ end
 
 hsApplication.enableSpotlightForNameSearches(true)
 loadModules()
--- Automation.init()
+-- Automation.run()
 
 --
 -- local windows = hs.window.allWindows()
