@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+command="hs -t 20 -c '$@'"
+echo -e "$command\n"
+
+eval "$command"
+
+

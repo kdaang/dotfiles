@@ -22,7 +22,7 @@ end
 # misc
 alias vim nvim
 alias fk fuck
-alias cw="yabaiw configure_workspace"
+alias cw="hmw 'Automation.init()'"
 
 alias ll "exa -l -g --icons"
 alias lla "ll -a"
