@@ -1,5 +1,6 @@
 require("lib.constants")
 require("hs.ipc")
+utils = require("utils")
 
 Clipboard = require("clipboard")
 Crons = require("crons")
