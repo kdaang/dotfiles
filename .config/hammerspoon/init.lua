@@ -7,6 +7,7 @@ KeyBinds = require("key-binds")
 
 Caffeine = require("caffeine")
 Automation = require("automation")
+TSApp = require("ts-app")
 local hsApplication = require("hs.application")
 local utils = require("utils")
 
@@ -16,6 +17,7 @@ local function loadModules()
     KeyBinds.setup()
 
     Caffeine.setup()
+    -- TSApp.setup()
 end
 
 hsApplication.enableSpotlightForNameSearches(true)

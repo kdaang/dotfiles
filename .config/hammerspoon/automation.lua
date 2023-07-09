@@ -51,14 +51,6 @@ M.run = function()
     hsNotify.show("Automation Script", "", "done cw!")
 end
 
-M.test = function()
-    -- local BASH_COMMAND = "/opt/homebrew/bin/bash "
-    -- local output, status, type, rc = hs.execute(BASH_COMMAND .. "~/bin/scratch",
-    --                                             false)
-    -- print(string.format("%s, %s, %s, %s", output, status, type, rc))
-    -- print("done test")
-
-    local gogo = hs.notify.show("Automation Script", "", "done cw!")
-end
+M.test = function() end
 
 return M

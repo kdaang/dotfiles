@@ -67,4 +67,11 @@ M.isWorkingTime = function()
     return M.isBetweenTime(s, e, currT) and M.isWeekday()
 end
 
+M.getFormattedDate = function(epochSeconds, localTimezone)
+    local formatStr = "%A, %B %d, %Y %X" -- eg. Sunday, July 09, 2023 22:01:54
+    if not localTimezone then formatStr = "!" .. formatStr end
+
+    return os.date(formatStr, epochSeconds)
+end
+
 return M
