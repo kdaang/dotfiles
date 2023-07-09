@@ -3,55 +3,56 @@ local hsWindow = require("hs.window")
 local hsInspect = require("hs.inspect")
 local hsScreen = require("hs.screen")
 local hsSpaces = require("hs.spaces")
+local hsFnUtils = require("hs.fnutils")
 
 local M = {}
 
 local BASH_COMMAND = "/opt/homebrew/bin/bash "
 
+local getMonitorConfig = function(screens)
+    if #screens == 3 then
+        return {
+            [MONITOR_NAME_1] = {spaceCount = 2},
+            [MONITOR_NAME_2] = {spaceCount = 1},
+            [MONITOR_NAME_3] = {spaceCount = 1}
+        }
+    elseif #screens == 2 then
+        local otherScreen = hsFnUtils.find(screens, function(screen)
+            return screen:name() ~= MONITOR_NAME_BUILT_IN
+        end)
+        return {
+            [otherScreen:name()] = {spaceCount = 3},
+            [MONITOR_NAME_BUILT_IN] = {spaceCount = 1}
+        }
+    else
+        return {[screens[1]:name()] = {spaceCount = 3}}
+    end
+end
+
 local setupSpaces = function()
 
-    MONITOR_CONFIG = {
-        [MONITOR_NAME_1] = {spaceCount = 2},
-        [MONITOR_NAME_2] = {spaceCount = 1},
-        [MONITOR_NAME_3] = {spaceCount = 1}
-    }
-
     local spaces = hsSpaces.allSpaces()
-
-    print(hsInspect(spaces))
-    print("")
-
     local screens = hsScreen.allScreens()
-    print(hsInspect(screens))
-    print("monitor count: " .. #screens)
-    print("")
+    local monitorConfig = getMonitorConfig(screens)
 
     for _, screen in ipairs(screens) do
-        print(hsInspect(screen))
-        local config = MONITOR_CONFIG[screen:name()]
+        local config = monitorConfig[screen:name()]
         local screenSpaces = spaces[screen:getUUID()]
         local spaceCountDiff = #screenSpaces - config.spaceCount
-        print("uuid: " .. screen:getUUID())
-        print("name: " .. screen:name())
-        print("config: " .. hsInspect(config))
-        print("screenSpaces: " .. hsInspect(screenSpaces))
-        print("spaceCountDiff: " .. spaceCountDiff)
-        print("")
 
         if spaceCountDiff > 0 then
             for i = 1, spaceCountDiff, 1 do
                 hsSpaces.removeSpace(screenSpaces[#screenSpaces - i + 1], false)
-                print("removing space")
             end
         elseif spaceCountDiff < 0 then
             for _ = 1, math.abs(spaceCountDiff), 1 do
                 hsSpaces.addSpaceToScreen(screen, false)
-                print("adding space")
             end
         end
     end
 
     hsSpaces.closeMissionControl()
+    print("done setting up spaces!")
 end
 
 local maximizeUnmangedWindows = function()
