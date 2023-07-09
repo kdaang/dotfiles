@@ -1,5 +1,6 @@
 require("lib.constants")
 local hsAudioDevice = require("hs.audiodevice")
+local hsNotify = require("hs.notify")
 local hsSpotify = require("hs.spotify")
 local utils = require("utils")
 local wm = require("window-management")
@@ -47,14 +48,17 @@ M.run = function()
     hsSpotify.setVolume(50)
 
     print("done automating!")
+    hsNotify.show("Automation Script", "", "done cw!")
 end
 
 M.test = function()
-    local BASH_COMMAND = "/opt/homebrew/bin/bash "
-    local output, status, type, rc = hs.execute(BASH_COMMAND .. "~/bin/scratch",
-                                                false)
-    print(string.format("%s, %s, %s, %s", output, status, type, rc))
-    print("done test")
+    -- local BASH_COMMAND = "/opt/homebrew/bin/bash "
+    -- local output, status, type, rc = hs.execute(BASH_COMMAND .. "~/bin/scratch",
+    --                                             false)
+    -- print(string.format("%s, %s, %s, %s", output, status, type, rc))
+    -- print("done test")
+
+    local gogo = hs.notify.show("Automation Script", "", "done cw!")
 end
 
 return M

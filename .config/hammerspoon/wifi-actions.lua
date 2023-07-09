@@ -16,7 +16,7 @@ local wifiActions = {
                                  "Off Home Network - %s, cooling down...",
                                  new_ssid), hsScreen.allScreens(), 3)
 
-                automation.homeSetup()
+                automation.run()
             end
         }
     }, {
@@ -28,7 +28,7 @@ local wifiActions = {
                                  "Connected to Home Network - %s, spicing up...",
                                  new_ssid), hsScreen.allScreens(), 3)
 
-                automation.workSetup()
+                automation.run()
             end
         }
     }
