@@ -44,6 +44,42 @@ function tsApp:init()
                 string.format("UTC: %s\nET: %s",
                               utils.getFormattedDate(ts, false),
                               utils.getFormattedDate(ts, true)))
+        }, {
+            ["text"] = getStyledText(ts),
+            ["subText"] = getStyledSubText(
+                string.format("UTC: %s\nET: %s",
+                              utils.getFormattedDate(ts, false),
+                              utils.getFormattedDate(ts, true)))
+        }, {
+            ["text"] = getStyledText(ts),
+            ["subText"] = getStyledSubText(
+                string.format("UTC: %s\nET: %s",
+                              utils.getFormattedDate(ts, false),
+                              utils.getFormattedDate(ts, true)))
+        }, {
+            ["text"] = getStyledText(ts),
+            ["subText"] = getStyledSubText(
+                string.format("UTC: %s\nET: %s",
+                              utils.getFormattedDate(ts, false),
+                              utils.getFormattedDate(ts, true)))
+        }, {
+            ["text"] = getStyledText(ts),
+            ["subText"] = getStyledSubText(
+                string.format("UTC: %s\nET: %s",
+                              utils.getFormattedDate(ts, false),
+                              utils.getFormattedDate(ts, true)))
+        }, {
+            ["text"] = getStyledText(ts),
+            ["subText"] = getStyledSubText(
+                string.format("UTC: %s\nET: %s",
+                              utils.getFormattedDate(ts, false),
+                              utils.getFormattedDate(ts, true)))
+        }, {
+            ["text"] = getStyledText(ts),
+            ["subText"] = getStyledSubText(
+                string.format("UTC: %s\nET: %s",
+                              utils.getFormattedDate(ts, false),
+                              utils.getFormattedDate(ts, true)))
         }
     }
 
@@ -65,6 +101,7 @@ function tsApp:setup()
 
     self.chooser:bgDark(true)
     self.chooser:fgColor(hs.drawing.color.definedCollections.x11.cyan)
+    self.chooser:rows(20)
 
     self.chooser:choices(function() return self:getChoices() end)
     self.chooser:show()
