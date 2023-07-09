@@ -1,5 +1,6 @@
 require("lib.constants")
 local hsAudioDevice = require("hs.audiodevice")
+local hsSpotify = require("hs.spotify")
 local utils = require("utils")
 local wm = require("window-management")
 local caffeine = require("caffeine")
@@ -43,6 +44,7 @@ M.run = function()
     caffeine.setup()
 
     wm.configureWindows()
+    hsSpotify.setVolume(50)
 
     print("done automating!")
 end
