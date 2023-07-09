@@ -10,6 +10,6 @@
     "window_name": { "fg": "white", "bg": "darkblue", "attrs": ["bold"] },
     "session": { "fg": "black", "bg": "gray90", "attrs": ["bold"] },
     "session:prefix": { "fg": "gray90", "bg": "darkblue", "attrs": ["bold"] },
-    "player": { "fg": "white", "bg": "darkestpurple", "attrs": ["bold"] }
+    "player": { "fg": "white", "bg": "darkestpurple", "attrs": [] }
   }
 }
