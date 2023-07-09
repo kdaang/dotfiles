@@ -27,18 +27,29 @@ local setupSpaces = function()
         print(hs.inspect(screen))
         local config = MONITOR_CONFIG[screen:name()]
         local screenSpaces = spaces[screen:getUUID()]
-        local totalSpacesToRemove = #screenSpaces - config.spaceCount
+        local spaceCountDiff = #screenSpaces - config.spaceCount
         print("uuid: " .. screen:getUUID())
         print("name: " .. screen:name())
         print("config: " .. hs.inspect(config))
         print("screenSpaces: " .. hs.inspect(screenSpaces))
-        print("totalSpacesToRemove: " .. totalSpacesToRemove)
+        print("spaceCountDiff: " .. spaceCountDiff)
         print("")
 
-        for i = 1, totalSpacesToRemove + 1, 1 do
-            hs.spaces.removeSpace(screenSpaces[i], true)
+        if spaceCountDiff > 0 then
+            for i = 1, spaceCountDiff, 1 do
+                hs.spaces
+                    .removeSpace(screenSpaces[#screenSpaces - i + 1], false)
+                print("removing space")
+            end
+        elseif spaceCountDiff < 0 then
+            for _ = 1, math.abs(spaceCountDiff), 1 do
+                hs.spaces.addSpaceToScreen(screen, false)
+                print("adding space")
+            end
         end
     end
+
+    hs.spaces.closeMissionControl()
 end
 
 local maximizeUnmangedWindows = function()
