@@ -1,5 +1,8 @@
 require("lib.constants")
 local hsWindow = require("hs.window")
+local hsInspect = require("hs.inspect")
+local hsScreen = require("hs.screen")
+local hsSpaces = require("hs.spaces")
 
 local M = {}
 
@@ -13,43 +16,42 @@ local setupSpaces = function()
         [MONITOR_NAME_3] = {spaceCount = 1}
     }
 
-    local spaces = hs.spaces.allSpaces()
+    local spaces = hsSpaces.allSpaces()
 
-    print(hs.inspect(spaces))
+    print(hsInspect(spaces))
     print("")
 
-    local screens = hs.screen.allScreens()
-    print(hs.inspect(screens))
+    local screens = hsScreen.allScreens()
+    print(hsInspect(screens))
     print("monitor count: " .. #screens)
     print("")
 
     for _, screen in ipairs(screens) do
-        print(hs.inspect(screen))
+        print(hsInspect(screen))
         local config = MONITOR_CONFIG[screen:name()]
         local screenSpaces = spaces[screen:getUUID()]
         local spaceCountDiff = #screenSpaces - config.spaceCount
         print("uuid: " .. screen:getUUID())
         print("name: " .. screen:name())
-        print("config: " .. hs.inspect(config))
-        print("screenSpaces: " .. hs.inspect(screenSpaces))
+        print("config: " .. hsInspect(config))
+        print("screenSpaces: " .. hsInspect(screenSpaces))
         print("spaceCountDiff: " .. spaceCountDiff)
         print("")
 
         if spaceCountDiff > 0 then
             for i = 1, spaceCountDiff, 1 do
-                hs.spaces
-                    .removeSpace(screenSpaces[#screenSpaces - i + 1], false)
+                hsSpaces.removeSpace(screenSpaces[#screenSpaces - i + 1], false)
                 print("removing space")
             end
         elseif spaceCountDiff < 0 then
             for _ = 1, math.abs(spaceCountDiff), 1 do
-                hs.spaces.addSpaceToScreen(screen, false)
+                hsSpaces.addSpaceToScreen(screen, false)
                 print("adding space")
             end
         end
     end
 
-    hs.spaces.closeMissionControl()
+    hsSpaces.closeMissionControl()
 end
 
 local maximizeUnmangedWindows = function()
