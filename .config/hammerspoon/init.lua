@@ -1,5 +1,5 @@
-require("lib.constants")
-require("hs.ipc")
+Constants = require("lib.constants")
+IPC = require("hs.ipc")
 
 Clipboard = require("clipboard")
 Crons = require("crons")
