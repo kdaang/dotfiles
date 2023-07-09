@@ -2,26 +2,12 @@
   "segments": {
     "right": [
       {
-        "function": "powerline.segments.common.sys.uptime",
-        "priority": 50
-      },
-      {
-        "function": "powerline.segments.common.sys.system_load",
-        "priority": 50
-      },
-      {
-        "function": "powerline.segments.common.time.date"
-      },
-      {
-        "function": "powerline.segments.common.time.date",
-        "name": "time",
+        "function": "powerline.segments.common.players.spotify",
+        "name": "player",
+        "priority": 50,
         "args": {
-          "format": "%H:%M",
-          "istime": true
+          "format": "{state_symbol} {artist} - {title} {elapsed}/{total}"
         }
-      },
-      {
-        "function": "powerline.segments.common.net.hostname"
       }
     ]
   }
