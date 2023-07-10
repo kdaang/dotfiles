@@ -1,21 +1,24 @@
 local utils = require("utils")
 local clipboard = require("clipboard")
+local hsDrawing = require("hs.drawing")
+local hsStyledText = require("hs.styledtext")
+local hsChooser = require("hs.chooser")
 
 local tsApp = {}
 
 local getStyledText = function(text)
-    return hs.styledtext.new(text, {
+    return hsStyledText.new(text, {
         font = {size = 17},
-        color = hs.drawing.color.definedCollections.x11.ivory,
+        color = hsDrawing.color.definedCollections.x11.ivory,
         lineSpace = 20.0,
         paragraphSpacing = 20.0
     })
 end
 
 local getStyledSubText = function(text)
-    return hs.styledtext.new(text, {
+    return hsStyledText.new(text, {
         font = {size = 15},
-        color = hs.drawing.color.definedCollections.x11.darkgrey,
+        color = hsDrawing.color.definedCollections.x11.darkgrey,
         lineSpace = 20.0,
         paragraphSpacing = 20.0
     })
@@ -41,7 +44,6 @@ end
 
 function tsApp:getChoices()
     local timestamps = self.timestampHistory:getContents()
-    print("history: " .. hs.inspect(timestamps))
     return formatChoices(timestamps)
 end
 
@@ -70,14 +72,13 @@ end
 function tsApp:init()
     self:setup()
     self.timestampHistory = clipboard.New("ts-app", timestampFilter)
-    print("history: " .. hs.inspect(self.timestampHistory:getContents()))
 
-    self.chooser = hs.chooser.new(function(choice)
+    self.chooser = hsChooser.new(function(choice)
         return self:handleChooserCallback(choice)
     end)
 
     self.chooser:bgDark(true)
-    self.chooser:fgColor(hs.drawing.color.definedCollections.x11.cyan)
+    self.chooser:fgColor(hsDrawing.color.definedCollections.x11.cyan)
     self.chooser:rows(20)
 
     self.chooser:choices(function() return self:getChoices() end)
@@ -87,6 +88,8 @@ end
 
 function tsApp:trigger()
     local text = utils.getSelectedText()
+    self.timestampHistory:saveToHistory(text)
+
     self.chooser:refreshChoicesCallback()
     self.chooser:show()
 end
