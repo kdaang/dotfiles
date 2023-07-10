@@ -12,7 +12,7 @@ local hsApplication = require("hs.application")
 local utils = require("utils")
 
 local function loadModules()
-    ClipboardHistory.setup()
+    ClipboardHistory:setup()
     Crons.runJobs()
     KeyBinds.setup()
 
@@ -24,11 +24,4 @@ hsApplication.enableSpotlightForNameSearches(true)
 loadModules()
 -- Automation.run()
 
---
-local screens = hs.screen.allScreens()
-for _, screen in ipairs(screens) do
-    print(hs.inspect(screen))
-    print("uuid: " .. screen:getUUID())
-    print("name: " .. screen:name())
-    print("")
-end
+print("~~~~~~~~~~~")
