@@ -16,7 +16,7 @@ C.New = function(key, filterFn, historySize)
     end
 
     function M:insertItem(item)
-        table.insert(self.clipboardHistory, item)
+        table.insert(self.clipboardHistory, tostring(item))
         hsSettings.set(self.key, self.clipboardHistory)
     end
 
@@ -45,9 +45,7 @@ C.New = function(key, filterFn, historySize)
         while (#self.clipboardHistory >= HIST_SIZE) do
             self:removeOldestItem()
         end
-        if (self.filterFn ~= nil) then
-            cleanedItem = tostring(self.filterFn(item))
-        end
+        if (self.filterFn ~= nil) then cleanedItem = self.filterFn(item) end
 
         if cleanedItem ~= nil then self:insertItem(cleanedItem) end
     end
