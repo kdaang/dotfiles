@@ -8,7 +8,7 @@ local C = {}
 C.New = function(key, filterFn, historySize)
     local M = {}
     local FREQUENCY = 0.8
-    local HIST_SIZE = historySize or 20
+    local HIST_SIZE = historySize or 1000
 
     function M:clearAll()
         hsPasteboard.clearContents()
@@ -29,13 +29,25 @@ C.New = function(key, filterFn, historySize)
 
     function M:getHistory() return hsSettings.get(self.key) or {} end
 
+    function M:getLastItem()
+        if #self.clipboardHistory > 0 then
+            return self.clipboardHistory[#self.clipboardHistory]
+        end
+        return nil
+    end
+
     function M:saveToHistory(item)
+        if (item == nil) then return end
+
+        local cleanedItem = tostring(item)
+        if (cleanedItem == self:getLastItem()) then return end
+
         while (#self.clipboardHistory >= HIST_SIZE) do
             self:removeOldestItem()
         end
-
-        local cleanedItem = item
-        if (self.filterFn ~= nil) then cleanedItem = self.filterFn(item) end
+        if (self.filterFn ~= nil) then
+            cleanedItem = tostring(self.filterFn(item))
+        end
 
         if cleanedItem ~= nil then self:insertItem(cleanedItem) end
     end
@@ -47,11 +59,12 @@ C.New = function(key, filterFn, historySize)
 
     function M:storeCopy()
         local currentChangeCount = hsPasteboard.changeCount()
-        if (currentChangeCount > self.lastChangeCount) then
-            local currentClipboard = hsPasteboard.getContents()
-            self:saveToHistory(currentClipboard)
-            self.lastChangeCount = currentChangeCount
-        end
+        local currentClipboard = hsPasteboard.getContents()
+        local lastItem = self:getLastItem()
+
+        if (currentChangeCount > self.lastChangeCount and currentClipboard ~=
+            lastItem) then self:saveToHistory(currentClipboard) end
+        self.lastChangeCount = currentChangeCount
     end
 
     function M:setup(key, filterFn)

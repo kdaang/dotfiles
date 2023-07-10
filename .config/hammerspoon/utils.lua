@@ -2,6 +2,8 @@ require("lib.constants")
 local hsApp = require("hs.application")
 local hsTimer = require("hs.timer")
 local hsWifi = require("hs.wifi")
+local hsEventTap = require("hs.eventtap")
+local hsPasteboard = require("hs.pasteboard")
 
 local M = {}
 
@@ -75,9 +77,10 @@ M.getFormattedDate = function(epochSeconds, localTimezone)
 end
 
 M.getSelectedText = function()
-    hs.eventtap.keyStroke({"cmd"}, "c")
-    hs.timer.usleep(20000)
-    sel = hs.pasteboard.getContents()
+    hsEventTap.keyStroke({"cmd"}, "c")
+    hsTimer.usleep(20000)
+    local sel = hsPasteboard.getContents()
+    hsPasteboard.clearContents()
     return (sel or "")
 end
 

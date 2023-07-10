@@ -44,6 +44,10 @@ end
 
 function tsApp:getChoices()
     local timestamps = self.timestampHistory:getContents()
+
+    print("timestamps~~~")
+    print(hs.inspect(timestamps))
+
     return formatChoices(timestamps)
 end
 
@@ -61,9 +65,9 @@ local timestampFilter = function(item)
     if (ts == nil) then return nil end
 
     if pcall(os.date, "*t", ts) then
-        return ts
+        return tostring(ts)
     elseif pcall(os.date, "*t", ts / 1000) then
-        return ts / 1000
+        return tostring(ts / 1000)
     end
 
     return nil
@@ -88,7 +92,9 @@ end
 
 function tsApp:trigger()
     local text = utils.getSelectedText()
-    self.timestampHistory:saveToHistory(text)
+    if timestampFilter(text) ~= nil then
+        self.timestampHistory:saveToHistory(text)
+    end
 
     self.chooser:refreshChoicesCallback()
     self.chooser:show()
