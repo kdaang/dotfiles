@@ -1,7 +1,7 @@
 Constants = require("lib.constants")
 IPC = require("hs.ipc")
 
-Clipboard = require("clipboard")
+ClipboardHistory = require("clipboard-history")
 Crons = require("crons")
 KeyBinds = require("key-binds")
 
@@ -12,7 +12,7 @@ local hsApplication = require("hs.application")
 local utils = require("utils")
 
 local function loadModules()
-    Clipboard.setup()
+    ClipboardHistory.setup()
     Crons.runJobs()
     KeyBinds.setup()
 

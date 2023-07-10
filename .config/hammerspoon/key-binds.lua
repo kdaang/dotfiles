@@ -7,6 +7,8 @@ local M = {}
 
 local hyper = {"cmd", "alt", "ctrl", "shift"}
 
+local app = tsApp:init()
+
 M.setup = function()
 
     hsHotkey.bind({"cmd", "alt", "ctrl"}, "W",
@@ -16,7 +18,7 @@ M.setup = function()
 
     hsHotkey.bind({}, "f4", WM.configureWindows)
 
-    hsHotkey.bind(hyper, "space", function() tsApp:setup() end)
+    hsHotkey.bind(hyper, "space", function() app:trigger() end)
 end
 
 return M

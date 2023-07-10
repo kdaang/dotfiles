@@ -74,4 +74,11 @@ M.getFormattedDate = function(epochSeconds, localTimezone)
     return os.date(formatStr, epochSeconds)
 end
 
+M.getSelectedText = function()
+    hs.eventtap.keyStroke({"cmd"}, "c")
+    hs.timer.usleep(20000)
+    sel = hs.pasteboard.getContents()
+    return (sel or "")
+end
+
 return M
