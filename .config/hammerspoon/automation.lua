@@ -51,6 +51,9 @@ M.run = function()
     hsNotify.show("Automation Script", "", "done cw!")
 end
 
-M.test = function() end
+M.test = function()
+    local BASH_COMMAND = "/opt/homebrew/bin/bash "
+    -- todo find right command to use
+end
 
 return M

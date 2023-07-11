@@ -4,6 +4,7 @@ local hsInspect = require("hs.inspect")
 local hsScreen = require("hs.screen")
 local hsSpaces = require("hs.spaces")
 local hsFnUtils = require("hs.fnutils")
+local hsTimer = require("hs.timer")
 
 local M = {}
 
@@ -35,24 +36,32 @@ local setupSpaces = function()
     local screens = hsScreen.allScreens()
     local monitorConfig = getMonitorConfig(screens)
 
-    for _, screen in ipairs(screens) do
-        local config = monitorConfig[screen:name()]
-        local screenSpaces = spaces[screen:getUUID()]
-        local spaceCountDiff = #screenSpaces - config.spaceCount
+    -- go to first space to be able to remove spaces starting from the end
+    -- cause can't remove space if focused.
+    local anySpaceId = spaces[screens[1]:getUUID()][1]
+    hsSpaces.gotoSpace(anySpaceId)
 
-        if spaceCountDiff > 0 then
-            for i = 1, spaceCountDiff, 1 do
-                hsSpaces.removeSpace(screenSpaces[#screenSpaces - i + 1], false)
-            end
-        elseif spaceCountDiff < 0 then
-            for _ = 1, math.abs(spaceCountDiff), 1 do
-                hsSpaces.addSpaceToScreen(screen, false)
-            end
-        end
-    end
+    hsTimer.waitUntil(
+        function() return hsSpaces.focusedSpace() == anySpaceId end, function()
+            for _, screen in ipairs(screens) do
+                local config = monitorConfig[screen:name()]
+                local screenSpaces = spaces[screen:getUUID()]
+                local spaceCountDiff = #screenSpaces - config.spaceCount
 
-    hsSpaces.closeMissionControl()
-    print("done setting up spaces!")
+                if spaceCountDiff > 0 then
+                    for i = 1, spaceCountDiff, 1 do
+                        hsSpaces.removeSpace(
+                            screenSpaces[#screenSpaces - i + 1], false)
+                    end
+                elseif spaceCountDiff < 0 then
+                    for _ = 1, math.abs(spaceCountDiff), 1 do
+                        hsSpaces.addSpaceToScreen(screen, false)
+                    end
+                end
+            end
+            hsSpaces.closeMissionControl()
+            print("done setting up spaces!")
+        end, 0.2)
 end
 
 local maximizeUnmangedWindows = function()
