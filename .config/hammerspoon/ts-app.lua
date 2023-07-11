@@ -32,7 +32,7 @@ local formatChoices = function(timestamps)
         local choice = {}
         choice.text = getStyledText(ts)
         choice.subText = getStyledSubText(
-                             string.format("UTC: %s\nLocal: %s",
+                             string.format("UTC:  %s\nLocal: %s",
                                            utils.getFormattedDate(ts, false),
                                            utils.getFormattedDate(ts, true))) ..
                              "\n"
