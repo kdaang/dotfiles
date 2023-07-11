@@ -61,13 +61,10 @@ function tsApp:handleChooserCallback(choice)
 end
 
 local timestampFilter = function(item)
-    local ts = tonumber(item)
-    if (ts == nil) then return nil end
+    if (type(item) ~= "string") then return nil end
 
-    if pcall(os.date, "*t", ts) then
-        return tostring(ts)
-    elseif pcall(os.date, "*t", ts / 1000) then
-        return tostring(ts / 1000)
+    if tonumber(item) ~= nil and (#item == 10 or #item == 13) then
+        return item
     end
 
     return nil

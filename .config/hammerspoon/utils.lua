@@ -69,11 +69,19 @@ M.isWorkingTime = function()
     return M.isBetweenTime(s, e, currT) and M.isWeekday()
 end
 
-M.getFormattedDate = function(epochSeconds, localTimezone)
+M.getFormattedDate = function(ts, localTimezone)
+    if not M.isTimestamp(ts) then return nil end
+
     local formatStr = "%A, %B %d, %Y %X" -- eg. Sunday, July 09, 2023 22:01:54
     if not localTimezone then formatStr = "!" .. formatStr end
 
-    return os.date(formatStr, epochSeconds)
+    local tsStr = tostring(ts)
+    if M.isTimestampInMillis(ts) then
+        return os.date(formatStr, ts // 1000) .. "." ..
+                   string.sub(tsStr, #tsStr - 2, #tsStr)
+    end
+
+    return os.date(formatStr, ts)
 end
 
 M.getSelectedText = function()
@@ -82,6 +90,13 @@ M.getSelectedText = function()
     local sel = hsPasteboard.getContents()
     hsPasteboard.clearContents()
     return (sel or "")
+end
+
+M.isTimestampInMillis = function(ts) return #tostring(ts) == 13 end
+M.isTimestampInSec = function(ts) return #tostring(ts) == 10 end
+
+M.isTimestamp = function(ts)
+    return M.isTimestampInMillis(ts) or M.isTimestampInSec(ts)
 end
 
 return M
