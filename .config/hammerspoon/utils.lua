@@ -21,7 +21,10 @@ M.openApp = function(appName, hideApp)
     if (hideApp) then hsTimer.doAfter(0.5, function() app:hide() end) end
 end
 
-M.closeApp = function(appName) hsApp.find(appName, true):kill() end
+M.closeApp = function(appName)
+    local app = hsApp.find(appName, true)
+    if (app ~= nil) then app:kill() end
+end
 
 M.getCurrentWifiName = function() return hsWifi.currentNetwork() end
 
