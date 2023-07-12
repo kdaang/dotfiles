@@ -31,37 +31,36 @@ local getMonitorConfig = function(screens)
 end
 
 local setupSpaces = function()
-
     local spaces = hsSpaces.allSpaces()
     local screens = hsScreen.allScreens()
     local monitorConfig = getMonitorConfig(screens)
 
-    -- go to first space to be able to remove spaces starting from the end
-    -- cause can't remove space if focused.
-    local anySpaceId = spaces[screens[1]:getUUID()][1]
-    hsSpaces.gotoSpace(anySpaceId)
+    for _, screen in ipairs(screens) do
+        local config = monitorConfig[screen:name()]
+        local screenSpaces = spaces[screen:getUUID()]
+        local spaceCountDiff = #screenSpaces - config.spaceCount
 
-    hsTimer.waitUntil(
-        function() return hsSpaces.focusedSpace() == anySpaceId end, function()
-            for _, screen in ipairs(screens) do
-                local config = monitorConfig[screen:name()]
-                local screenSpaces = spaces[screen:getUUID()]
-                local spaceCountDiff = #screenSpaces - config.spaceCount
-
-                if spaceCountDiff > 0 then
-                    for i = 1, spaceCountDiff, 1 do
-                        hsSpaces.removeSpace(
-                            screenSpaces[#screenSpaces - i + 1], false)
-                    end
-                elseif spaceCountDiff < 0 then
-                    for _ = 1, math.abs(spaceCountDiff), 1 do
-                        hsSpaces.addSpaceToScreen(screen, false)
-                    end
+        if spaceCountDiff > 0 then
+            local i = spaceCountDiff
+            for _, spaceID in ipairs(screenSpaces) do
+                if i == 0 then break end
+                -- this is done to ensure the right number of spaces can be deleted since a focused space cannot be deleted
+                if spaceID ~= hsSpaces.focusedSpace() then
+                    local isRemoved, errMsg =
+                        hsSpaces.removeSpace(spaceID, false)
+                    print("removing space error: " .. errMsg)
+                    if (isRemoved) then i = i - 1 end
                 end
             end
-            hsSpaces.closeMissionControl()
-            print("done setting up spaces!")
-        end, 0.2)
+        elseif spaceCountDiff < 0 then
+            for _ = 1, math.abs(spaceCountDiff), 1 do
+                hsSpaces.addSpaceToScreen(screen, false)
+            end
+        end
+    end
+    hsSpaces.closeMissionControl()
+    print("done setting up spaces!")
+
 end
 
 local maximizeUnmangedWindows = function()
@@ -92,10 +91,11 @@ M.maximizeWindow = function()
 end
 
 M.configureWindows = function()
+    -- KNOWN LIMITATION: sometimes windows don't properly move to the correct space if the window is off screen.
     setupSpaces()
-
     hs.execute(BASH_COMMAND .. "~/bin/yabaiw configure_workspace", false)
 
+    hsTimer.usleep(300000) -- adding delay cause sometimes windows don't maximize but adding delay seems to help
     maximizeUnmangedWindows()
 
     print("done configuring windows!")
