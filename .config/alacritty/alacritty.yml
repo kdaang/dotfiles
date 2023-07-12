@@ -4,7 +4,7 @@ env:
   TERM: xterm-256color
 
 shell:
-  program: /opt/homebrew/bin/fish
+  program: fish
   args:
     - --login
     - --init-command
