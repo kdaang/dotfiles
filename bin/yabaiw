@@ -2,11 +2,23 @@
 set -euo pipefail
 IFS=$'\n\t'
     
-yabai="/opt/homebrew/bin/yabai"
-jq="/opt/homebrew/bin/jq"
+
+command_exists () {
+    command -v "$1" &> /dev/null ;
+}
+
+YABAI_COMMAND="/opt/homebrew/bin/yabai"
+JQ_COMMAND="/opt/homebrew/bin/jq"
+
+if ! command_exists $YABAI_COMMAND ; then
+    YABAI_COMMAND="/usr/local/bin/yabai"
+fi
+if ! command_exists $JQ_COMMAND; then
+    JQ_COMMAND="/usr/local/bin/jq"
+fi
 
 get_unmanaged_windows() {
-    unmanagedWindowIds=$($yabai -m query --windows | $jq '.[] | select(."is-floating") | .id')
+    unmanagedWindowIds=$($YABAI_COMMAND -m query --windows | $JQ_COMMAND '.[] | select(."is-floating") | .id')
 
     echo $unmanagedWindowIds | tr -d '\n' | sed -e "s/ /,/g"
 }
@@ -35,15 +47,15 @@ configure_workspace() {
         echo "DRY RUN MODE - windows won't be moved"
     fi
 
-    windows=$($yabai -m query --windows)
-    display_count=$($yabai -m query --displays | $jq '. | length')
+    windows=$($YABAI_COMMAND -m query --windows)
+    display_count=$($YABAI_COMMAND -m query --displays | $JQ_COMMAND '. | length')
 
-    windows_arr=$(echo "$windows" | $jq -c '.[]')
+    windows_arr=$(echo "$windows" | $JQ_COMMAND -c '.[]')
 
     #echo "$windows"
-    $yabai -m space 1 --label main
-    $yabai -m space 2 --label code
-    $yabai -m space 3 --label chill
+    $YABAI_COMMAND -m space 1 --label main
+    $YABAI_COMMAND -m space 2 --label code
+    $YABAI_COMMAND -m space 3 --label chill
 
     d1_apps=("Google Chrome")
     d2_apps_1=("IntelliJ IDEA" "WebStorm" "CLion" "GoLand" "PyCharm" "Books" "CapCut")
@@ -82,16 +94,16 @@ configure_workspace() {
     printf "SPACE_MAP: %s\n\n" "${space_map[@]@K}"
 
     i=0
-    echo $windows | $jq -c '.[]' | while read -r item; do
-      app=$($jq -r '.app' <<< $item)
-      window_id=$($jq -r '.id' <<< $item)
+    echo $windows | $JQ_COMMAND -c '.[]' | while read -r item; do
+      app=$($JQ_COMMAND -r '.app' <<< $item)
+      window_id=$($JQ_COMMAND -r '.id' <<< $item)
 
       #echo $i, $app, $window_id
       #echo ""
       let "i=++i"
 
       if [[ -v space_map[$app] ]]; then
-        cmd="$yabai -m window $window_id ${space_map[$app]}"
+        cmd="$YABAI_COMMAND -m window $window_id ${space_map[$app]}"
         echo $cmd
         if [ $dry_run -ne 1 ]; then
           eval $cmd
