@@ -101,4 +101,16 @@ M.configureWindows = function()
     print("done configuring windows!")
 end
 
+M.setupWindowBorders = function()
+
+    hs.window.highlight.ui.overlay = true
+    hs.window.highlight.ui.overlayColor = {1, 1, 1, 0.00000000001}
+    hs.window.highlight.ui.frameWidth = 10
+    hs.window.highlight.ui.frameColor = {0, 1, 1, 0.5}
+
+    hs.window.highlight.start()
+
+    print("done configuring windows!")
+end
+
 return M

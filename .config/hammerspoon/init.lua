@@ -6,6 +6,7 @@ Crons = require("crons")
 KeyBinds = require("key-binds")
 
 Caffeine = require("caffeine")
+WindowManagement = require("window-management")
 Automation = require("automation")
 TSApp = require("ts-app")
 local hsApplication = require("hs.application")
@@ -17,6 +18,9 @@ local function loadModules()
     KeyBinds.setup()
 
     Caffeine.setup()
+
+    WindowManagement.setupWindowBorders()
+
     -- TSApp.setup()
 end
 
