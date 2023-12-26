@@ -19,7 +19,7 @@ local function loadModules()
 
     Caffeine.setup()
 
-    WindowManagement.setupWindowBorders()
+    -- WindowManagement.setupWindowBorders()
 
     -- TSApp.setup()
 end
