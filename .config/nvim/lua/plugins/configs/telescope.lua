@@ -120,7 +120,7 @@ M.live_grep_in_folder = function()
             entry_maker = make_entry.gen_from_file(options)
         },
         previewer = conf.file_previewer(options),
-        sorter = conf.generic_sorter(options),
+        sorter = conf.file_sorter(options),
         attach_mappings = function(prompt_bufnr)
             action_set.select:replace(function()
                 local current_picker = action_state.get_current_picker(
