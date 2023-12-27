@@ -1,16 +1,10 @@
-
 local present, lspsaga = pcall(require, "lspsaga")
 
-if not present then
-    return
-end
+if not present then return end
 
 local options = {
     border_style = "single",
-    preview = {
-        lines_above = 0,
-        lines_below = 10,
-    },
+    preview = {lines_above = 0, lines_below = 10},
     symbol_in_winbar = {
         enable = true,
         separator = " > ",
@@ -18,7 +12,7 @@ local options = {
         show_file = true,
         folder_level = 10,
         color_mode = false,
-        respect_root = true,
+        respect_root = true
     }
 }
 

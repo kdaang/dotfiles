@@ -1,11 +1,8 @@
 local present, auto_session = pcall(require, "auto-session")
 
-if not present then
-    return
-end
+if not present then return end
 
-local options = {
-}
+local options = {}
 
 options = require("core.utils").load_override(options, "auto_session")
 

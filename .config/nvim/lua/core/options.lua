@@ -10,8 +10,8 @@ g.theme_switcher_loaded = false
 
 -- use filetype.lua instead of filetype.vim. it's enabled by default in neovim 0.8 (nightly)
 if g.vim_version < 8 then
-  g.did_load_filetypes = 0
-  g.do_filetype_lua = 1
+    g.did_load_filetypes = 0
+    g.do_filetype_lua = 1
 end
 
 opt.laststatus = 3 -- global statusline
@@ -30,7 +30,7 @@ opt.smartindent = true
 opt.tabstop = 4
 opt.softtabstop = 4
 
-opt.fillchars = { eob = " " }
+opt.fillchars = {eob = " "}
 opt.ignorecase = true
 opt.smartcase = true
 opt.mouse = "a"
@@ -62,51 +62,25 @@ g.mapleader = " "
 
 -- disable some builtin vim plugins
 local default_plugins = {
-  "2html_plugin",
-  "getscript",
-  "getscriptPlugin",
-  "gzip",
-  "logipat",
-  "netrw",
-  "netrwPlugin",
-  "netrwSettings",
-  "netrwFileHandlers",
-  "matchit",
-  "tar",
-  "tarPlugin",
-  "rrhelper",
-  "spellfile_plugin",
-  "vimball",
-  "vimballPlugin",
-  "zip",
-  "zipPlugin",
-  "tutor",
-  "rplugin",
-  "syntax",
-  "synmenu",
-  "optwin",
-  "compiler",
-  "bugreport",
-  "ftplugin",
+    "2html_plugin", "getscript", "getscriptPlugin", "gzip", "logipat", "netrw",
+    "netrwPlugin", "netrwSettings", "netrwFileHandlers", "matchit", "tar",
+    "tarPlugin", "rrhelper", "spellfile_plugin", "vimball", "vimballPlugin",
+    "zip", "zipPlugin", "tutor", "rplugin", "syntax", "synmenu", "optwin",
+    "compiler", "bugreport", "ftplugin"
 }
 
-for _, plugin in pairs(default_plugins) do
-  g["loaded_" .. plugin] = 1
-end
+for _, plugin in pairs(default_plugins) do g["loaded_" .. plugin] = 1 end
 
-local default_providers = {
-  "node",
-  "perl",
-  "python3",
-  "ruby",
-}
+local default_providers = {"node", "perl", "python3", "ruby"}
 
 for _, provider in ipairs(default_providers) do
-  vim.g["loaded_" .. provider .. "_provider"] = 0
+    vim.g["loaded_" .. provider .. "_provider"] = 0
 end
 
 -- set shada path
 vim.schedule(function()
-  vim.opt.shadafile = vim.fn.stdpath(g.vim_version > 7 and "state" or "data") .. "/shada/main.shada"
-  vim.cmd [[ silent! rsh ]]
+    vim.opt.shadafile =
+        vim.fn.stdpath(g.vim_version > 7 and "state" or "data") ..
+            "/shada/main.shada"
+    vim.cmd [[ silent! rsh ]]
 end)
