@@ -28,6 +28,7 @@ yabai -m rule --add app="^Google Chrome$" grid=1:1:0:0:1:1
 # Coding
 jetbrains='^(IntelliJ IDEA|WebStorm|CLion|GoLand|PyCharm)$'
 yabai -m rule --add app="${jetbrains}" manage=off
+yabai -m rule --add app="^Code$" manage=off # VSCode
 yabai -m rule --add app="^Alacritty$"
 
 # Chill
