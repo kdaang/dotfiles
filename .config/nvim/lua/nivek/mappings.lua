@@ -108,4 +108,123 @@ M.general = {
   },
 }
 
+M.comment = {
+  plugin = true,
+
+  -- toggle comment in both modes
+  n = {
+    ["<leader>/"] = {
+      function()
+        require("Comment.api").toggle.linewise.current()
+      end,
+      "toggle comment",
+    },
+  },
+
+  v = {
+    ["<leader>/"] = {
+      "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+      "toggle comment",
+    },
+  },
+}
+
+M.lspconfig = {
+  plugin = true,
+
+  -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
+
+  n = {
+    -- lsp
+    ["gr"] = {
+      "<cmd> Telescope lsp_references <CR>",
+      "telescope LSP references",
+    },
+    -- like cmd-d in webstorm
+    ["gd"] = {
+      "<cmd> Telescope lsp_implementations <CR>",
+      "telescope LSP implementations",
+    },
+    -- like cmd-b in webstorm
+    ["gb"] = {
+      "<cmd> Telescope lsp_definitions <CR>",
+      "telescope LSP definitions",
+    },
+    ["te"] = {
+      "<cmd> Telescope diagnostics <CR>",
+      "telescope LSP diagnostics",
+    },
+  },
+}
+
+M.nvimtree = {
+  plugin = true,
+
+  n = {
+    -- toggle
+    ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
+
+    -- focus
+    ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "focus nvimtree" },
+  },
+}
+
+M.telescope = {
+  n = {
+    -- find
+    ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "find files" },
+    ["<leader>fa"] = {
+      "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>",
+      "find all",
+    },
+    ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
+    ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
+    ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "help page" },
+    ["<leader>fo"] = {
+      "<cmd> Telescope oldfiles cwd_only=true <CR>",
+      "find oldfiles",
+    },
+    ["<leader>tk"] = { "<cmd> Telescope keymaps <CR>", "show keys" },
+    -- ["<leader>fs"] = {
+    --   function()
+    --     require("plugins.configs.telescope").live_grep_in_folder()
+    --   end,
+    --   "search in specific directory",
+    -- },
+
+    -- file browser
+    ["<leader>b"] = { "<cmd> Telescope file_browser <CR>", "show keys" },
+
+    -- git
+    ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
+    ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "git status" },
+    ["<leader>pr"] = {
+      "<cmd> GitCreatePullRequest <CR>",
+      "git create pull request",
+    },
+
+    -- fuzzy find in current buffer
+    ["tf"] = {
+      "<cmd> Telescope current_buffer_fuzzy_find <CR>",
+      "telescope find in current buffer",
+    },
+
+    -- commands
+    ["cc"] = {
+      "<cmd> Telescope commands <CR>",
+      "telescope list available commands",
+    },
+    ["ch"] = {
+      "<cmd> Telescope command_history show_buf_command=false<CR>",
+      "telescope command history",
+    },
+    ["ht"] = { "<cmd> Telescope help_tags <CR>", "telescope help tags" },
+
+    -- locations
+    ["<leader>m"] = { "<cmd> Telescope marks <CR>", "telescope marks" },
+    ["<leader>qf"] = { "<cmd> Telescope quickfix <CR>", "telescope quickfix" },
+    ["<leader>l"] = { "<cmd> Telescope loclist <CR>", "telescope loclist" },
+  },
+}
+
 return M
