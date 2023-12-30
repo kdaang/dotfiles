@@ -36,6 +36,10 @@ M.general = {
     ["tn"] = { ":tabn <CR>", "go to next tab" },
     ["tp"] = { ":tabp <CR>", "go to prev tab" },
 
+    -- move between buffers
+    ["<S-tab>"] = { "<cmd>bprevious<cr>", "prev buffer" },
+    ["<tab>"] = { "<cmd>bnext<cr>", "next buffer" },
+
     -- split view
     ["ss"] = { ":split<Return><C-w>w", "horizontal split" },
     ["sv"] = { ":vsplit<Return><C-w>w", "vertical split" },
@@ -127,3 +131,6 @@ local function set_section_map(section_values)
 end
 
 set_section_map(M.general)
+
+vim.keymap.del("n", "H")
+vim.keymap.del("n", "L")
