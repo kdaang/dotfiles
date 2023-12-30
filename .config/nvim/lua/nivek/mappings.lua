@@ -132,28 +132,7 @@ M.lspconfig = {
   plugin = true,
 
   -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
-
-  n = {
-    -- lsp
-    ["gr"] = {
-      "<cmd> Telescope lsp_references <CR>",
-      "telescope LSP references",
-    },
-    -- like cmd-d in webstorm
-    ["gd"] = {
-      "<cmd> Telescope lsp_implementations <CR>",
-      "telescope LSP implementations",
-    },
-    -- like cmd-b in webstorm
-    ["gb"] = {
-      "<cmd> Telescope lsp_definitions <CR>",
-      "telescope LSP definitions",
-    },
-    ["te"] = {
-      "<cmd> Telescope diagnostics <CR>",
-      "telescope LSP diagnostics",
-    },
-  },
+  n = {},
 }
 
 M.nvimtree = {
@@ -191,9 +170,6 @@ M.telescope = {
     --   "search in specific directory",
     -- },
 
-    -- file browser
-    ["<leader>b"] = { "<cmd> Telescope file_browser <CR>", "show keys" },
-
     -- git
     ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
     ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "git status" },
@@ -211,7 +187,7 @@ M.telescope = {
     -- commands
     ["cc"] = {
       "<cmd> Telescope commands <CR>",
-      "telescope list available commands",
+      "available commands",
     },
     ["ch"] = {
       "<cmd> Telescope command_history show_buf_command=false<CR>",
@@ -223,6 +199,22 @@ M.telescope = {
     ["<leader>m"] = { "<cmd> Telescope marks <CR>", "telescope marks" },
     ["<leader>qf"] = { "<cmd> Telescope quickfix <CR>", "telescope quickfix" },
     ["<leader>l"] = { "<cmd> Telescope loclist <CR>", "telescope loclist" },
+
+    -- lsp
+    ["gr"] = {
+      "<cmd> Telescope lsp_references <CR>",
+      "telescope LSP references",
+    },
+    -- like cmd-d in webstorm
+    ["gd"] = {
+      "<cmd> Telescope lsp_implementations <CR>",
+      "telescope LSP implementations",
+    },
+    -- like cmd-b in webstorm
+    ["gb"] = {
+      "<cmd> Telescope lsp_definitions <CR>",
+      "telescope LSP definitions",
+    },
   },
 }
 
