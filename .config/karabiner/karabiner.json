@@ -3475,7 +3475,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "[vim] s = ctrl-p",
+                                "description": "[vim] s = ctrl-i",
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": {
@@ -3489,7 +3489,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "p",
+                                        "key_code": "i",
                                         "modifiers": [
                                             "left_control"
                                         ]
