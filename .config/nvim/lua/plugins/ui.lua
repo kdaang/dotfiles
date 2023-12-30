@@ -11,4 +11,28 @@ return {
       },
     },
   },
+  -- add filename to top right of window
+  {
+    "b0o/incline.nvim",
+    event = "BufReadPre",
+    priority = 1200,
+    config = function()
+      require("incline").setup({
+        window = { margin = { vertical = 0, horizontal = 1 } },
+        hide = {
+          cursorline = true,
+        },
+        render = function(props)
+          local filepath = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":.:h")
+          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+          if vim.bo[props.buf].modified then
+            filename = "[+] " .. filename
+          end
+
+          local icon, color = require("nvim-web-devicons").get_icon_color(filename)
+          return { { icon, guifg = color }, { " " }, { filepath }, { "/" }, { filename, guifg = color } }
+        end,
+      })
+    end,
+  },
 }
