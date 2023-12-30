@@ -135,18 +135,6 @@ M.lspconfig = {
   n = {},
 }
 
-M.nvimtree = {
-  plugin = true,
-
-  n = {
-    -- toggle
-    ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
-
-    -- focus
-    ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "focus nvimtree" },
-  },
-}
-
 M.telescope = {
   n = {
     -- find
