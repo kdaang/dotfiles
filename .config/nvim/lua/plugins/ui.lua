@@ -30,7 +30,7 @@ return {
           end
 
           local icon, color = require("nvim-web-devicons").get_icon_color(filename)
-          return { { icon, guifg = color }, { " " }, { filepath }, { "/" }, { filename, guifg = color } }
+          return { { icon, guifg = color }, { " " }, { filepath }, { "/" }, { filename, guifg = "Magenta" } }
         end,
       })
     end,
