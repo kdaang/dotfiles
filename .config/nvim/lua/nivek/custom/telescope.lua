@@ -20,19 +20,20 @@ local live_grep_filters = {
   extension = nil,
   ---@type nil|string[]
   directories = nil,
+  ---@type nil|string[]
+  current_input = nil,
 }
 
 local prev_live_grep = nil
 
 ---Run `live_grep` with the active filters (extension and folders)
----@param current_input ?string
-local function run_live_grep(current_input)
+local function run_live_grep(filters)
   require("telescope.builtin").live_grep({
-    search_dirs = live_grep_filters.directories,
-    additional_args = live_grep_filters.extension and function()
-      return { "-g", "*." .. live_grep_filters.extension }
+    search_dirs = filters.directories,
+    additional_args = filters.extension and function()
+      return { "-g", "*." .. filters.extension }
     end,
-    default_text = current_input,
+    default_text = filters.current_input,
     -- code taken from https://github.com/nvim-telescope/telescope.nvim/issues/1701#issuecomment-1016227855
     attach_mappings = function(prompt_bufnr, map)
       actions.close:enhance({
@@ -44,6 +45,8 @@ local function run_live_grep(current_input)
             return
           end
           prev_live_grep = cached_pickers[1] -- last picker is always 1st
+
+          live_grep_filters.current_input = prev_live_grep.default_text
         end,
       })
       return true
@@ -55,9 +58,7 @@ local function live_grep_cached(opts)
   opts = opts or {}
 
   if prev_live_grep == nil then
-    live_grep_filters.extension = nil
-    live_grep_filters.directories = nil
-    run_live_grep("")
+    run_live_grep(live_grep_filters)
   else
     -- code taken from telescope.internal.resume
     -- https://github.com/nvim-telescope/telescope.nvim/blob/3466159b0fcc1876483f6f53587562628664d850/lua/telescope/builtin/__internal.lua#L122-L166
@@ -71,6 +72,7 @@ local function live_grep_cached(opts)
       prev_live_grep.get_window_options = nil
     end
     opts.resumed_picker = true
+
     pickers.new(opts, prev_live_grep):find()
   end
 end
@@ -78,8 +80,6 @@ end
 M.actions = transform_mod({
   ---Ask for a file extension and open a new `live_grep` filtering by it
   set_extension = function(prompt_bufnr)
-    local current_input = action_state.get_current_line()
-
     vim.ui.input({ prompt = "*." }, function(input)
       if input == nil then
         return
@@ -88,13 +88,12 @@ M.actions = transform_mod({
       live_grep_filters.extension = input
 
       actions.close(prompt_bufnr)
-      run_live_grep(current_input)
+
+      run_live_grep(live_grep_filters)
     end)
   end,
   ---Ask the user for a folder and olen a new `live_grep` filtering by it
   set_folders = function(prompt_bufnr)
-    local current_input = action_state.get_current_line()
-
     local data = {}
     scan.scan_dir(vim.loop.cwd(), {
       hidden = true,
@@ -130,7 +129,8 @@ M.actions = transform_mod({
             live_grep_filters.directories = dirs
 
             actions.close(prompt_bufnr)
-            run_live_grep(current_input)
+
+            run_live_grep(live_grep_filters)
           end)
           return true
         end,
@@ -140,8 +140,8 @@ M.actions = transform_mod({
 })
 
 ---Small wrapper over `live_grep` to first reset our active filters
-M.live_grep = function()
-  live_grep_cached()
+M.live_grep = function(opts)
+  live_grep_cached(opts)
 end
 
 return M
