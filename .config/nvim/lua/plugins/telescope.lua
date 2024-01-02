@@ -8,9 +8,13 @@ return {
     pickers = {
       live_grep = {
         mappings = {
+          n = {
+            ["<C-g>"] = require("nivek.custom.telescope").actions.show_dirs,
+          },
           i = {
             ["<C-l>"] = require("nivek.custom.telescope").actions.set_folders,
             ["<C-f>"] = require("nivek.custom.telescope").actions.set_extension,
+            ["<C-g>"] = require("nivek.custom.telescope").actions.show_dirs,
           },
         },
       },

@@ -11,6 +11,7 @@ local pickers = require("telescope.pickers")
 local state = require("telescope.state")
 local scan = require("plenary.scandir")
 local p_window = require("telescope.pickers.window")
+local notify = require("notify")
 
 local M = {}
 
@@ -78,6 +79,9 @@ local function live_grep_cached(opts)
 end
 
 M.actions = transform_mod({
+  show_dirs = function()
+    notify(live_grep_filters.directories or ".")
+  end,
   ---Ask for a file extension and open a new `live_grep` filtering by it
   set_extension = function(prompt_bufnr)
     vim.ui.input({ prompt = "*." }, function(input)
