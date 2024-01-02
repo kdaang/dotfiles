@@ -8,7 +8,9 @@ local finders = require("telescope.finders")
 local make_entry = require("telescope.make_entry")
 local os_sep = Path.path.sep
 local pickers = require("telescope.pickers")
+local state = require("telescope.state")
 local scan = require("plenary.scandir")
+local p_window = require("telescope.pickers.window")
 
 local M = {}
 
@@ -20,17 +22,57 @@ local live_grep_filters = {
   directories = nil,
 }
 
+local prev_live_grep = nil
+
 ---Run `live_grep` with the active filters (extension and folders)
 ---@param current_input ?string
 local function run_live_grep(current_input)
-  -- TODO: Resume old one with same options somehow
   require("telescope.builtin").live_grep({
     search_dirs = live_grep_filters.directories,
     additional_args = live_grep_filters.extension and function()
       return { "-g", "*." .. live_grep_filters.extension }
     end,
     default_text = current_input,
+    -- code taken from https://github.com/nvim-telescope/telescope.nvim/issues/1701#issuecomment-1016227855
+    attach_mappings = function(prompt_bufnr, map)
+      actions.close:enhance({
+        post = function()
+          -- taken from builtin.resume maybe rfc into a `telescope.utils`.get_last_picker
+          local cached_pickers = state.get_global_key("cached_pickers")
+          if cached_pickers == nil or vim.tbl_isempty(cached_pickers) then
+            print("No picker(s) cached")
+            return
+          end
+          prev_live_grep = cached_pickers[1] -- last picker is always 1st
+        end,
+      })
+      return true
+    end,
   })
+end
+
+local function live_grep_cached(opts)
+  opts = opts or {}
+
+  if prev_live_grep == nil then
+    live_grep_filters.extension = nil
+    live_grep_filters.directories = nil
+    run_live_grep("")
+  else
+    -- code taken from telescope.internal.resume
+    -- https://github.com/nvim-telescope/telescope.nvim/blob/3466159b0fcc1876483f6f53587562628664d850/lua/telescope/builtin/__internal.lua#L122-L166
+    --
+    -- reset layout strategy and get_window_options if default as only one is valid
+    -- and otherwise unclear which was actually set
+    if prev_live_grep.layout_strategy == conf.layout_strategy then
+      prev_live_grep.layout_strategy = nil
+    end
+    if prev_live_grep.get_window_options == p_window.get_window_options then
+      prev_live_grep.get_window_options = nil
+    end
+    opts.resumed_picker = true
+    pickers.new(opts, prev_live_grep):find()
+  end
 end
 
 M.actions = transform_mod({
@@ -99,10 +141,7 @@ M.actions = transform_mod({
 
 ---Small wrapper over `live_grep` to first reset our active filters
 M.live_grep = function()
-  live_grep_filters.extension = nil
-  live_grep_filters.directories = nil
-
-  run_live_grep()
+  live_grep_cached()
 end
 
 return M

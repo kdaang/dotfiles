@@ -143,7 +143,12 @@ M.telescope = {
       "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>",
       "find all",
     },
-    ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
+    ["<leader>fw"] = {
+      function()
+        require("nivek.custom.telescope").live_grep()
+      end,
+      "live grep",
+    },
     ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
     ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "help page" },
     ["<leader>fo"] = {
@@ -151,12 +156,6 @@ M.telescope = {
       "find oldfiles",
     },
     ["<leader>tk"] = { "<cmd> Telescope keymaps <CR>", "show keys" },
-    -- ["<leader>fs"] = {
-    --   function()
-    --     require("plugins.configs.telescope").live_grep_in_folder()
-    --   end,
-    --   "search in specific directory",
-    -- },
 
     -- git
     ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
