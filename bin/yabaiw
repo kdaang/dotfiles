@@ -1,118 +1,116 @@
 #!/usr/bin/env bash
 set -euo pipefail
 IFS=$'\n\t'
-    
 
-command_exists () {
-    command -v "$1" &> /dev/null ;
+command_exists() {
+	command -v "$1" &>/dev/null
 }
 
 YABAI_COMMAND="/opt/homebrew/bin/yabai"
 JQ_COMMAND="/opt/homebrew/bin/jq"
 
-if ! command_exists $YABAI_COMMAND ; then
-    YABAI_COMMAND="/usr/local/bin/yabai"
+if ! command_exists $YABAI_COMMAND; then
+	YABAI_COMMAND="/usr/local/bin/yabai"
 fi
 if ! command_exists $JQ_COMMAND; then
-    JQ_COMMAND="/usr/local/bin/jq"
+	JQ_COMMAND="/usr/local/bin/jq"
 fi
 
 get_unmanaged_windows() {
-    unmanagedWindowIds=$($YABAI_COMMAND -m query --windows | $JQ_COMMAND '.[] | select(."is-floating") | .id')
+	unmanagedWindowIds=$($YABAI_COMMAND -m query --windows | $JQ_COMMAND '.[] | select(."is-floating") | .id')
 
-    echo $unmanagedWindowIds | tr -d '\n' | sed -e "s/ /,/g"
+	echo $unmanagedWindowIds | tr -d '\n' | sed -e "s/ /,/g"
 }
 
 configure_workspace() {
-    # Transform long options to short ones
-    for arg in "$@"; do
-      shift
-      case "$arg" in
-        '--help')   set -- "$@" '-h'   ;;
-        '--dry-run') set -- "$@" '-d'   ;;
-        *)          set -- "$@" "$arg" ;;
-      esac
-    done
+	# Transform long options to short ones
+	for arg in "$@"; do
+		shift
+		case "$arg" in
+		'--help') set -- "$@" '-h' ;;
+		'--dry-run') set -- "$@" '-d' ;;
+		*) set -- "$@" "$arg" ;;
+		esac
+	done
 
-    dry_run=0
+	dry_run=0
 
-    while getopts d flag
-    do
-        case "${flag}" in
-            d) dry_run=1;;
-        esac
-    done
+	while getopts d flag; do
+		case "${flag}" in
+		d) dry_run=1 ;;
+		esac
+	done
 
-    if [ $dry_run -eq 1 ]; then
-        echo "DRY RUN MODE - windows won't be moved"
-    fi
+	if [ $dry_run -eq 1 ]; then
+		echo "DRY RUN MODE - windows won't be moved"
+	fi
 
-    windows=$($YABAI_COMMAND -m query --windows)
-    display_count=$($YABAI_COMMAND -m query --displays | $JQ_COMMAND '. | length')
+	windows=$($YABAI_COMMAND -m query --windows)
+	display_count=$($YABAI_COMMAND -m query --displays | $JQ_COMMAND '. | length')
 
-    windows_arr=$(echo "$windows" | $JQ_COMMAND -c '.[]')
+	windows_arr=$(echo "$windows" | $JQ_COMMAND -c '.[]')
 
-    #echo "$windows"
-    $YABAI_COMMAND -m space 1 --label main
-    $YABAI_COMMAND -m space 2 --label code
-    $YABAI_COMMAND -m space 3 --label chill
+	#echo "$windows"
+	$YABAI_COMMAND -m space 1 --label main
+	$YABAI_COMMAND -m space 2 --label code
+	$YABAI_COMMAND -m space 3 --label chill
 
-    d1_apps=("Google Chrome")
-    d2_apps_1=("IntelliJ IDEA" "WebStorm" "CLion" "GoLand" "PyCharm" "Books" "CapCut")
-    d2_apps_2=("Alacritty" "Postman")
-    d3_apps=("Spotify" "Notion" "Figma" "Slack" "Coda" "Logseq")
+	d1_apps=("Google Chrome")
+	d2_apps_1=("IntelliJ IDEA" "WebStorm" "CLion" "GoLand" "PyCharm" "Books" "CapCut")
+	d2_apps_2=("Alacritty" "Postman" "Beekeeper Studio")
+	d3_apps=("Spotify" "Notion" "Figma" "Slack" "Coda" "Logseq")
 
-    if (( $display_count <= 2 )); then
-      d1_space="--space main"
-      d2_space_1="--space code --grid 1:1:0:0:1:1"
-      d2_space_2="--space code"
-      d3_space="--space chill"
-    else
-      d1_space="--space 1"
-      d2_space_1="--space 4"
-      d2_space_2="--space 3"
-      d3_space="--space 2"
-    fi
+	if (($display_count <= 2)); then
+		d1_space="--space main"
+		d2_space_1="--space code --grid 1:1:0:0:1:1"
+		d2_space_2="--space code"
+		d3_space="--space chill"
+	else
+		d1_space="--space 1"
+		d2_space_1="--space 4"
+		d2_space_2="--space 3"
+		d3_space="--space 2"
+	fi
 
-    declare -A space_map
+	declare -A space_map
 
-    function build_config() {
-      space_index="$1"
-      shift
-      apps=("${@}")
+	function build_config() {
+		space_index="$1"
+		shift
+		apps=("${@}")
 
-      for app in "${apps[@]}"; do
-        space_map+=([$app]="$space_index")
-      done 
-    }
+		for app in "${apps[@]}"; do
+			space_map+=([$app]="$space_index")
+		done
+	}
 
-    build_config "$d1_space" "${d1_apps[@]}"
-    build_config "$d2_space_1" "${d2_apps_1[@]}"
-    build_config "$d2_space_2" "${d2_apps_2[@]}"
-    build_config "$d3_space" "${d3_apps[@]}"
+	build_config "$d1_space" "${d1_apps[@]}"
+	build_config "$d2_space_1" "${d2_apps_1[@]}"
+	build_config "$d2_space_2" "${d2_apps_2[@]}"
+	build_config "$d3_space" "${d3_apps[@]}"
 
-    printf "SPACE_MAP: %s\n\n" "${space_map[@]@K}"
+	printf "SPACE_MAP: %s\n\n" "${space_map[@]@K}"
 
-    i=0
-    echo $windows | $JQ_COMMAND -c '.[]' | while read -r item; do
-      app=$($JQ_COMMAND -r '.app' <<< $item)
-      window_id=$($JQ_COMMAND -r '.id' <<< $item)
+	i=0
+	echo $windows | $JQ_COMMAND -c '.[]' | while read -r item; do
+		app=$($JQ_COMMAND -r '.app' <<<$item)
+		window_id=$($JQ_COMMAND -r '.id' <<<$item)
 
-      #echo $i, $app, $window_id
-      #echo ""
-      let "i=++i"
+		#echo $i, $app, $window_id
+		#echo ""
+		let "i=++i"
 
-      if [[ -v space_map[$app] ]]; then
-        cmd="$YABAI_COMMAND -m window $window_id ${space_map[$app]}"
-        echo $cmd
-        if [ $dry_run -ne 1 ]; then
-          eval $cmd
-        fi
-        echo "MOVED $app - $window_id"
-      else
-        echo "NO ASSIGNED CONFIG for: $app - $window_id"
-      fi
-    done
+		if [[ -v space_map[$app] ]]; then
+			cmd="$YABAI_COMMAND -m window $window_id ${space_map[$app]}"
+			echo $cmd
+			if [ $dry_run -ne 1 ]; then
+				eval $cmd
+			fi
+			echo "MOVED $app - $window_id"
+		else
+			echo "NO ASSIGNED CONFIG for: $app - $window_id"
+		fi
+	done
 }
 
 "$@"
