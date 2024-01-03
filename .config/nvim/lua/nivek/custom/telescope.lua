@@ -29,10 +29,6 @@ local prev_live_grep = nil
 
 ---Run `live_grep` with the active filters (extension and folders)
 local function run_live_grep(filters)
-  vim.fn.timer_start(100, function()
-    M.show_dirs()
-  end)
-
   require("telescope.builtin").live_grep({
     search_dirs = filters.directories,
     additional_args = filters.extension and function()
@@ -89,9 +85,16 @@ M.show_dirs = function()
 end
 
 M.clear_live_grep_filters = function()
-  notify(live_grep_filters.directories or ".", vim.log.levels.INFO, {
-    title = "Filtered Directories",
-  })
+  live_grep_filters.extension = nil
+  live_grep_filters.directories = nil
+
+  vim.fn.timer_start(100, function()
+    notify("Filters resetted!", vim.log.levels.INFO, {
+      title = "Live Grep",
+    })
+  end)
+
+  run_live_grep(live_grep_filters)
 end
 
 M.actions = transform_mod({
@@ -146,6 +149,10 @@ M.actions = transform_mod({
             live_grep_filters.directories = dirs
 
             actions.close(prompt_bufnr)
+
+            vim.fn.timer_start(100, function()
+              M.show_dirs()
+            end)
 
             run_live_grep(live_grep_filters)
           end)
