@@ -80,7 +80,9 @@ end
 
 M.actions = transform_mod({
   show_dirs = function()
-    notify(live_grep_filters.directories or ".")
+    notify(live_grep_filters.directories or ".", vim.log.levels.INFO, {
+      title = "Filtered Directories",
+    })
   end,
   ---Ask for a file extension and open a new `live_grep` filtering by it
   set_extension = function(prompt_bufnr)
