@@ -52,3 +52,9 @@ opt.updatetime = 250
 opt.whichwrap:append("<>[]hl")
 
 g.mapleader = " "
+
+vim.filetype.add({
+  extension = {
+    mdx = "mdx",
+  },
+})
