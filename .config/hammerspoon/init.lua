@@ -1,3 +1,6 @@
+-- needed to get wifi network (https://github.com/Hammerspoon/hammerspoon/issues/3537)
+print(require("hs.location").get())
+
 Constants = require("lib.constants")
 IPC = require("hs.ipc")
 
@@ -13,15 +16,15 @@ local hsApplication = require("hs.application")
 local utils = require("utils")
 
 local function loadModules()
-    ClipboardHistory:setup()
-    Crons.runJobs()
-    KeyBinds.setup()
+	-- ClipboardHistory:setup()
+	Crons.runJobs()
+	KeyBinds.setup()
 
-    Caffeine.setup()
+	Caffeine.setup()
 
-    -- WindowManagement.setupWindowBorders()
+	-- WindowManagement.setupWindowBorders()
 
-    -- TSApp.setup()
+	-- TSApp.setup()
 end
 
 hsApplication.enableSpotlightForNameSearches(true)
