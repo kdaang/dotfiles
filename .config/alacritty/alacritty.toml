@@ -1,0 +1,183 @@
+live_config_reload = true
+
+[colors.bright]
+black = "0x555555"
+blue = "0xcaa9fa"
+cyan = "0x8be9fd"
+green = "0x50fa7b"
+magenta = "0xff79c6"
+red = "0xff5555"
+white = "0xffffff"
+yellow = "0xf1fa8c"
+
+[colors.normal]
+black = "0x000000"
+blue = "0xbd93f9"
+cyan = "0x8be9fd"
+green = "0x50fa7b"
+magenta = "0xff79c6"
+red = "0xff5555"
+white = "0xbbbbbb"
+yellow = "0xf1fa8c"
+
+[colors.primary]
+background = "0x282a36"
+foreground = "0xf8f8f2"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 14.0
+
+[font.normal]
+family = "Hack Nerd Font"
+style = "Regular"
+
+##### TMUX BINDINGS to use with command key - https://www.joshmedeski.com/posts/macos-keyboard-shortcuts-for-tmux
+##### USE `xxd -psd` to get the chars
+
+# Rename the current tmux window
+# - { key: Comma, mods: Command, chars: "\x02\x2c" }
+# Select a new tmux session for the attached client interactively
+# - { key: K, mods: Command, chars: "\x02\x73" }
+# Select window 1-9
+[[keyboard.bindings]]
+chars = "\u00021"
+key = "Key1"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00022"
+key = "Key2"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00023"
+key = "Key3"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00024"
+key = "Key4"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00025"
+key = "Key5"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00026"
+key = "Key6"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00027"
+key = "Key7"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00028"
+key = "Key8"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00029"
+key = "Key9"
+mods = "Command"
+
+# Switch to last tmux session
+# - { key: L, mods: Command, chars: "\x02\x4c" }
+# Toggle scratch session
+[[keyboard.bindings]]
+chars = "\u0002p"
+key = "P"
+mods = "Command"
+
+# Toggle dedicated sessions
+[[keyboard.bindings]]
+chars = "\u0002u"
+key = "U"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002i"
+key = "I"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002o"
+key = "O"
+mods = "Command"
+
+# Enter copy-mode
+[[keyboard.bindings]]
+chars = "\u0002'"
+key = "'"
+mods = "Command"
+
+# Change to the previous tmux window
+[[keyboard.bindings]]
+chars = "\u0002["
+key = "LBracket"
+mods = "Command"
+
+# Change to the next tmux window
+[[keyboard.bindings]]
+chars = "\u0002]"
+key = "RBracket"
+mods = "Command"
+
+# Type <escape>:wa<enter> to save all neovim
+[[keyboard.bindings]]
+chars = """
+\u001B:wa
+"""
+key = "S"
+mods = "Command"
+
+# Type <escape>:w<enter> to save neovim
+[[keyboard.bindings]]
+chars = """
+\u001B:w
+"""
+key = "S"
+mods = "Command|Shift"
+
+# Create a new tmux window
+[[keyboard.bindings]]
+chars = "\u0002c"
+key = "T"
+mods = "Command"
+
+# Break the current tmux pane out of the tmux window
+[[keyboard.bindings]]
+chars = "\u0002!"
+key = "T"
+mods = "Command|Shift"
+
+# Kill the current tmux pane (and window if last pane)
+[[keyboard.bindings]]
+chars = "\u0002x"
+key = "W"
+mods = "Command"
+
+# Toggle the zoom state of the current tmux pane
+[[keyboard.bindings]]
+chars = "\u0002f"
+key = "Z"
+mods = "Command"
+
+[shell]
+args = ["--login", "--init-command", "ta"]
+program = "/opt/homebrew/bin/fish"
+
+[window]
+decorations = "buttonless"
+dynamic_padding = false
+opacity = 0.96
+
+[window.padding]
+x = 10
+y = 10
