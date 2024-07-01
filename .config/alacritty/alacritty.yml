@@ -52,7 +52,6 @@ font:
     family: "Hack Nerd Font"
     style: Regular
   size: 14.0
-  use_thin_strokes: true
 
 key_bindings:
   ##### TMUX BINDINGS to use with command key - https://www.joshmedeski.com/posts/macos-keyboard-shortcuts-for-tmux
@@ -81,7 +80,7 @@ key_bindings:
   - { key: I, mods: Command, chars: "\x02\x69" }
   - { key: O, mods: Command, chars: "\x02\x6f" }
   # Enter copy-mode
-  - { key: Apostrophe, mods: Command, chars: "\x02\x27" }
+  - { key: "'", mods: Command, chars: "\x02\x27" }
   # Change to the previous tmux window
   - { key: LBracket, mods: Command, chars: "\x02\x5b" }
   # Change to the next tmux window
