@@ -24,7 +24,7 @@ alias vim nvim
 alias fk fuck
 alias cw="hmw 'Automation.run()'"
 
-alias ll "exa -l -g --icons"
+alias ll "eza -l -g --icons"
 alias lla "ll -a"
 alias hm="history merge"
 
