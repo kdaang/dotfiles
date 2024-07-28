@@ -1,1 +1,22 @@
 source ~/.vimrc
+
+set visualbell
+
+let mapleader=" "
+
+map <leader>ff <Action>(GotoFile)
+map <leader>fw <Action>(FindInPath)
+map <leader>fo <Action>(RecentFiles)
+
+map <leader>, <Action>(Switcher)
+map <leader > <Action>(Switcher)
+
+map gd <Action>(GotoImplementation)
+map gb <Action>(GotoDeclaration)
+
+map gr <Action>(FindUsages)
+
+map ss <Action>(MoveTabRight)
+
+map sl <Action>(NextSplitter)
+map sh <Action>(PrevSplitter)
