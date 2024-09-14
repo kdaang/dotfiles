@@ -60,8 +60,17 @@ shift + alt - n : yabai -m space --create && \
                    yabai -m window --space "${index}" && \
                    yabai -m space --focus "${index}"
 
-# fast focus desktop
-alt - 0 : yabai -m space --focus recent
+# fast focus display
+alt - 0 : yabai -m display --focus recent
+
+# focus relative display
+alt - n : yabai -m display --focus next
+alt - p : yabai -m display --focus prev
+
+# focus specific display
+alt - u : yabai -m display --focus 1
+alt - i : yabai -m display --focus 2
+alt - o : yabai -m display --focus 3
 
 # send window to monitor and follow focus
 shift + alt - n : yabai -m window --display next; yabai -m display --focus next
