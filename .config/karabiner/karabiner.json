@@ -3113,7 +3113,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "command + 2 = copy to clip1",
+                                "description": "command + 2 = copy to clip2",
                                 "from": {
                                     "key_code": "2",
                                     "modifiers": {
