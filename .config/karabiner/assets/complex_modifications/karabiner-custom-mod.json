@@ -6867,7 +6867,7 @@
       ]
     },
     {
-      "description": "Home row mods - shift, ctrl, opt, cmd",
+      "description": "Home row mods - shift, ctrl, opt, cmd (https://havn.blog/2024/03/03/a-good-way.html)",
       "manipulators": [
         {
           "from": {
