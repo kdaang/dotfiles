@@ -5146,11 +5146,33 @@
           },
           "to": [
             {
+              "shell_command": "pbpaste > ~/.clip0;"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
               "key_code": "c",
               "modifiers": ["left_command"]
             },
             {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
               "shell_command": "pbpaste > ~/.clip1"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip0 | pbcopy;"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
             }
           ]
         },
@@ -5170,7 +5192,14 @@
           },
           "to": [
             {
-              "shell_command": "cat ~/.clip1 | pbcopy "
+              "shell_command": "pbpaste > ~/.clip0"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip1 | pbcopy"
             },
             {
               "key_code": "vk_none",
@@ -5179,6 +5208,13 @@
             {
               "key_code": "v",
               "modifiers": ["left_command"]
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip0 | pbcopy"
             }
           ]
         },
@@ -5199,11 +5235,33 @@
           },
           "to": [
             {
+              "shell_command": "pbpaste > ~/.clip0;"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
               "key_code": "c",
               "modifiers": ["left_command"]
             },
             {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
               "shell_command": "pbpaste > ~/.clip2"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip0 | pbcopy;"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
             }
           ]
         },
@@ -5223,7 +5281,14 @@
           },
           "to": [
             {
-              "shell_command": "cat ~/.clip2 | pbcopy "
+              "shell_command": "pbpaste > ~/.clip0"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip2 | pbcopy"
             },
             {
               "key_code": "vk_none",
@@ -5232,6 +5297,13 @@
             {
               "key_code": "v",
               "modifiers": ["left_command"]
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip0 | pbcopy"
             }
           ]
         },
@@ -5252,11 +5324,33 @@
           },
           "to": [
             {
+              "shell_command": "pbpaste > ~/.clip0;"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
               "key_code": "c",
               "modifiers": ["left_command"]
             },
             {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
               "shell_command": "pbpaste > ~/.clip3"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip0 | pbcopy;"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
             }
           ]
         },
@@ -5276,7 +5370,14 @@
           },
           "to": [
             {
-              "shell_command": "cat ~/.clip3 | pbcopy "
+              "shell_command": "pbpaste > ~/.clip0"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip3 | pbcopy"
             },
             {
               "key_code": "vk_none",
@@ -5285,6 +5386,13 @@
             {
               "key_code": "v",
               "modifiers": ["left_command"]
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip0 | pbcopy"
             }
           ]
         },
@@ -5305,11 +5413,33 @@
           },
           "to": [
             {
+              "shell_command": "pbpaste > ~/.clip0;"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
               "key_code": "c",
               "modifiers": ["left_command"]
             },
             {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
               "shell_command": "pbpaste > ~/.clip4"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip0 | pbcopy;"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
             }
           ]
         },
@@ -5329,7 +5459,14 @@
           },
           "to": [
             {
-              "shell_command": "cat ~/.clip4 | pbcopy "
+              "shell_command": "pbpaste > ~/.clip0"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip4 | pbcopy"
             },
             {
               "key_code": "vk_none",
@@ -5338,6 +5475,13 @@
             {
               "key_code": "v",
               "modifiers": ["left_command"]
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip0 | pbcopy"
             }
           ]
         },
@@ -5358,11 +5502,33 @@
           },
           "to": [
             {
+              "shell_command": "pbpaste > ~/.clip0;"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
               "key_code": "c",
               "modifiers": ["left_command"]
             },
             {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
               "shell_command": "pbpaste > ~/.clip5"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip0 | pbcopy;"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
             }
           ]
         },
@@ -5382,7 +5548,14 @@
           },
           "to": [
             {
-              "shell_command": "cat ~/.clip5 | pbcopy "
+              "shell_command": "pbpaste > ~/.clip0"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip5 | pbcopy"
             },
             {
               "key_code": "vk_none",
@@ -5391,6 +5564,13 @@
             {
               "key_code": "v",
               "modifiers": ["left_command"]
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip0 | pbcopy"
             }
           ]
         },
@@ -5411,11 +5591,33 @@
           },
           "to": [
             {
+              "shell_command": "pbpaste > ~/.clip0;"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
               "key_code": "c",
               "modifiers": ["left_command"]
             },
             {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
               "shell_command": "pbpaste > ~/.clip6"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip0 | pbcopy;"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
             }
           ]
         },
@@ -5435,7 +5637,14 @@
           },
           "to": [
             {
-              "shell_command": "cat ~/.clip6 | pbcopy "
+              "shell_command": "pbpaste > ~/.clip0"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip6 | pbcopy"
             },
             {
               "key_code": "vk_none",
@@ -5444,11 +5653,18 @@
             {
               "key_code": "v",
               "modifiers": ["left_command"]
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip0 | pbcopy"
             }
           ]
         },
         {
-          "description": "command + 7 = copy to clip7",
+          "description": "command + 7 = copy to clip1",
           "type": "basic",
           "from": {
             "key_code": "7",
@@ -5464,11 +5680,33 @@
           },
           "to": [
             {
+              "shell_command": "pbpaste > ~/.clip0;"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
               "key_code": "c",
               "modifiers": ["left_command"]
             },
             {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
               "shell_command": "pbpaste > ~/.clip7"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip0 | pbcopy;"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
             }
           ]
         },
@@ -5488,7 +5726,14 @@
           },
           "to": [
             {
-              "shell_command": "cat ~/.clip7 | pbcopy "
+              "shell_command": "pbpaste > ~/.clip0"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip7 | pbcopy"
             },
             {
               "key_code": "vk_none",
@@ -5497,11 +5742,18 @@
             {
               "key_code": "v",
               "modifiers": ["left_command"]
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip0 | pbcopy"
             }
           ]
         },
         {
-          "description": "command + 8 = copy to clip8",
+          "description": "command + 8 = copy to clip1",
           "type": "basic",
           "from": {
             "key_code": "8",
@@ -5517,11 +5769,33 @@
           },
           "to": [
             {
+              "shell_command": "pbpaste > ~/.clip0;"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
               "key_code": "c",
               "modifiers": ["left_command"]
             },
             {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
               "shell_command": "pbpaste > ~/.clip8"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip0 | pbcopy;"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
             }
           ]
         },
@@ -5541,7 +5815,14 @@
           },
           "to": [
             {
-              "shell_command": "cat ~/.clip8 | pbcopy "
+              "shell_command": "pbpaste > ~/.clip0"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip8 | pbcopy"
             },
             {
               "key_code": "vk_none",
@@ -5550,6 +5831,13 @@
             {
               "key_code": "v",
               "modifiers": ["left_command"]
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip0 | pbcopy"
             }
           ]
         },
@@ -5570,11 +5858,33 @@
           },
           "to": [
             {
+              "shell_command": "pbpaste > ~/.clip0;"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
               "key_code": "c",
               "modifiers": ["left_command"]
             },
             {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
               "shell_command": "pbpaste > ~/.clip9"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip0 | pbcopy;"
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
             }
           ]
         },
@@ -5594,60 +5904,14 @@
           },
           "to": [
             {
-              "shell_command": "cat ~/.clip9 | pbcopy "
-            },
-            {
-              "key_code": "vk_none",
-              "hold_down_milliseconds": 100
-            },
-            {
-              "key_code": "v",
-              "modifiers": ["left_command"]
-            }
-          ]
-        },
-        {
-          "description": "command + 0 = copy to clip0",
-          "type": "basic",
-          "from": {
-            "key_code": "0",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "c",
-              "modifiers": ["left_command"]
-            },
-            {
               "shell_command": "pbpaste > ~/.clip0"
-            }
-          ]
-        },
-        {
-          "description": "0 = paste from clip0",
-          "type": "basic",
-          "from": {
-            "key_code": "0",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
+            },
             {
-              "shell_command": "cat ~/.clip0 | pbcopy "
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip9 | pbcopy"
             },
             {
               "key_code": "vk_none",
@@ -5656,6 +5920,13 @@
             {
               "key_code": "v",
               "modifiers": ["left_command"]
+            },
+            {
+              "key_code": "vk_none",
+              "hold_down_milliseconds": 100
+            },
+            {
+              "shell_command": "cat ~/.clip0 | pbcopy"
             }
           ]
         }
@@ -6597,4 +6868,3 @@
     }
   ]
 }
-
