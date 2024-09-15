@@ -35,6 +35,7 @@ print("~~~~~~~~~~~")
 
 --------------------------------
 -- START VIM CONFIG
+-- https://github.com/dbalatero/VimMode.spoon
 --------------------------------
 local VimMode = hs.loadSpoon("VimMode")
 local vim = VimMode:new()
