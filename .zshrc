@@ -42,3 +42,4 @@ ln -s ~/.config/hammerspoon/* ~/.hammerspoon/ &>/dev/null
 
 eval "$(direnv hook zsh)"
 
+eval "$(starship init zsh)"
