@@ -1,0 +1,70 @@
+function sf(){
+    source ~/.zshrc
+    echo "🐟🐟🐟 zsh sauced with history 🐟🐟🐟"
+}
+
+function run(){
+  TASK_FILE="Taskfile.sh"
+  TASK_BASE_FILE="Taskfile.base.sh"
+
+  if [ -f "$TASK_FILE" ]; then
+    ./$TASK_FILE $@
+  elif [ -f "$TASK_BASE_FILE" ]; then
+    export TASK_FILE_BASE_RUN=true
+    ./$TASK_BASE_FILE $@
+  else
+    echo "No task file found"
+  fi
+}
+
+# misc
+alias vim=nvim
+alias fk=fuck
+alias cw="hmw 'Automation.run()'"
+
+alias ll="eza -l -g --icons"
+alias lla="ll -a"
+alias hm="history merge"
+
+alias cp="cp -i -v"
+alias mv="mv -i -v"
+alias rm="rm -i -v"
+
+# jqp
+alias jqp="jqp --config ~/.config/jqp/.jqp.yaml"
+
+# lazygit
+alias lazygit="lazygit -ucf ~/.config/lazygit/config.yml"
+
+# fzf
+function fcd(){
+    dir=$(~/bin/fzfw.sh fcd)
+    if test -n "$dir"; then
+        cd "$dir"
+    fi
+}
+alias fw="~/bin/fzfw.sh fw"
+
+# git
+alias g=git
+alias gc="~/bin/gitw gc"
+alias gd="~/bin/gitw gd"
+
+alias dotfiles="/usr/bin/git --git-dir=$HOME/code/dotfiles --work-tree=$HOME"
+alias df=dotfiles
+
+# bashw
+alias pk="~/bin/bashw pkill"
+
+# docker
+alias da="~/bin/dockerw da"
+alias ds="~/bin/dockerw ds"
+
+# tmux
+alias tl="tmux ls" 
+alias ta="tmux a || tmux"
+alias td="tmuxw delete_session"
+alias ts="tmuxw start_session"
+
+# ngrok
+alias ng="curl -s localhost:4040/api/tunnels | jq -r '.tunnels[0].public_url'"
