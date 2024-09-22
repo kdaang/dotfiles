@@ -1,9 +1,15 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+
+# https://github.com/romkatv/powerlevel10k#how-do-i-initialize-direnv-when-using-instant-prompt
+(( ${+commands[direnv]} )) && emulate zsh -c "$(direnv export zsh)"
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+(( ${+commands[direnv]} )) && emulate zsh -c "$(direnv hook zsh)"
 
 export PATH="/Users/kevindang/bin:/Users/kevindang/.yarn/bin:/Users/kevindang/.jenv/shims:/Users/kevindang/.jenv/shims:/Users/kevindang/.local/share/nvm/v21.6.0/bin:/opt/homebrew/sbin:/opt/homebrew/opt/scala@2.12/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
@@ -46,8 +52,6 @@ eval "$(jenv init -)"
 
 ### hammerspoon reads from ~/.hammerspoon/init.lua by default and is non configurable
 ln -s ~/.config/hammerspoon/* ~/.hammerspoon/ &>/dev/null
-
-eval "$(direnv hook zsh)"
 
 # eval "$(starship init zsh)"
 

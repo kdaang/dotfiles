@@ -170,7 +170,7 @@ key = "Z"
 mods = "Command"
 
 [shell]
-args = ["ta"]
+args = ["-ic", "ta && /bin/zsh"]
 program = "/bin/zsh"
 
 [window]
