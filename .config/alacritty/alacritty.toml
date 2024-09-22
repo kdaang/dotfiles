@@ -170,8 +170,8 @@ key = "Z"
 mods = "Command"
 
 [shell]
-args = ["--login", "--init-command", "ta"]
-program = "/opt/homebrew/bin/fish"
+args = ["ta"]
+program = "/bin/zsh"
 
 [window]
 decorations = "buttonless"
