@@ -68,6 +68,9 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
+# https://github.com/ajeetdsouza/zoxide
+eval "$(zoxide init zsh)"
+
 # https://github.com/romkatv/powerlevel10k
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
