@@ -81,3 +81,20 @@ shift + alt - h : yabai -m window --resize left:-25:0 ; yabai -m window --resize
 shift + alt - j : yabai -m window --resize bottom:0:25 ; yabai -m window --resize top:0:25
 shift + alt - k : yabai -m window --resize top:0:-25 ; yabai -m window --resize bottom:0:-25
 shift + alt - l : yabai -m window --resize right:25:0 ; yabai -m window --resize left:25:0
+
+
+# app laucher
+rshift + ralt + rctrl - w : open -a 'Google Chrome'
+rshift + ralt + rctrl - c : open -a 'Notion'
+rshift + ralt + rctrl - v : open -a 'LogSeq'
+rshift + ralt + rctrl - e : open -a 'Spotify'
+
+rshift + ralt + rctrl - f : open -a 'WebStorm'
+rshift + ralt + rctrl - d : open -a 'IntelliJ Idea CE'
+rshift + ralt + rctrl - s : open -a 'Pycharm CE'
+rshift + ralt + rctrl - t : open -a 'Alacritty'
+
+rshift + ralt + rctrl - g : open -a 'Postman'
+rshift + ralt + rctrl - q : open -a 'Slack'
+rshift + ralt + rctrl - z : open -a 'Zoom'
+
