@@ -64,7 +64,7 @@ vim:shouldShowAlertInNormalMode(true)
 vim:setAlertFont("Courier New")
 
 -- Enter normal mode by typing a key sequence
-vim:enterWithSequence("hl")
+vim:enterWithSequence("fj")
 
 -- if you want to bind a single key to entering vim, remove the
 -- :enterWithSequence('jk') line above and uncomment the bindHotKeys line
