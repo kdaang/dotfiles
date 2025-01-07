@@ -5,20 +5,19 @@ IFS=$'\n\t'
 function get_args() {
     # Transform long options to short ones
     for arg in "$@"; do
-      shift
-      case "$arg" in
-        '--help')   set -- "$@" '-h'   ;;
-        '--project') set -- "$@" '-p'   ;;
-        *)          set -- "$@" "$arg" ;;
-      esac
+        shift
+        case "$arg" in
+        '--help') set -- "$@" '-h' ;;
+        '--project') set -- "$@" '-p' ;;
+        *) set -- "$@" "$arg" ;;
+        esac
     done
 
     project=""
 
-    while getopts :p: flag
-    do
+    while getopts :p: flag; do
         case "${flag}" in
-            p) project=${OPTARG};;
+        p) project=${OPTARG} ;;
         esac
     done
 }
@@ -28,7 +27,7 @@ function delete_session() {
 
     fzf_args=""
     if [ -n "$project" ]; then
-          fzf_args="-1"
+        fzf_args="-1"
     fi
 
     target_session=$(tmux ls | fzf $fzf_args -q "$project" | awk -F ':' '{print $1}')
@@ -42,10 +41,23 @@ function start_session() {
     tmuxp_dir="$HOME/.config/tmuxp/"
     fzf_args=""
     if [ -n "$project" ]; then
-          fzf_args="-1"
+        fzf_args="-1"
     fi
 
     ls $tmuxp_dir | fzf $fzf_args -q "$project" | awk -v prefix="$tmuxp_dir" '{print prefix $1}' | xargs tmuxp load -y
+}
+
+function session_manager() {
+    # taken from https://howarddo2208.github.io/posts/04-fzf-tmux-session-manager
+
+    FIND_DEFAULT_COMMAND="tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\""
+
+    tmux list-sessions | sed -E 's/:.*$//' | grep -v "^$(tmux display-message -p '#S')$" |
+        fzf --reverse --bind "ctrl-x:execute(tmux kill-session -t {})+reload(${FIND_DEFAULT_COMMAND})" \
+            --bind "ctrl-n:execute(bash -c 'read -p \"Name: \" name; tmux new -d -s \"\$name\"')+reload(${FIND_DEFAULT_COMMAND})" \
+            --bind "ctrl-r:reload(${FIND_DEFAULT_COMMAND})" \
+            --header 'Enter: switch session | Ctrl-X: kill session | Ctrl-N: new session | Ctrl-R: refresh list' |
+        xargs tmux switch-client -t
 }
 
 "$@"
