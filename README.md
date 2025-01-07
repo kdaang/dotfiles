@@ -1,6 +1,6 @@
 # Dotfiles - Git Bare Repo
 
-- https://www.atlassian.com/git/tutorials/dotfiles
+- <https://www.atlassian.com/git/tutorials/dotfiles>
 
 ## Intial Setup
 
@@ -14,7 +14,7 @@
 ## Fish Shell
 
 - Fish Plugins
-  - Fisher for plugin manager - https://github.com/jorgebucaran/fisher
+  - Fisher for plugin manager - <https://github.com/jorgebucaran/fisher>
     - `fisher list`
       - jorgebucaran/fisher
       - ilancosman/tide@v5
@@ -40,7 +40,7 @@
 
 - brewfile
   - `brew bundle dump`
-  - https://pumpingco.de/blog/brewfile/
+  - <https://pumpingco.de/blog/brewfile/>
 - install powerline to get colours working for tmux
   - `pip3 install powerline-status`
   - tried on pip3.11 and it doesn't work. pip3.9 works
@@ -51,14 +51,15 @@
     - can also try finding via `pip3.9 show powerline-status`
 - skhd
   - update cellar plist to use bash instead fish
-  - https://github.com/koekeishiya/skhd/issues/42#issuecomment-401886533
+  - <https://github.com/koekeishiya/skhd/issues/42#issuecomment-401886533>
 - nvm
   - nvm needs to run a script but uses posix syntax which doesn't work with fish. We need to use bass to run it or something else.
   - i'm using this fisher plugin to make nvm work with fish
-    - https://github.com/jorgebucaran/nvm.fish
+    - <https://github.com/jorgebucaran/nvm.fish>
   - will need to install [null-ls dependencies](https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#formatting) for formatting/linting, etc to work. eg. need to install [eslint_d](https://github.com/mantoni/eslint_d.js) and [lua_format](https://github.com/Koihik/LuaFormatter)
 - nnn
   - need to manually install all plugins v
 - can get alacritty keycodes by using `xxd -psd`
+  - UPDATE: use `alacritty --print-events | grep -i KeyboardInput` to get the chars - <https://github.com/alacritty/alacritty/wiki/Keyboard-mappings>
 - Hammertools
   - can install cli tool `hs` via running `hs.ipc.cliInstall("/opt/homebrew")` on M1 (try without the location param first)

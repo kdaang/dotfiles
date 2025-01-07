@@ -117,6 +117,12 @@ chars = "\u0002'"
 key = "'"
 mods = "Command"
 
+# open tmux session manager
+[[keyboard.bindings]]
+chars = "\u0002K"
+key = "K"
+mods = "Command"
+
 # Change to the previous tmux window
 [[keyboard.bindings]]
 chars = "\u0002["
