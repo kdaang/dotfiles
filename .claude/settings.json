@@ -73,7 +73,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "osascript -e 'display notification \"Claude finished\" with title \"Claude Code\"'",
+            "command": "afplay /System/Library/Sounds/Funk.aiff & osascript -e 'display notification \"Claude finished\" with title \"Claude Code\"'",
             "async": true
           }
         ]
