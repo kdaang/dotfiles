@@ -1,0 +1,23 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "bash -c '\"/opt/homebrew/bin/bun\" \"$(ls -td ~/.claude/plugins/cache/claude-hud/claude-hud/*/ 2>/dev/null | head -1)src/index.ts\"'"
+  },
+  "enabledPlugins": {
+    "claude-hud@claude-hud": true
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/session-start.sh",
+            "async": false
+          }
+        ]
+      }
+    ]
+  }
+}
