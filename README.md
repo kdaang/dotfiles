@@ -6,6 +6,19 @@
 
 - if not on personal setup, run `.config/nivek/dotfiles-symlink.sh` script
 
+## Git Submodules
+
+- After cloning/setting up the bare repo, initialize and fetch all submodules:
+  ```sh
+  df submodule update --init --recursive
+  ```
+- To update all submodules to their latest remote commits:
+  ```sh
+  df submodule update --remote --recursive
+  ```
+- Current submodules:
+  - `.claude/3rd_party/superpowers` — [obra/superpowers](https://github.com/obra/superpowers.git)
+
 ## Git Configs
 
 - `~/.gitconfig` contains public config for checking in repo
