@@ -38,100 +38,100 @@ style = "Regular"
 ##### USE `xxd -psd` to get the chars
 
 # Rename the current tmux window
-# - { key: Comma, mods: Command, chars: "\x02\x2c" }
+# - { key: Comma, mods: Command, chars: "\x14\x2c" }
 # Select a new tmux session for the attached client interactively
-# - { key: K, mods: Command, chars: "\x02\x73" }
+# - { key: K, mods: Command, chars: "\x14\x73" }
 # Select window 1-9
 [[keyboard.bindings]]
-chars = "\u00021"
+chars = "\u00141"
 key = "Key1"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00022"
+chars = "\u00142"
 key = "Key2"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00023"
+chars = "\u00143"
 key = "Key3"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00024"
+chars = "\u00144"
 key = "Key4"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00025"
+chars = "\u00145"
 key = "Key5"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00026"
+chars = "\u00146"
 key = "Key6"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00027"
+chars = "\u00147"
 key = "Key7"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00028"
+chars = "\u00148"
 key = "Key8"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00029"
+chars = "\u00149"
 key = "Key9"
 mods = "Command"
 
 # Switch to last tmux session
-# - { key: L, mods: Command, chars: "\x02\x4c" }
+# - { key: L, mods: Command, chars: "\x14\x4c" }
 # Toggle scratch session
 [[keyboard.bindings]]
-chars = "\u0002p"
+chars = "\u0014p"
 key = "P"
 mods = "Command"
 
 # Toggle dedicated sessions
 [[keyboard.bindings]]
-chars = "\u0002u"
+chars = "\u0014u"
 key = "U"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002i"
+chars = "\u0014i"
 key = "I"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002o"
+chars = "\u0014o"
 key = "O"
 mods = "Command"
 
 # Enter copy-mode
 [[keyboard.bindings]]
-chars = "\u0002'"
+chars = "\u0014'"
 key = "'"
 mods = "Command"
 
 # open tmux session manager
 [[keyboard.bindings]]
-chars = "\u0002K"
+chars = "\u0014K"
 key = "K"
 mods = "Command"
 
 # Change to the previous tmux window
 [[keyboard.bindings]]
-chars = "\u0002["
+chars = "\u0014["
 key = "LBracket"
 mods = "Command"
 
 # Change to the next tmux window
 [[keyboard.bindings]]
-chars = "\u0002]"
+chars = "\u0014]"
 key = "RBracket"
 mods = "Command"
 
@@ -153,25 +153,25 @@ mods = "Command|Shift"
 
 # Create a new tmux window
 [[keyboard.bindings]]
-chars = "\u0002c"
+chars = "\u0014c"
 key = "T"
 mods = "Command"
 
 # Break the current tmux pane out of the tmux window
 [[keyboard.bindings]]
-chars = "\u0002!"
+chars = "\u0014!"
 key = "T"
 mods = "Command|Shift"
 
 # Kill the current tmux pane (and window if last pane)
 [[keyboard.bindings]]
-chars = "\u0002x"
+chars = "\u0014x"
 key = "W"
 mods = "Command"
 
 # Toggle the zoom state of the current tmux pane
 [[keyboard.bindings]]
-chars = "\u0002f"
+chars = "\u0014f"
 key = "Z"
 mods = "Command"
 

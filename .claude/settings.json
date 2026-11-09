@@ -1,4 +1,7 @@
 {
+  "env": {
+    "CHROME_DEVTOOLS_MCP_NO_USAGE_STATISTICS": "1"
+  },
   "permissions": {
     "allow": [
       "Read",
@@ -60,21 +63,49 @@
       "Bash(jq *)"
     ]
   },
-  "statusLine": {
-    "type": "command",
-    "command": "bash -c '\"/opt/homebrew/bin/bun\" \"$(ls -td ~/.claude/plugins/cache/claude-hud/claude-hud/*/ 2>/dev/null | head -1)src/index.ts\"'"
-  },
-  "enabledPlugins": {
-    "claude-hud@claude-hud": true
-  },
+  "model": "sonnet",
   "hooks": {
-    "Stop": [
+    "Notification": [
+      {
+        "matcher": "idle_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/kevindang/bin/gogo-mux hook-write needs_input",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
       {
         "hooks": [
           {
             "type": "command",
-            "command": "afplay /System/Library/Sounds/Funk.aiff & osascript -e 'display notification \"Claude finished\" with title \"Claude Code\"'",
-            "async": true
+            "command": "/Users/kevindang/bin/gogo-mux hook-write needs_permission",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/kevindang/bin/gogo-mux hook-write working",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/kevindang/bin/gogo-mux hook-write end",
+            "timeout": 5
           }
         ]
       }
@@ -89,7 +120,76 @@
             "async": false
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/kevindang/bin/gogo-mux hook-write start",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Funk.aiff & osascript -e 'display notification \"Claude finished\" with title \"Claude Code\"'",
+            "async": true
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/kevindang/bin/gogo-mux hook-write stop",
+            "timeout": 15
+          }
+        ]
+      }
+    ],
+    "StopFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/kevindang/bin/gogo-mux hook-write error",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/kevindang/bin/gogo-mux hook-write working",
+            "timeout": 5
+          }
+        ]
       }
     ]
-  }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash -c '\"/opt/homebrew/bin/bun\" \"$(ls -td ~/.claude/plugins/cache/claude-hud/claude-hud/*/ 2>/dev/null | head -1)src/index.ts\"'"
+  },
+  "enabledPlugins": {
+    "chrome-devtools-mcp@claude-plugins-official": true,
+    "claude-hud@claude-hud": true
+  },
+  "extraKnownMarketplaces": {
+    "chrome-devtools-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "ChromeDevTools/chrome-devtools-mcp"
+      }
+    }
+  },
+  "tui": "fullscreen",
+  "agentPushNotifEnabled": true
 }
