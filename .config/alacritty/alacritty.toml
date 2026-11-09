@@ -111,6 +111,75 @@ chars = "\u0014o"
 key = "O"
 mods = "Command"
 
+##### DEVPOD TMUX BINDINGS (ctrl-B prefix) - use Command+Shift
+# Select window 1-9 with ctrl-B
+[[keyboard.bindings]]
+chars = "\u00021"
+key = "!"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u00022"
+key = "@"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u00023"
+key = "#"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u00024"
+key = "$"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u00025"
+key = "%"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u00026"
+key = "^"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u00027"
+key = "&"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u00028"
+key = "*"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u00029"
+key = "("
+mods = "Command|Shift"
+
+# Toggle scratch session with ctrl-B
+[[keyboard.bindings]]
+chars = "\u0002p"
+key = "P"
+mods = "Command|Shift"
+
+# Toggle dedicated sessions with ctrl-B
+[[keyboard.bindings]]
+chars = "\u0002u"
+key = "U"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002i"
+key = "I"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002o"
+key = "O"
+mods = "Command|Shift"
+
 # Enter copy-mode
 [[keyboard.bindings]]
 chars = "\u0014'"
@@ -174,6 +243,13 @@ mods = "Command"
 chars = "\u0014f"
 key = "Z"
 mods = "Command"
+
+# Shift+Enter sends ESC CR (alt+enter): a newline in Claude Code and in
+# gogo-mux's comment box, which can't tell a plain Shift+Enter from Enter
+[[keyboard.bindings]]
+chars = "\u001B\r"
+key = "Return"
+mods = "Shift"
 
 [shell]
 args = ["-ic", "ta && /bin/zsh"]
