@@ -11,7 +11,21 @@ fi
 
 (( ${+commands[direnv]} )) && emulate zsh -c "$(direnv hook zsh)"
 
-export PATH="/Users/kevindang/bin:/Users/kevindang/.yarn/bin:/Users/kevindang/.jenv/shims:/Users/kevindang/.jenv/shims:/Users/kevindang/.local/share/nvm/v21.6.0/bin:/opt/homebrew/sbin:/opt/homebrew/opt/scala@2.12/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/kevindang/.bun/bin:$PATH"
+IS_MAC=false; [[ "$OSTYPE" == darwin* ]] && IS_MAC=true
+
+if $IS_MAC; then
+  export PATH="/Users/kevindang/bin:/Users/kevindang/.yarn/bin:/Users/kevindang/.jenv/shims:/Users/kevindang/.jenv/shims:/Users/kevindang/.local/share/nvm/v21.6.0/bin:/opt/homebrew/sbin:/opt/homebrew/opt/scala@2.12/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/kevindang/.bun/bin:$PATH"
+  ZSH_PLUGIN_DIR="$(brew --prefix)/share"
+  ZSH_VI_MODE_DIR="$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode"
+  P10K_DIR="/opt/homebrew/share/powerlevel10k"
+  NVM_SH="/opt/homebrew/opt/nvm/nvm.sh"
+else
+  export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+  ZSH_PLUGIN_DIR="/usr/share"                       # apt: zsh-autosuggestions, zsh-syntax-highlighting
+  ZSH_VI_MODE_DIR="$HOME/.local/share/zsh/zsh-vi-mode"
+  P10K_DIR="$HOME/.local/share/zsh/powerlevel10k"
+  NVM_SH="$HOME/.nvm/nvm.sh"
+fi
 
 export EDITOR=nvim
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -43,27 +57,30 @@ export NNN_PLUG='g:preview-tui;z:autojump;f:fzcd'
 ### SETUP NVM
 export nvm_default_version=latest
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "$NVM_SH" ] && \. "$NVM_SH"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-### SETUP jenv for managing java versions
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home"
-eval "$(jenv init -)"
+if $IS_MAC; then
+  ### SETUP jenv for managing java versions
+  export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home"
+  eval "$(jenv init -)"
 
-### hammerspoon reads from ~/.hammerspoon/init.lua by default and is non configurable
-ln -s ~/.config/hammerspoon/* ~/.hammerspoon/ &>/dev/null
+  ### hammerspoon reads from ~/.hammerspoon/init.lua by default and is non configurable
+  ln -s ~/.config/hammerspoon/* ~/.hammerspoon/ &>/dev/null
+fi
 
 # eval "$(starship init zsh)"
 
 ### ZSH STUFF
 # https://github.com/jeffreytse/zsh-vi-mode
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source $ZSH_VI_MODE_DIR/zsh-vi-mode.plugin.zsh
 
 # https://github.com/zsh-users/zsh-syntax-highlighting
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZSH_PLUGIN_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # https://github.com/zsh-users/zsh-autosuggestions
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $ZSH_PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
@@ -72,8 +89,12 @@ source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 
 # https://github.com/romkatv/powerlevel10k
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source $P10K_DIR/powerlevel10k.zsh-theme
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh (mac) / ~/.p10k.devpod.zsh (devpod).
+if ! $IS_MAC && [[ -f ~/.p10k.devpod.zsh ]]; then
+  source ~/.p10k.devpod.zsh
+elif [[ -f ~/.p10k.zsh ]]; then
+  source ~/.p10k.zsh
+fi
 
-. "$HOME/.local/bin/env"
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
