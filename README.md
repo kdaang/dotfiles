@@ -43,6 +43,10 @@
 
 - install TPM
   - install all the plugins -> rmb to fetch plugins with prefix-I (capital I)
+- Devpod
+  - on a devpod, uncomment `#source-file -q ~/.tmux.devpod.conf` at the bottom of `~/.config/tmux/tmux.conf`
+  - `~/.tmux.devpod.conf` holds the devpod overrides (prefix, resurrect dir, pane titles, OSC 52 clipboard, gogo-mux path)
+  - don't commit the uncommented line; keep it commented in the repo
 - How to copy text
   - Option A) use mouse to drag and text would automatically be copied
   - Option B) enter tmux copy-mode
