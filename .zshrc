@@ -50,7 +50,7 @@ setopt SHARE_HISTORY             # Share history between all sessions.
 ### SETUP NNN
 alias nnn='nnn -a'
 # for some reason $Z_DATA is not picked up by the autojump plugin so mapping to default z data location
-ln -s $Z_DATA $HOME/.z &> /dev/null
+[[ -n "$Z_DATA" && ! -e "$HOME/.z" ]] && ln -s "$Z_DATA" "$HOME/.z" &> /dev/null
 
 export NNN_PLUG='g:preview-tui;z:autojump;f:fzcd'
 
