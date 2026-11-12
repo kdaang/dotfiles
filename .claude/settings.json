@@ -176,7 +176,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "bash -c '\"/opt/homebrew/bin/bun\" \"$(ls -td ~/.claude/plugins/cache/claude-hud/claude-hud/*/ 2>/dev/null | head -1)src/index.ts\"'"
+    "command": "'/opt/homebrew/Cellar/node/25.2.1/bin/node' '/Users/kevindang/.claude/plugins/claude-hud/statusline.mjs'"
   },
   "enabledPlugins": {
     "chrome-devtools-mcp@claude-plugins-official": true,
