@@ -80,3 +80,8 @@ config and Claude skills take effect after `exec zsh`, reloading tmux and `/relo
   settings the user might want.
 - Claude plugins and MCP servers (claude-hud, chrome-devtools) are installed with
   `/plugin` and `claude mcp add`, not by the script.
+- claude-hud: the script links its display settings (`.claude/claude-hud/config.json` →
+  `~/.claude/plugins/claude-hud/config.json`), but the status line itself is set per machine
+  (it points at that machine's node or bun). On a new devpod, remind the user to install the
+  plugin (`/plugin marketplace add jarrodwatts/claude-hud`, then `/plugin install claude-hud`)
+  and run `/hud` to set up the status line.

@@ -38,6 +38,7 @@ LINKS=(
   ".config/nvim:.config/nvim"
   ".config/tmux:.config/tmux"
   ".config/bat:.config/bat"
+  ".claude/claude-hud/config.json:.claude/plugins/claude-hud/config.json"
 )
 
 # Repo paths deliberately not set up on devpods (macOS apps, unused tools, repo-only files, this script).
@@ -57,7 +58,7 @@ warn() { printf '\033[1;33m!!\033[0m %s\n' "$*"; }
 # ---------------------------------------------------------------- audit
 audit() {
   local handled=() p
-  for l in "${LINKS[@]}"; do handled+=("${l%%:*}"); done
+  for l in "${LINKS[@]}"; do handled+=("${l%%:*}" "$(dirname "${l%%:*}")"); done
   handled+=("${SKIP[@]}" bin .claude .claude/skills .config)
   local missing=0
   while IFS= read -r p; do
