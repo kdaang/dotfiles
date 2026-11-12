@@ -38,6 +38,12 @@ LINKS=(
   ".config/nvim:.config/nvim"
   ".config/tmux:.config/tmux"
   ".config/bat:.config/bat"
+)
+
+# "<path in repo>:<path in $HOME>" — copied instead of linked, for tools that won't read through
+# a symlink (claude-hud reads its config in a Node permission sandbox that only allows the
+# path under ~/.claude). A copy that differs from the repo is left alone and reported.
+COPIES=(
   ".claude/claude-hud/config.json:.claude/plugins/claude-hud/config.json"
 )
 
@@ -58,7 +64,7 @@ warn() { printf '\033[1;33m!!\033[0m %s\n' "$*"; }
 # ---------------------------------------------------------------- audit
 audit() {
   local handled=() p
-  for l in "${LINKS[@]}"; do handled+=("${l%%:*}" "$(dirname "${l%%:*}")"); done
+  for l in "${LINKS[@]}" "${COPIES[@]}"; do handled+=("${l%%:*}" "$(dirname "${l%%:*}")"); done
   handled+=("${SKIP[@]}" bin .claude .claude/skills .config)
   local missing=0
   while IFS= read -r p; do
@@ -141,6 +147,18 @@ link() { # src dest — backs up a real file/dir that's in the way
   mkdir -p "$(dirname "$dest")"; ln -sfn "$src" "$dest"; log "link $dest"
 }
 for l in "${LINKS[@]}"; do link "$DOTFILES/${l%%:*}" "$HOME/${l#*:}"; done
+
+copy() { # src dest
+  local src="$1" dest="$2"
+  [[ -e "$src" ]] || { warn "missing in repo: $src"; return; }
+  [[ -L "$dest" ]] && rm "$dest"   # an older version of this script linked it
+  if [[ ! -e "$dest" ]]; then
+    mkdir -p "$(dirname "$dest")"; install -m 600 "$src" "$dest"; log "copy $dest"
+  elif ! cmp -s "$src" "$dest"; then
+    warn "$dest differs from the repo; to save it: cp '$dest' '$src'"
+  fi
+}
+for c in "${COPIES[@]}"; do copy "$DOTFILES/${c%%:*}" "$HOME/${c#*:}"; done
 
 skip_bin=" $(printf '%s ' "${SKIP[@]}") "
 for f in "$DOTFILES"/bin/*; do
